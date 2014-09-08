@@ -3,9 +3,9 @@
 angular.module('liftbroApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('main', {
+      .state('welcome', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'app/welcome/welcome.html',
+        controller: 'WelcomeCtrl'
       });
   });
