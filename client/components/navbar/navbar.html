@@ -7,9 +7,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">liftbro</a>
+      <a ng-href="{{menu[0].link}}" class="navbar-brand">liftbro</a>
     </div>
-    <div collapse="isCollapsed" class="navbar-collapse" id="navbar-main">
+    <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-href="{{item.link}}">{{item.title}}</a>
