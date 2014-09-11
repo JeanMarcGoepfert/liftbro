@@ -5,14 +5,16 @@ angular.module('liftbroApp')
     $stateProvider
       .state('dashboard', {
         url: '/dashboard',
-        templateUrl: 'app/dashboard/dashboard.html',
+        authenticate: true,
         controller: 'DashboardCtrl',
-        abstract: true,
-        authenticate: true
-      })
-      .state('dashboard.intro', {
-        url: '',
-        templateUrl: '/app/dashboard/partials/add-exercise.html',
-        authenticate: true
+        views: {
+          '': {
+            templateUrl: 'app/dashboard/dashboard.html',
+            abstract: true
+          },
+          'addWorkout@dashboard': {
+            templateUrl: '/app/dashboard/partials/add-workout.html'
+          }
+        }
       });
   });
