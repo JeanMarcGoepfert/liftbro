@@ -25,32 +25,73 @@ angular.module('liftbroApp')
     };
 
     service.get = function(id) {
-      var deffered = $q.defer();
+      var deferred = $q.defer();
 
       if (service.latest._id === id) {
-        deffered.resolve(service.latest);
+        deferred.resolve(service.latest);
       }
       $http.get('/api/exercises/' + id)
       .success(function(res) {
         service.latest = res.data;
-        deffered.resolve(service.latest);
+        deferred.resolve(service.latest);
       }, function(err) {
-        deffered.reject(err);
+        deferred.reject(err);
       });
 
-      return deffered.promise;
+      return deferred.promise;
     };
 
     service.add = function(exercise) {
+      var deferred = $q.defer();
 
+      $http.post('/api/exercises/', exercise)
+      .success(function(res) {
+        service.list.push(res.data);
+        deferred.resolve(res.data);
+      }, function(err) {
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
     };
 
-    service.update = function(id, newExercise) {
+    service.update = function(oldExercise, newExercise) {
+      var deferred = $q.defer();
+      var index = service.list.indexOf(oldExercise);
 
+      if (index === -1) {
+        //todo: error: cannot find exercise
+        deferred.reject();
+      } else {
+        $http.put('/api/exercises/' + oldExercise._id, newExercise)
+        .success(function(res) {
+          service.list = newExercise;
+          deferred.resolve(res.data);
+        }, function(err) {
+          deferred.reject(err);
+        });
+      }
+
+      return deferred.promise;
     };
 
     service.delete = function(exercise) {
+      var deferred = $q.defer();
+      var index = service.list.indexOf(exercise);
 
+      if (index === -1) {
+        //todo: error: cannot find exercise to delete
+      } else {
+        $http.delete('/api/exercises/' + exercise._id)
+        .success(function(res) {
+          service.list.splice(index, 1);
+          deferred.promise(res.data);
+        }, function(err) {
+          deferred.reject(err);
+        });
+      }
+
+      return deferred.promise;
     };
 
     return service;
