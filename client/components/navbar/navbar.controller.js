@@ -4,7 +4,7 @@ angular.module('liftbroApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       title: 'Home',
-      link: '/'
+      link: 'welcome'
     }];
 
     $scope.isCollapsed = true;
@@ -12,8 +12,8 @@ angular.module('liftbroApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
-    if ($scope.isLoggedIn) {
-      $scope.menu[0].link = '/dashboard';
+    if ($scope.isLoggedIn()) {
+      $scope.menu[0].link = 'dashboard';
     }
 
     $scope.logout = function() {

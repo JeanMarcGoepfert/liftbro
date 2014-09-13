@@ -3,7 +3,7 @@
 angular.module('liftbroApp')
   .config(function($stateProvider) {
     $stateProvider
-      .state('workouts', {
+      .state('dashboard.workouts', {
         url: '/workouts',
         controller: 'WorkoutsCtrl',
         views: {
@@ -11,5 +11,10 @@ angular.module('liftbroApp')
             templateUrl: 'app/workouts/workouts.html'
           }
         }
+      })
+      .state('dashboard.add-workout', {
+        url: '/workouts/add',
+        controller: 'WorkoutsCtrl',
+        templateUrl: 'app/workouts/partials/add-workout.html'
       });
   });

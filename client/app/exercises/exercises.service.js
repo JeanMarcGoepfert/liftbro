@@ -3,12 +3,12 @@
 angular.module('liftbroApp')
   .factory('Exercises', function($q, $http) {
     var service = {};
-    service.list = [];
+    service.list = [1, 2, 3];
     service.latest = {};
 
     service.index = function() {
       var deferred = $q.defer();
-
+      console.log('test')
       if (service.list.length) {
         deferred.resolve(service.list);
       } else {

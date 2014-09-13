@@ -3,17 +3,17 @@
 angular.module('liftbroApp')
   .config(function($stateProvider) {
     $stateProvider
-      .state('exercises', {
+      .state('dashboard.exercises', {
         url: '/exercises',
         controller: 'ExercisesCtrl',
         views: {
           '': {
             templateUrl: 'app/exercises/exercises.html'
           },
-          'addExercise@exercises': {
+          'addExercise@dashboard.exercises': {
             templateUrl: 'app/exercises/partials/add-exercise.html',
           },
-          'exerciseList@exercises': {
+          'exerciseList@dashboard.exercises': {
             templateUrl: 'app/exercises/partials/exercise-list.html',
           }
         }
