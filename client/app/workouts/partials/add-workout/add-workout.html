@@ -1,0 +1,14 @@
+<div class="page-header">
+  <h2>Add a Workout</h2>
+</div>
+
+<div class="row">
+
+  <div ui-view>
+    <div ng-include="'/app/workouts/partials/add-workout/partials/choose-exercise.html'"></div>
+  </div>
+
+  <div class="col-sm-6">
+    <div ui-view="new-workout"></div>
+  </div>
+</div>

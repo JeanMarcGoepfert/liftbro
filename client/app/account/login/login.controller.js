@@ -15,7 +15,7 @@ angular.module('liftbroApp')
         })
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/dashboard');
+          $location.path('/');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;

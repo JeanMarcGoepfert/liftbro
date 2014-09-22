@@ -3,8 +3,7 @@
 describe('Service: Exercises', function () {
   var Exercises,
       httpBackend,
-      sampleData = {
-        data: [
+      sampleData = [
           {
             _id: '111',
             name: 'Benchpress',
@@ -20,8 +19,7 @@ describe('Service: Exercises', function () {
             name: 'Legpress',
             metric: 'kg'
           }
-        ]
-      };
+        ];
 
   beforeEach(module('liftbroApp'));
 
@@ -32,7 +30,7 @@ describe('Service: Exercises', function () {
 
   it('should get and cache an index of exercises', function () {
 
-    httpBackend.whenGET('/api/exercises').respond(sampleData);
+    httpBackend.whenGET('/api/exercises/').respond(sampleData);
 
     Exercises.index().then(function(data) {
       expect(data.length).toEqual(3);
@@ -44,10 +42,10 @@ describe('Service: Exercises', function () {
   });
 
   it('should get and cache individual exercise by id', function() {
-    httpBackend.whenGET('/api/exercises/111').respond({data: sampleData.data[0] });
+    httpBackend.whenGET('/api/exercises/111').respond({data: sampleData[0] });
 
     Exercises.get('111').then(function(data) {
-      expect(data).toEqual(sampleData.data[0]);
+      expect(data).toEqual(sampleData[0]);
       expect(data._id).toEqual('111');
       expect(Exercises.latest).toEqual(data);
     });
@@ -57,21 +55,21 @@ describe('Service: Exercises', function () {
 
   it('should add an exercise then store a local copy', function() {
     var post = {name: 'Squat', metric: 'kg'};
-    var res = {data: {name: 'Squat', metric: 'kg', _id: '444'} };
-    Exercises.list = sampleData.data;
+    var res = {name: 'Squat', metric: 'kg', _id: '444'};
+    Exercises.list = sampleData;
     httpBackend.whenPOST('/api/exercises/', post).respond(res);
 
     Exercises.add(post).then(function(data) {
       expect(data.name).toEqual(post.name);
       expect(data._id).toEqual('444');
-      expect(Exercises.list[Exercises.list.length - 1]).toEqual(res.data);
+      expect(Exercises.list[Exercises.list.length - 1]).toEqual(res);
     });
 
     httpBackend.flush();
   });
 
   it('should update an exercise', function() {
-    Exercises.list = sampleData.data;
+    Exercises.list = sampleData;
     var newExercise = {_id: '111', name: 'Pullup', metric: 'kg'};
     httpBackend.whenPUT('/api/exercises/111', newExercise).respond(newExercise);
 
@@ -82,7 +80,7 @@ describe('Service: Exercises', function () {
   });
 
   it('should delete an item and remove it from list', function() {
-    Exercises.list = sampleData.data;
+    Exercises.list = sampleData;
     var itemToDelete = Exercises[1];
     httpBackend.whenDELETE('/api/delete/222').respond(itemToDelete);
 

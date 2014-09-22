@@ -4,7 +4,7 @@ angular.module('liftbroApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('dashboard', {
-        url: '/dashboard',
+        url: '/',
         authenticate: true,
         views: {
           '': {

@@ -3,18 +3,17 @@
 angular.module('liftbroApp')
   .factory('Exercises', function($q, $http) {
     var service = {};
-    service.list = [1, 2, 3];
+    service.list = [];
     service.latest = {};
 
     service.index = function() {
       var deferred = $q.defer();
-      console.log('test')
       if (service.list.length) {
         deferred.resolve(service.list);
       } else {
-        $http.get('/api/exercises')
+        $http.get('/api/exercises/')
         .success(function(res) {
-          service.list = res.data;
+          service.list = res;
           deferred.resolve(service.list);
         }, function(err) {
           deferred.reject(err);
@@ -46,8 +45,8 @@ angular.module('liftbroApp')
 
       $http.post('/api/exercises/', exercise)
       .success(function(res) {
-        service.list.push(res.data);
-        deferred.resolve(res.data);
+        service.list.push(res);
+        deferred.resolve(res);
       }, function(err) {
         deferred.reject(err);
       });
@@ -60,7 +59,7 @@ angular.module('liftbroApp')
       var index = service.list.indexOf(oldExercise);
 
       if (index === -1) {
-        //todo: error: cannot find exercise
+        //todo: error: cannot find exercise to update
         deferred.reject();
       } else {
         $http.put('/api/exercises/' + oldExercise._id, newExercise)

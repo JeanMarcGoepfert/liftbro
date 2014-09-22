@@ -4,7 +4,7 @@ angular.module('liftbroApp')
   .config(function($stateProvider) {
     $stateProvider
       .state('dashboard.exercises', {
-        url: '/exercises',
+        url: 'exercises',
         controller: 'ExercisesCtrl',
         views: {
           '': {

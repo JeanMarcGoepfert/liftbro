@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .factory('Workouts', function($q, $http) {
+  .factory('Sets', function($q, $http) {
     var service = {};
 
     return service;

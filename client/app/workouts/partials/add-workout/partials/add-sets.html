@@ -1,0 +1,40 @@
+<div class="col-sm-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        Add sets
+      </h3>
+    </div>
+    <div class="panel-body">
+
+      <p><strong>Add <span ng-if="sets.newSet.repeat">more</span> reps for {{exercises.selectedExercise.name}}</strong></p>
+
+      <form class="row">
+        <div class="col-md-4 form-group">
+          <input type="text"
+                 ng-model="sets.newReps.amount"
+                 placeholder="Amount"
+                 class="form-control">
+        </div>
+        <div class="col-md-4 form-group">
+          <input type="text"
+                 ng-model="sets.newReps.weight"
+                 placeholder="Weight"
+                 class="form-control">
+        </div>
+        <div class="col-md-4">
+          <button ng-click="addRepsToSet(sets.newReps)" class="btn btn-default btn-block">Add Reps</button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="panel-footer clearfix" ng-if="sets.newSet.reps.length">
+      <div class="pull-right">
+        Done with this set? <button ng-click="finishSet()" class="btn btn-primary">Finish Set</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+

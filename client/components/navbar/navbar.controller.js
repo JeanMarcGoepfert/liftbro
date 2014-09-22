@@ -18,7 +18,7 @@ angular.module('liftbroApp')
 
     $scope.logout = function() {
       Auth.logout();
-      $location.path('/');
+      $location.path('/welcome');
     };
 
     $scope.isActive = function(route) {
