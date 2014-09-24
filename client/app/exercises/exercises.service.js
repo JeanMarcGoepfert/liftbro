@@ -64,7 +64,7 @@ angular.module('liftbroApp')
       } else {
         $http.put('/api/exercises/' + oldExercise._id, newExercise)
         .success(function(res) {
-          service.list = newExercise;
+          service.list[index] = newExercise;
           deferred.resolve(res.data);
         }, function(err) {
           deferred.reject(err);

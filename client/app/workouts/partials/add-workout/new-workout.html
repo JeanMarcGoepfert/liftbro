@@ -6,7 +6,7 @@
   <div class="list-group" ng-if="workouts.newWorkout.sets.length">
     <div ng-repeat-start="sets in workouts.newWorkout.sets"
          class="list-group-item list-group-item-info">
-         {{sets.exercise.name}}
+         {{sets.exerciseName}}
          <a ng-ref="editSet()" class="btn btn-default btn-xs pull-right">Edit</a>
     </div>
     <div ng-repeat-end="">
@@ -30,4 +30,9 @@
 
 </div>
 
+<h2>sets.newSet</h2>
+<pre>{{sets.newSet | json}}</pre>
+<hr>
+
+<h2>workouts.newWorkout</h2>
 <pre>{{workouts.newWorkout | json}}</pre>

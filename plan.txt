@@ -39,23 +39,34 @@ models:
   }
 
 
-//remove
-  workouts
-    {
-      id: String,
-      userId: String,
-      date: String,
-      sets: [
-        {
-          id: String,
-          userId: String,
-          exerciseId: String,
-          reps: [
-            {
-              weight: Number,
-              amount: Number
-            }
-          ]
-        }
-      ]
-    }
+//remove this eventually
+
+------adding new sets when creating workout-------
+
+  adding workouts to db.
+
+  when add new reps
+
+    if !workoutId
+
+      create workout
+
+      if !setid
+
+        create set - with workoutid and reps
+        add setid to workout
+
+      else
+
+        add reps to set
+
+    else
+
+      if !setid
+
+        create set - with workoutid and reps
+        add setid to workout
+
+      else
+
+        add reps to set

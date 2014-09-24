@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .controller('WorkoutsCtrl', function($scope, $state, Exercises) {
+  .controller('WorkoutsCtrl', function($scope, $state, Exercises, Workouts, Sets) {
 
     $scope.exercises = { list: [] };
     $scope.workouts = { newWorkout: { sets: [] } };
-    $scope.sets = { newSet: { repeat: false, reps: [] } };
+    $scope.sets = { newSet: { repeating: false, reps: [] } };
 
     Exercises.index()
     .then(function(data) {
@@ -17,7 +17,8 @@ angular.module('liftbroApp')
 
     $scope.selectExercise = function(exercise) {
       $scope.exercises.selectedExercise = exercise;
-      $scope.sets.newSet.exercise = exercise;
+      $scope.sets.newSet.exerciseId = exercise._id;
+      $scope.sets.newSet.exerciseName = exercise.name;
       $state.go('dashboard.add-workout.add-sets');
     };
 
@@ -31,19 +32,46 @@ angular.module('liftbroApp')
       });
     };
 
-    $scope.addRepsToSet = function(reps) {
-      $scope.sets.newSet.reps.push(angular.copy(reps));
-      $scope.addSetToWorkout(angular.copy($scope.sets.newSet));
-      $scope.sets.newSet.repeat = true;
-      $scope.sets.newReps = {};
+    $scope.createNewReps = function(reps) {
+      //create new workout first if it hasn't been created yet
+      if (!$scope.workouts.newWorkout._id) {
+        Workouts.add({})
+        .then(function(data) {
+          $scope.workouts.newWorkout._id = data._id;
+          addRepsToSet(reps);
+        });
+      } else {
+        addRepsToSet(reps);
+      }
     };
 
-    $scope.addSetToWorkout = function(set) {
-      if ($scope.sets.newSet.repeat === false) {
+    function addRepsToSet(reps) {
+      $scope.sets.newSet.reps.push(angular.copy(reps));
+
+      if (!$scope.sets.newSet._id) {
+        Sets.add($scope.sets.newSet)
+        .then(function(data) {
+          $scope.sets.newSet = data;
+          addSetToWorkout(data);
+        });
+      } else {
+        Sets.update($scope.sets.newSet._id, $scope.sets.newSet)
+        .then(function(data) {
+          $scope.sets.newSet = data;
+          addSetToWorkout(data);
+        });
+      }
+    };
+
+    function addSetToWorkout(set) {
+      //add the new set if it's the first one, otherwise update the existing set.
+      if (set.reps.length === 1) {
         $scope.workouts.newWorkout.sets.push(set);
       } else {
         $scope.workouts.newWorkout.sets[$scope.workouts.newWorkout.sets.length - 1] = set;
       }
+
+      $scope.sets.newReps = {};
     };
 
     $scope.finishSet = function() {
