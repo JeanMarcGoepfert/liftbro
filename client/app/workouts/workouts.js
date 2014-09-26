@@ -28,7 +28,7 @@ angular.module('liftbroApp')
       .state('dashboard.add-workout.choose-exercise', {
         templateUrl: 'app/workouts/partials/add-workout/partials/choose-exercise.html'
       })
-      .state('dashboard.add-workout.add-sets', {
-        templateUrl: 'app/workouts/partials/add-workout/partials/add-sets.html'
+      .state('dashboard.add-workout.add-set', {
+        templateUrl: 'app/workouts/partials/add-workout/partials/add-set.html'
       });
   });
