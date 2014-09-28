@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .controller('WorkoutsCtrl', function($scope, $state, Exercises, Workouts, Sets, $http) {
+  .controller('WorkoutsCtrl', function($scope, $state, Exercises, Workouts, Sets) {
 
     $scope.exercises = { list: [] };
     $scope.workouts = { newWorkout: { sets: [] } };
@@ -16,23 +16,11 @@ angular.module('liftbroApp')
     });
 
     $scope.selectExercise = function(exercise) {
-      $scope.exercises.selectedExercise = exercise;
-      $scope.sets.newSet.exerciseId = exercise._id;
-      $scope.sets.newSet.exerciseName = exercise.name;
+      setSelectedExercise(exercise);
       $state.go('dashboard.add-workout.add-set');
     };
 
     $scope.addExercise = function(exercise) {
-
-      $http.get('https://api.seek.com.au/v2/jobs/search?&callback=jQuery18201388516202569008_1398641878197&keywords=angular.js')
-      .then(function(res) {
-        console.log(res);
-      }, function(err) {
-        console.log(err);
-      });
-
-return;
-
       Exercises.add(exercise)
       .then(function(data) {
         $scope.selectExercise(data);
@@ -55,21 +43,35 @@ return;
       }
     };
 
+    $scope.finishSet = function() {
+      resetNewSet();
+      $state.go('dashboard.add-workout.choose-exercise');
+    };
+
     function addRepsToSet(reps) {
       $scope.sets.newSet.reps.push(angular.copy(reps));
+
       if (!$scope.sets.newSet._id) {
-        Sets.add($scope.sets.newSet)
-        .then(function(data) {
-          $scope.sets.newSet = data;
-          addSetToWorkout(data);
-        });
+        addRepsToNewSet();
       } else {
-        Sets.update($scope.sets.newSet._id, $scope.sets.newSet)
-        .then(function(data) {
-          $scope.sets.newSet = data;
-          addSetToWorkout(data);
-        });
+        addRepsToExistingSet();
       }
+    }
+
+    function addRepsToNewSet() {
+      Sets.add($scope.sets.newSet)
+      .then(function(data) {
+        $scope.sets.newSet = data;
+        addSetToWorkout(data);
+      });
+    }
+
+    function addRepsToExistingSet() {
+      Sets.update($scope.sets.newSet._id, $scope.sets.newSet)
+      .then(function(data) {
+        $scope.sets.newSet = data;
+        addSetToWorkout(data);
+      });
     }
 
     function addSetToWorkout(set) {
@@ -83,10 +85,12 @@ return;
       $scope.sets.newReps = {};
     }
 
-    $scope.finishSet = function() {
-      resetNewSet();
-      $state.go('dashboard.add-workout.choose-exercise');
-    };
+    function setSelectedExercise(exercise) {
+      $scope.exercises.selectedExercise = exercise;
+      $scope.sets.newSet.exerciseId = exercise._id;
+      $scope.sets.newSet.exerciseName = exercise.name;
+      $scope.sets.newSet.exerciseMetric = exercise.metric;
+    }
 
     function resetNewSet() {
       $scope.exercises.selectedExercise = {};

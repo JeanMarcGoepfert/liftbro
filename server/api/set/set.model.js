@@ -7,6 +7,7 @@ var SetSchema = new Schema({
     userId: {type: String, required: true},
     exerciseId: {type: String, required: true},
     exerciseName: {type: String, required: true},
+    exerciseMetric: {type: String, required: true},
     reps: [
       {
         weight: Number,

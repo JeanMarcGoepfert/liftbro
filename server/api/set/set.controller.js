@@ -33,6 +33,7 @@ exports.update = function(req, res) {
     var updated = set;
     updated.reps = req.body.reps;
     updated.exerciseName = req.body.exerciseName;
+    updated.exerciseMetric = req.body.exerciseMetric;
     updated.exerciseId = req.body.exerciseId;
 
     updated.save(function (err) {
