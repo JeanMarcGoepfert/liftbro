@@ -6,7 +6,19 @@
 'use strict';
 
 var Exercise = require('../api/exercise/exercise.model');
+var Set = require('../api/set/set.model');
+var Workout = require('../api/workout/workout.model');
 var User = require('../api/user/user.model');
+
+Exercise.find({}).remove(function() {
+  console.log('exercises removed');
+});
+Set.find({}).remove(function() {
+  console.log('sets removed');
+});
+Workout.find({}).remove(function() {
+  console.log('workouts removed');
+});
 
 User.find({}).remove(function() {
   User.create({

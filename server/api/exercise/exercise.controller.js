@@ -14,7 +14,9 @@ var Exercise = require('./exercise.model');
 
 // Get list of exercises
 exports.index = function(req, res) {
-  Exercise.find({userId: req.user._id}, function (err, exercises) {
+  Exercise.find({userId: req.user._id})
+  .sort({$natural: -1})
+  .exec(function(err, exercises) {
     if(err) { return handleError(res, err); }
     return res.json(200, exercises);
   });

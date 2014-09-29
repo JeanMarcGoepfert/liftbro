@@ -1,1 +1,13 @@
-list
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">My Exercises</h3>
+  </div>
+
+  <div class="list-group">
+    <div ng-repeat="exercise in exercises.list"
+         class="list-group-item">
+         {{exercise.name}} ({{exercise.metric}})
+    </div>
+  </div>
+
+</div>

@@ -59,43 +59,30 @@ describe('Controller: WorkoutsCtrl', function () {
 
     scope.exercises.list = sampleData;
 
-    scope.$apply();
+    httpBackend.flush();
   }));
 
   it('should contain all exercises at startup', function () {
     expect(scope.exercises.list).toEqual(sampleData);
   });
 
-  it('should set a selected exercise in scope and transition to add set', function() {
-    spyOn(state, 'go');
-    scope.selectExercise(sampleData.exercises[0]);
-    expect(scope.exercises.selectedExercise).toEqual(sampleData.exercises[0]);
-    expect(state.go).toHaveBeenCalledWith('dashboard.add-workout.add-sets');
-    httpBackend.flush();
+  it('should select an exercise', function() {
+    var selectedExercise = sampleData.exercises[0];
+    scope.selectExercise(selectedExercise);
+
+    expect(scope.exercises.selectedExercise).toEqual(selectedExercise);
+    expect(scope.sets.newSet.exerciseId).toEqual(selectedExercise._id);
+    expect(scope.sets.newSet.exerciseName).toEqual(selectedExercise.name);
+    expect(scope.sets.newSet.exerciseMetric).toEqual(selectedExercise.metric);
   });
 
-  it('should add reps to set', function() {
-    scope.addRepsToSet(sampleData.sets[0]);
-    expect(scope.sets.newSet.reps[0]).toEqual(sampleData.sets[0]);
-    expect(scope.sets.newSet.repeat).toEqual(true);
-    expect(scope.sets.newReps).toEqual({});
-  });
+  it('should select an exercise', function() {
+    var selectedExercise = sampleData.exercises[0];
+    scope.selectExercise(selectedExercise);
 
-  it('should reset set and redirect to dashboard.add-workout.choose-exercise', function() {
-    scope.exercises.selectedExercise = sampleData.exercises[0];
-    scope.exercises.addExercise = sampleData.exercises[0];
-    scope.finishSet();
-    expect(scope.exercises.selectedExercise).toEqual({});
-    expect(scope.exercises.addExercise).toEqual({});
-    expect(scope.sets.newSet.repeat).toEqual(false);
-  });
-
-  it('should add set to workout, or update existing workout set', function() {
-    var sets = {repeat: false, reps: sampleData.sets[0], exercise: sampleData.exercises[0]};
-    scope.addSetToWorkout(sets);
-    expect(scope.workouts.newWorkout.sets.length).toEqual(1);
-    sets.repeat = true;
-    scope.addSetToWorkout(sets);
-    expect(scope.workouts.newWorkout.sets.length).toEqual(2);
+    expect(scope.exercises.selectedExercise).toEqual(selectedExercise);
+    expect(scope.sets.newSet.exerciseId).toEqual(selectedExercise._id);
+    expect(scope.sets.newSet.exerciseName).toEqual(selectedExercise.name);
+    expect(scope.sets.newSet.exerciseMetric).toEqual(selectedExercise.metric);
   });
 });

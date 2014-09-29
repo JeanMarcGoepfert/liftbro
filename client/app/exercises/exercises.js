@@ -5,9 +5,9 @@ angular.module('liftbroApp')
     $stateProvider
       .state('dashboard.exercises', {
         url: 'exercises',
-        controller: 'ExercisesCtrl',
         views: {
           '': {
+            controller: 'ExercisesCtrl',
             templateUrl: 'app/exercises/exercises.html'
           },
           'addExercise@dashboard.exercises': {

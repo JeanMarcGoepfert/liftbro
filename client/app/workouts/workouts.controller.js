@@ -49,7 +49,7 @@ angular.module('liftbroApp')
     };
 
     function addRepsToSet(reps) {
-      $scope.sets.newSet.reps.push(angular.copy(reps));
+      $scope.sets.newSet.reps.unshift(angular.copy(reps));
 
       if (!$scope.sets.newSet._id) {
         addRepsToNewSet();
@@ -59,7 +59,7 @@ angular.module('liftbroApp')
     }
 
     function addRepsToNewSet() {
-      Sets.add($scope.sets.newSet)
+      Sets.add($scope.sets.newSet, $scope.workouts.newWorkout._id)
       .then(function(data) {
         $scope.sets.newSet = data;
         addSetToWorkout(data);
@@ -75,11 +75,11 @@ angular.module('liftbroApp')
     }
 
     function addSetToWorkout(set) {
-      //add the new set if it's the first one, otherwise update the existing set.
+      //add the new set if it's the first one, otherwise update the latest one.
       if (set.reps.length === 1) {
-        $scope.workouts.newWorkout.sets.push(set);
+        $scope.workouts.newWorkout.sets.unshift(set);
       } else {
-        $scope.workouts.newWorkout.sets[$scope.workouts.newWorkout.sets.length - 1] = set;
+        $scope.workouts.newWorkout.sets[0] = set;
       }
 
       $scope.sets.newReps = {};

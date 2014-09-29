@@ -45,7 +45,7 @@ angular.module('liftbroApp')
 
       $http.post('/api/exercises/', exercise)
       .success(function(res) {
-        service.list.push(res);
+        service.list.unshift(res);
         deferred.resolve(res);
       }, function(err) {
         deferred.reject(err);

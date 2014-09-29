@@ -1,10 +1,10 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /exercises              ->  index
- * POST    /exercises              ->  create
- * GET     /exercises/:id          ->  show
- * PUT     /exercises/:id          ->  update
- * DELETE  /exercises/:id          ->  destroy
+ * GET     /workouts              ->  index
+ * POST    /workouts              ->  create
+ * GET     /workouts/:id          ->  show
+ * PUT     /workouts/:id          ->  update
+ * DELETE  /workouts/:id          ->  destroy
  */
 
 'use strict';
@@ -12,7 +12,22 @@
 var _ = require('lodash');
 var Workout = require('./workout.model');
 
-// Creates a new exercise in the DB.
+//gets list of workouts
+exports.index = function(req, res) {
+  var start = req.query.start;
+  var end = req.query.end;
+
+  Workout.find({userId: req.user._id})
+  .sort({$natural: -1})
+  .skip(start)
+  .limit(end)
+  .exec(function (err, exercises) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, exercises.reverse());
+  });
+};
+
+// Creates a new workout in the DB.
 exports.create = function(req, res) {
   var workout = new Workout(req.body);
   workout.userId = req.user._id;

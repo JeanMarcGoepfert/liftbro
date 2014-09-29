@@ -4,8 +4,9 @@ angular.module('liftbroApp')
   .factory('Sets', function($q, $http) {
     var service = {};
 
-    service.add = function(set) {
+    service.add = function(set, workoutId) {
       var deferred = $q.defer();
+      set.workoutId = workoutId;
       $http.post('/api/sets/', set)
       .success(function(res) {
         deferred.resolve(res);
@@ -21,6 +22,7 @@ angular.module('liftbroApp')
 
       $http.put('/api/sets/' + setId, newSet)
       .success(function(res) {
+        console.log(res);
         deferred.resolve(res);
       }, function(err) {
         deferred.reject(err);

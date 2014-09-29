@@ -62,7 +62,7 @@ describe('Service: Exercises', function () {
     Exercises.add(post).then(function(data) {
       expect(data.name).toEqual(post.name);
       expect(data._id).toEqual('444');
-      expect(Exercises.list[Exercises.list.length - 1]).toEqual(res);
+      expect(Exercises.list[0]).toEqual(res);
     });
 
     httpBackend.flush();
