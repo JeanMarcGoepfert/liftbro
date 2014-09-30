@@ -25,7 +25,7 @@
   </div>
 
   <div ng-if="workouts.newWorkout.sets.length" class="panel-footer text-center">
-    <button class="btn btn-success">Finish Workout</button>
+    <button ng-click="finishWorkout(workouts.newWorkout)" class="btn btn-success">Finish Workout</button>
   </div>
 
 </div>

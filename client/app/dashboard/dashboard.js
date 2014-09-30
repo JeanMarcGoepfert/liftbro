@@ -9,9 +9,12 @@ angular.module('liftbroApp')
         views: {
           '': {
             templateUrl: 'app/dashboard/dashboard.html',
-            controller: 'DashboardCtrl',
             abstract: true
-          }
+          },
+          'home@dashboard': {
+            controller: 'DashboardCtrl',
+            templateUrl: 'app/dashboard/partials/stats.html',
+          },
         }
       });
   });

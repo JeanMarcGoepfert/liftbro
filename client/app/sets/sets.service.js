@@ -22,7 +22,6 @@ angular.module('liftbroApp')
 
       $http.put('/api/sets/' + setId, newSet)
       .success(function(res) {
-        console.log(res);
         deferred.resolve(res);
       }, function(err) {
         deferred.reject(err);

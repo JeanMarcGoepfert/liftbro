@@ -35,7 +35,7 @@ angular.module('liftbroApp')
       if (!$scope.workouts.newWorkout._id) {
         Workouts.add({})
         .then(function(data) {
-          $scope.workouts.newWorkout._id = data._id;
+          $scope.workouts.newWorkout = data;
           addRepsToSet(reps);
         });
       } else {
@@ -46,6 +46,11 @@ angular.module('liftbroApp')
     $scope.finishSet = function() {
       resetNewSet();
       $state.go('dashboard.add-workout.choose-exercise');
+    };
+
+    $scope.finishWorkout = function(newWorkout) {
+      Workouts.list.unshift(newWorkout);
+      $state.go('dashboard');
     };
 
     function addRepsToSet(reps) {

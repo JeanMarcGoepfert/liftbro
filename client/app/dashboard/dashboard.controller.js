@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .controller('DashboardCtrl', function ($scope, Auth, Workouts) {
+  .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts) {
     $scope.workouts = { list: [] };
 
-    Workouts.index(0, 2)
+    Workouts.index(6)
     .then(function(data) {
       $scope.workouts.list = data;
     }, function(err) {

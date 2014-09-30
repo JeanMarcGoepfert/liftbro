@@ -24,7 +24,7 @@ exports.create = function(req, res) {
       Workout.findById(set.workoutId, function(workoutErr, workout) {
         if (workout.sets.indexOf(req.body._id) === -1) {
 
-          workout.sets.unshift(set._id);
+          workout.sets.unshift({_id: set._id});
 
           workout.save(function(err) {
             if (err) { return handleError(res, err); }

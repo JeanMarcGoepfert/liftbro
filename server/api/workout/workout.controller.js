@@ -23,7 +23,7 @@ exports.index = function(req, res) {
   .limit(end)
   .exec(function (err, exercises) {
     if(err) { return handleError(res, err); }
-    return res.json(200, exercises.reverse());
+    return res.json(200, exercises);
   });
 };
 

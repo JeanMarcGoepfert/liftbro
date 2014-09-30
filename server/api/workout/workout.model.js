@@ -6,7 +6,9 @@ var mongoose = require('mongoose'),
 var WorkoutSchema = new Schema({
     userId: {type: String, required: true},
     dateCreated: {type: Date, required: true},
-    sets: Array
+    sets: [
+      { _id: String }
+    ]
 });
 
 module.exports = mongoose.model('Workout', WorkoutSchema);
