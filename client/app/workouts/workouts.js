@@ -30,5 +30,15 @@ angular.module('liftbroApp')
       })
       .state('dashboard.add-workout.add-set', {
         templateUrl: 'app/workouts/partials/add-workout/partials/add-set.html'
+      })
+      .state('dashboard.workouts-index', {
+        url: 'workouts/index',
+        controller: 'DashboardCtrl',
+        templateUrl: 'app/workouts/partials/index.html',
+        resolve: {
+          fetchWorkouts: function(Workouts) {
+            Workouts.index(11);
+          }
+        }
       });
   });

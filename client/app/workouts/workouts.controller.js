@@ -2,7 +2,6 @@
 
 angular.module('liftbroApp')
   .controller('WorkoutsCtrl', function($scope, $state, Exercises, Workouts, Sets) {
-
     $scope.exercises = { list: [] };
     $scope.workouts = { newWorkout: { sets: [] } };
     $scope.sets = { newSet: { repeating: false, reps: [] } };
@@ -48,8 +47,7 @@ angular.module('liftbroApp')
       $state.go('dashboard.add-workout.choose-exercise');
     };
 
-    $scope.finishWorkout = function(newWorkout) {
-      Workouts.list.unshift(newWorkout);
+    $scope.finishWorkout = function() {
       $state.go('dashboard');
     };
 
@@ -68,6 +66,7 @@ angular.module('liftbroApp')
       .then(function(data) {
         $scope.sets.newSet = data;
         addSetToWorkout(data);
+        addWorkoutToList();
       });
     }
 
@@ -76,7 +75,21 @@ angular.module('liftbroApp')
       .then(function(data) {
         $scope.sets.newSet = data;
         addSetToWorkout(data);
+        addWorkoutToList();
+
       });
+    }
+
+    function addWorkoutToList() {
+      /*
+      if workout exists in list, update it, otherwise prepend
+      new workout
+      */
+      if (Workouts.list.length && Workouts.list[0]._id === $scope.workouts.newWorkout._id) {
+        Workouts.list[0] = $scope.workouts.newWorkout;
+      } else {
+        Workouts.list.unshift($scope.workouts.newWorkout);
+      }
     }
 
     function addSetToWorkout(set) {

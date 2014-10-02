@@ -3,7 +3,7 @@
 angular.module('liftbroApp')
   .factory('Workouts', function($q, $http) {
     var service = {
-      initialized: false,
+      itemsRequested: 0,
       list: []
     };
 
@@ -24,18 +24,18 @@ angular.module('liftbroApp')
       var deferred = $q.defer();
 
       /*
-      if index has already been called and we
-      already have the workouts being
-      requested: return cached copy, otherwise
-      proceed with request and append result to
-      cached list.
+      if end does not exceed current maximum
+      requested workouts, then return what we have
+      otherwise request more workouts and set
+      new maximum requested workouts.
 
       When requesting more workouts, request
       items starting from last current workout
       (workout.length), and upto end param passed
       to function.
       */
-      if (service.initialized && service.list.length < end) {
+
+      if (service.itemsRequested >= end) {
         deferred.resolve(service.list);
       } else {
         $http({
@@ -44,9 +44,10 @@ angular.module('liftbroApp')
             params: {start: service.list.length, end: end}
          })
         .success(function(res) {
-          service.initialized = true;
+          service.itemsRequested = end;
+          if (end >= service.maxRequested) { service.maxRequested = end; }
           service.list = service.list.concat(res);
-          deferred.resolve(res);
+          deferred.resolve(service.list);
         }, function(err) {
           deferred.reject(err);
         });

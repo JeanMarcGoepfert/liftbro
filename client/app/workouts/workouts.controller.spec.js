@@ -11,6 +11,7 @@ describe('Controller: WorkoutsCtrl', function () {
       state,
       exercises,
       httpBackend,
+      q,
       sampleData = {
           sets: [
             {amount: '30', weight: '10'},
@@ -43,37 +44,24 @@ describe('Controller: WorkoutsCtrl', function () {
     exercises = _Exercises_;
     httpBackend = $httpBackend;
     state = $state;
+    q = $q;
 
-    //todo, figure out how to not have to do this.
     httpBackend.whenGET('/api/exercises/').respond(sampleData);
-    httpBackend.when('GET', 'app/dashboard/dashboard.html').respond('somehtml');
-    httpBackend.when('GET', 'app/account/login/login.html').respond('somehtml');
-    httpBackend.when('GET', 'app/workouts/partials/add-workout/add-workout.html').respond('somehtml');
-    httpBackend.when('GET', 'app/workouts/partials/add-workout/partials/choose-exercise.html').respond('somehtml');
+
+    httpBackend.whenPOST('/api/exercises/', sampleData.exercises[0]).respond(sampleData.exercises[0]);
 
     WorkoutsCtrl = $controller('WorkoutsCtrl', {
       $scope: scope,
       $state: state,
       Exercises: exercises,
+      $q: q
     });
 
     scope.exercises.list = sampleData;
-
-    httpBackend.flush();
   }));
 
   it('should contain all exercises at startup', function () {
     expect(scope.exercises.list).toEqual(sampleData);
-  });
-
-  it('should select an exercise', function() {
-    var selectedExercise = sampleData.exercises[0];
-    scope.selectExercise(selectedExercise);
-
-    expect(scope.exercises.selectedExercise).toEqual(selectedExercise);
-    expect(scope.sets.newSet.exerciseId).toEqual(selectedExercise._id);
-    expect(scope.sets.newSet.exerciseName).toEqual(selectedExercise.name);
-    expect(scope.sets.newSet.exerciseMetric).toEqual(selectedExercise.metric);
   });
 
   it('should select an exercise', function() {
