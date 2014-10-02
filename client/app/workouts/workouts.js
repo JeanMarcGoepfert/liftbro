@@ -36,8 +36,8 @@ angular.module('liftbroApp')
         controller: 'DashboardCtrl',
         templateUrl: 'app/workouts/partials/index.html',
         resolve: {
-          fetchWorkouts: function(Workouts) {
-            Workouts.index(11);
+          workoutList: function(Workouts) {
+            return Workouts.index(11);
           }
         }
       });
