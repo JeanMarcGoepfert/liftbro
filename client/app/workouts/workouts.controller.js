@@ -3,9 +3,10 @@
 angular.module('liftbroApp')
   .controller('WorkoutsCtrl', function($scope, $state, Exercises, Workouts, Sets) {
     $scope.exercises = { list: [] };
-    $scope.workouts = { newWorkout: { sets: [] } };
+    $scope.workouts = { newWorkout: { sets: [] }, list: [], limit: 10 };
     $scope.sets = { newSet: { repeating: false, reps: [] } };
 
+    //always need all exercises
     Exercises.index()
     .then(function(data) {
       $scope.exercises.list = data;
@@ -13,6 +14,13 @@ angular.module('liftbroApp')
       //todo - handle error correctly
       console.log(err);
     });
+
+    //for workout index, initially fetch first 11 workouts
+    if ($state.current.name === 'dashboard.workouts-index') {
+      Workouts.index(11).then(function(data) {
+        $scope.workouts.list = data;
+      });
+    }
 
     $scope.selectExercise = function(exercise) {
       setSelectedExercise(exercise);
@@ -51,6 +59,18 @@ angular.module('liftbroApp')
       $state.go('dashboard');
     };
 
+    $scope.increaseWorkoutLimit = function() {
+      var newLimit = $scope.workouts.limit + 10;
+      Workouts.index(newLimit)
+      .then(function(data) {
+        $scope.workouts.list = data;
+        $scope.workouts.limit = newLimit;
+      }, function(err) {
+        //todo handle error
+        console.log(err);
+      });
+    };
+
     function addRepsToSet(reps) {
       $scope.sets.newSet.reps.unshift(angular.copy(reps));
 
@@ -76,7 +96,6 @@ angular.module('liftbroApp')
         $scope.sets.newSet = data;
         addSetToWorkout(data);
         addWorkoutToList();
-
       });
     }
 

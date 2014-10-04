@@ -24,8 +24,8 @@ angular.module('liftbroApp')
       var deferred = $q.defer();
 
       /*
-      if end does not exceed current maximum
-      requested workouts, then return what we have
+      if end is less than maximum requested workouts
+      or current list length, then return what we have
       otherwise request more workouts and set
       new maximum requested workouts.
 
@@ -35,7 +35,7 @@ angular.module('liftbroApp')
       to function.
       */
 
-      if (service.itemsRequested >= end) {
+      if (Math.max(service.itemsRequested, service.list.length) >= end) {
         deferred.resolve(service.list);
       } else {
         $http({

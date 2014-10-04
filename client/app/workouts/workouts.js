@@ -33,12 +33,7 @@ angular.module('liftbroApp')
       })
       .state('dashboard.workouts-index', {
         url: 'workouts/index',
-        controller: 'DashboardCtrl',
-        templateUrl: 'app/workouts/partials/index.html',
-        resolve: {
-          workoutList: function(Workouts) {
-            return Workouts.index(11);
-          }
-        }
+        controller: 'WorkoutsCtrl',
+        templateUrl: 'app/workouts/partials/index.html'
       });
   });

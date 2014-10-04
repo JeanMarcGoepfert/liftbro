@@ -18,6 +18,8 @@ exports.create = function(req, res) {
   var set = new Set(req.body);
   set.userId = req.user._id;
 
+  console.log(set);
+
   Set.create(set, function(err, set) {
     if(err) { return handleError(res, err); }
 
