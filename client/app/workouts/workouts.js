@@ -15,6 +15,7 @@ angular.module('liftbroApp')
       })
       .state('dashboard.add-workout', {
         url: 'workouts/add',
+        authenticate: true,
         views: {
           '': {
             controller: 'WorkoutsCtrl',
@@ -33,7 +34,19 @@ angular.module('liftbroApp')
       })
       .state('dashboard.workouts-index', {
         url: 'workouts/index',
+        authenticate: true,
         controller: 'WorkoutsCtrl',
         templateUrl: 'app/workouts/partials/index.html'
+      })
+      .state('dashboard.workout-single', {
+        url: 'workouts/:id',
+        authenticate: true,
+        controller: 'WorkoutsCtrl',
+        templateUrl: 'app/workouts/partials/single.html',
+        resolve: {
+          singleWorkout: function(Workouts, $stateParams) {
+            return Workouts.get($stateParams.id);
+          }
+        }
       });
   });

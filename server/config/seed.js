@@ -26,14 +26,15 @@ User.find({}).remove(function() {
     name: 'Test User',
     email: 'test@test.com',
     password: 'test'
-  }, {
-    provider: 'local',
-    role: 'admin',
-    name: 'Admin',
-    email: 'admin@admin.com',
-    password: 'admin'
-  }, function() {
+  }, function(err, res) {
       console.log('finished populating users');
+      Exercise.create({
+          userId: res._id,
+          name: 'Benchpress',
+          metric: 'Kg'
+      }, function() {
+        console.log('Benchpress created')
+      });
     }
   );
 });

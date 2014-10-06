@@ -18,23 +18,21 @@ exports.create = function(req, res) {
   var set = new Set(req.body);
   set.userId = req.user._id;
 
-  console.log(set);
-
   Set.create(set, function(err, set) {
     if(err) { return handleError(res, err); }
 
-      Workout.findById(set.workoutId, function(workoutErr, workout) {
-        if (workout.sets.indexOf(req.body._id) === -1) {
+    Workout.findById(set.workoutId, function(workoutErr, workout) {
+      if (workout.sets.indexOf(req.body._id) === -1) {
 
-          workout.sets.unshift({_id: set._id});
+        workout.sets.unshift({_id: set._id});
 
-          workout.save(function(err) {
-            if (err) { return handleError(res, err); }
-          });
-        }
+        workout.save(function(err) {
+          if (err) { return handleError(res, err); }
 
-        return res.json(201, set);
-      });
+          return res.json(201, set);
+        });
+      }
+    });
 
   });
 };

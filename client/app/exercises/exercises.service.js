@@ -28,14 +28,15 @@ angular.module('liftbroApp')
 
       if (service.latest._id === id) {
         deferred.resolve(service.latest);
+      } else {
+        $http.get('/api/exercises/' + id)
+        .success(function(res) {
+          service.latest = res.data;
+          deferred.resolve(service.latest);
+        }, function(err) {
+          deferred.reject(err);
+        });
       }
-      $http.get('/api/exercises/' + id)
-      .success(function(res) {
-        service.latest = res.data;
-        deferred.resolve(service.latest);
-      }, function(err) {
-        deferred.reject(err);
-      });
 
       return deferred.promise;
     };

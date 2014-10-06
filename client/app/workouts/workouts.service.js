@@ -4,7 +4,10 @@ angular.module('liftbroApp')
   .factory('Workouts', function($q, $http) {
     var service = {
       itemsRequested: 0,
-      list: []
+      counted: false,
+      list: [],
+      single: {},
+      count: 0
     };
 
     service.add = function(workout) {
@@ -12,6 +15,7 @@ angular.module('liftbroApp')
 
       $http.post('/api/workouts/', workout)
       .success(function(res) {
+        service.count++;
         deferred.resolve(res);
       }, function(err) {
         deferred.reject(err);
@@ -34,7 +38,6 @@ angular.module('liftbroApp')
       (workout.length), and upto end param passed
       to function.
       */
-
       if (Math.max(service.itemsRequested, service.list.length) >= end) {
         deferred.resolve(service.list);
       } else {
@@ -48,6 +51,40 @@ angular.module('liftbroApp')
           if (end >= service.maxRequested) { service.maxRequested = end; }
           service.list = service.list.concat(res);
           deferred.resolve(service.list);
+        }, function(err) {
+          deferred.reject(err);
+        });
+      }
+
+      return deferred.promise;
+    };
+
+    /*
+    todo, do some caching on this.
+    */
+    service.get = function(id) {
+      var deferred = $q.defer();
+      $http.get('/api/workouts/' + id)
+      .success(function(res) {
+        service.single = res;
+        deferred.resolve(res);
+      }, function(err) {
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
+    };
+
+    service.getCount = function() {
+      var deferred = $q.defer();
+
+      if (service.counted) {
+        deferred.resolve(service.count);
+      } else {
+        $http.get('/api/workouts/count')
+        .success(function(res) {
+          service.count = res;
+          deferred.resolve(res);
         }, function(err) {
           deferred.reject(err);
         });

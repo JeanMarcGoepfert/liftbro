@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h2>View Workout</h2>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-6">
+
+  </div>
+
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">My Workout</h3>
+      </div>
+
+      <div class="list-group">
+        <div ng-repeat-start="sets in singleWorkout.sets"
+             class="list-group-item list-group-item-info">
+             {{sets.exerciseName}}
+        </div>
+        <div ng-repeat-end="">
+          <div class="list-group-item"
+               ng-repeat="reps in sets.reps">
+               {{reps.amount}} reps with {{reps.weight}}{{sets.exerciseMetric}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

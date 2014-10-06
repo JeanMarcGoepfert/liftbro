@@ -2,9 +2,13 @@
 
 angular.module('liftbroApp')
   .controller('WorkoutsCtrl', function($scope, $state, Exercises, Workouts, Sets) {
+    //setup for adding workouts
     $scope.exercises = { list: [] };
-    $scope.workouts = { newWorkout: { sets: [] }, list: [], limit: 10 };
+    $scope.workouts = { newWorkout: { sets: [] }, list: [], limit: 10, count: undefined };
     $scope.sets = { newSet: { repeating: false, reps: [] } };
+
+    //setup for single workout
+    $scope.singleWorkout = Workouts.single;
 
     //always need all exercises
     Exercises.index()
@@ -17,8 +21,14 @@ angular.module('liftbroApp')
 
     //for workout index, initially fetch first 11 workouts
     if ($state.current.name === 'dashboard.workouts-index') {
-      Workouts.index(11).then(function(data) {
+      Workouts.index(11)
+      .then(function(data) {
         $scope.workouts.list = data;
+      });
+
+      Workouts.getCount()
+      .then(function(data) {
+        $scope.workouts.count = data;
       });
     }
 
@@ -69,6 +79,10 @@ angular.module('liftbroApp')
         //todo handle error
         console.log(err);
       });
+    };
+
+    $scope.workoutsLength = function(list, limit) {
+      return Math.min(parseInt(list.length, 10), parseInt(limit, 10));
     };
 
     function addRepsToSet(reps) {
