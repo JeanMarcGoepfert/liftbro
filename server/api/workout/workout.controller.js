@@ -68,6 +68,19 @@ exports.create = function(req, res) {
   });
 };
 
+//removes workout sets and workout from db
+exports.destroy = function(req, res) {
+  Workout.find({_id: req.params.id})
+  .remove(function(err) {
+    if(err) { return handleError(res, err); }
+    Set.find({workoutId: req.params.id})
+    .remove(function(err) {
+      if(err) { return handleError(res, err); }
+      return res.json(201);
+    })
+  });
+};
+
 function handleError(res, err) {
   return res.send(500, err);
 }

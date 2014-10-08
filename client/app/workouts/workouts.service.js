@@ -24,6 +24,39 @@ angular.module('liftbroApp')
       return deferred.promise;
     };
 
+    service.remove = function(workout) {
+      var deferred = $q.defer();
+
+      $http.delete('/api/workouts/' + workout._id)
+      .success(function() {
+        /*
+        If workout is in local list (it always should be)
+        remove it, and decrement itemsRequested count by 1
+        to account for removed item.
+
+        If workout is not found, reset the store and set
+        itemsRequested back to 0 to force new request.
+        */
+        var workoutIndex = service.list.indexOf(workout);
+
+        if (workoutIndex > -1) {
+          service.list.splice(workoutIndex, 1);
+          service.itemsRequested--;
+
+        } else {
+          service.list = [];
+          service.itemsRequested = 0;
+          console.error('Could not find workout in workout service store.');
+        }
+
+        deferred.resolve();
+      }, function(err) {
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
+    };
+
     service.index = function(end) {
       var deferred = $q.defer();
 

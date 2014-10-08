@@ -2,11 +2,18 @@
   <div ng-include="'components/navbar/navbar.html'"></div>
     <div class="app">
       <div class="container-fluid">
+
         <div class="row">
           <div ng-include="'components/sidebar/sidebar.html'" class="col-sm-3 col-md-2 sidebar"></div>
+          <div class="col-md-offset-2 col-sm-offset-3 main">
 
-          <div ui-view class="col-md-offset-2 col-sm-offset-3 main">
+
+            <div ui-view="alert"></div>
+
+
+            <div ui-view>
               <div ng-include="'app/dashboard/partials/home.html'"></div>
+            </div>
           </div>
         </div>
       </div>

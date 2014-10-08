@@ -15,6 +15,10 @@ angular.module('liftbroApp')
             controller: 'DashboardCtrl',
             templateUrl: 'app/dashboard/partials/stats.html',
           },
+          'alert@dashboard': {
+            controller: 'DashboardCtrl',
+            templateUrl: 'app/dashboard/partials/alert.html'
+          }
         }
       });
   });

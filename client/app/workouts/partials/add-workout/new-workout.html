@@ -1,5 +1,11 @@
 <div class="panel panel-default">
   <div class="panel-heading">
+    <a ng-click="deleteWorkout(workouts.newWorkout)"
+       ng-if="workouts.newWorkout._id"
+       class="glyphicon glyphicon-trash pull-right"
+       href=""
+       title="delete workout">
+    </a>
     <h3 class="panel-title">My Workout</h3>
   </div>
 
@@ -29,3 +35,5 @@
   </div>
 
 </div>
+
+<pre>{{workouts | json}}</pre>

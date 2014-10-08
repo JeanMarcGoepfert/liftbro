@@ -42,14 +42,16 @@ angular.module('liftbroApp', [
   })
 
   .run(function ($rootScope, $location, Auth) {
-    // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, next) {
 
+      //clear alerts on route change
+      $rootScope.alert = {};
+
+      // Redirect to login if route requires auth and you're not logged in
       Auth.isLoggedInAsync(function(loggedIn) {
         if (next.authenticate && !loggedIn) {
           $location.path('login');
         }
-
       });
     });
   });

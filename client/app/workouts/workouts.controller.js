@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .controller('WorkoutsCtrl', function($scope, $state, Exercises, Workouts, Sets) {
+  .controller('WorkoutsCtrl', function($scope, $state, $rootScope, Exercises, Workouts, Sets) {
     //setup for adding workouts
     $scope.exercises = { list: [] };
     $scope.workouts = { newWorkout: { sets: [] }, list: [], limit: 10, count: undefined };
@@ -75,6 +75,20 @@ angular.module('liftbroApp')
       .then(function(data) {
         $scope.workouts.list = data;
         $scope.workouts.limit = newLimit;
+      }, function(err) {
+        //todo handle error
+        console.log(err);
+      });
+    };
+
+    $scope.deleteWorkout = function(workout) {
+      //todo replace this with pretty modal
+      if (!confirm('Are you sure you want to delete this workout?')) { return; }
+
+      Workouts.remove(workout)
+      .then(function() {
+        $state.go('dashboard');
+        $rootScope.alert = { type: 'success', message: 'Workout deleted.' };
       }, function(err) {
         //todo handle error
         console.log(err);
