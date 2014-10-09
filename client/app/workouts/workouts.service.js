@@ -30,12 +30,16 @@ angular.module('liftbroApp')
       $http.delete('/api/workouts/' + workout._id)
       .success(function() {
         /*
-        If workout is in local list (it always should be)
-        remove it, and decrement itemsRequested count by 1
+        If workout is in local list remove it,
+        and decrement itemsRequested count by 1
         to account for removed item.
 
         If workout is not found, reset the store and set
         itemsRequested back to 0 to force new request.
+        This should only happend in rare cases, eg
+        workout/:id page is visited directly/refreshed
+        so workout isn't populated.
+
         */
 
         var workoutIndex = false;

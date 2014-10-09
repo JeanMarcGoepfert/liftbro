@@ -70,7 +70,7 @@ angular.module('liftbroApp')
 
       Alert.set({
         type: 'success',
-        message: 'Workout created.',
+        message: 'Workout created, nice one!',
         button: {
           text: 'View',
           state: 'dashboard.workout-single({id:"'+ $scope.workouts.newWorkout._id +'"})'
@@ -97,7 +97,7 @@ angular.module('liftbroApp')
       Workouts.remove(workout)
       .then(function() {
         $state.go('dashboard');
-        Alert.set({ type: 'success', message: 'Workout deleted.' });
+        Alert.set({ type: 'success', message: 'Workout deleted, better luck next time!' });
       }, function(err) {
         //todo handle error
         console.log(err);

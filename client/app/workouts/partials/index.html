@@ -2,7 +2,7 @@
   <h2>My Workouts</h2>
 </div>
 <p>Showing {{workoutsLength(workouts.list, workouts.limit)}} of {{workouts.count}} workouts.</p>
-<div class="panel panel-default">
+<div class="panel panel-default" ng-if="workouts.list">
   <div class="panel-heading">
     <h3 class="panel-title">Latest Workouts</h3>
   </div>
