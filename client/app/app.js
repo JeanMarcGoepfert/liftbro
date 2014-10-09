@@ -41,11 +41,11 @@ angular.module('liftbroApp', [
     };
   })
 
-  .run(function ($rootScope, $location, Auth) {
+  .run(function ($rootScope, $location, Auth, Alert) {
     $rootScope.$on('$stateChangeStart', function (event, next) {
 
       //clear alerts on route change
-      $rootScope.alert = {};
+      Alert.details = {};
 
       // Redirect to login if route requires auth and you're not logged in
       Auth.isLoggedInAsync(function(loggedIn) {
