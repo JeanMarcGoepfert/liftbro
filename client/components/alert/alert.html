@@ -1,11 +1,13 @@
-<div class="alert alert-{{alert.type}} alert-dismissable" ng-if="alert.message">
+<div class="alert-wrapper" ng-if="alert.message">
+  <div class="dash-alert alert alert-{{alert.type}} alert-success alert-dismissable" >
 
-  <button ng-click="closeAlert()" class="close"><span aria-hidden="true">&times;</span></button>
-  <span>{{alert.message}}</span>
-  <a ng-if="alert.button"
-     ui-sref="{{alert.button.state}}"
-     class="{{alert.button.classes}}">
-     {{alert.button.text}}
-  </a>
+    <button ng-click="closeAlert()" class="close"><span aria-hidden="true">&times;</span></button>
+    <span>{{alert.message}}</span>
+    <a ng-if="alert.button"
+       ui-sref="{{alert.button.state}}"
+       class="{{alert.button.classes}}">
+       {{alert.button.text}}
+    </a>
 
+  </div>
 </div>

@@ -37,12 +37,19 @@ angular.module('liftbroApp')
         If workout is not found, reset the store and set
         itemsRequested back to 0 to force new request.
         */
-        var workoutIndex = service.list.indexOf(workout);
 
-        if (workoutIndex > -1) {
+        var workoutIndex = false;
+
+        for (var i = 0; i < service.list.length; i++) {
+          if (service.list[i]._id === workout._id) {
+            workoutIndex = i;
+            break;
+          }
+        }
+
+        if (angular.isNumber(workoutIndex)) {
           service.list.splice(workoutIndex, 1);
           service.itemsRequested--;
-
         } else {
           service.list = [];
           service.itemsRequested = 0;
