@@ -30,5 +30,18 @@ angular.module('liftbroApp')
       return deferred.promise;
     };
 
+    service.remove = function(set) {
+      var deferred = $q.defer();
+
+      $http.delete('/api/sets/' + set._id)
+      .success(function() {
+        deferred.resolve();
+      }, function(err) {
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
+    };
+
     return service;
   });

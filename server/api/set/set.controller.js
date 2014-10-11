@@ -13,6 +13,28 @@ var _ = require('lodash');
 var Set = require('./set.model');
 var Workout = require('../workout/workout.model');
 
+//removes set from db and setId from workout
+exports.destroy = function(req, res) {
+  var workoutId;
+
+  Set.findById(req.params.id, function(err, set) {
+    if(err) { return handleError(res, err); }
+    workoutId = set.workoutId;
+  }).remove(function() {
+    Workout.findById(workoutId, function(err, workout) {
+      if(err) { return handleError(res, err); }
+      if(!workout) { return res.send(404); }
+
+      workout.sets.splice(workout.sets.indexOf(req.params.id), 1);
+
+      workout.save(function(err) {
+        if (err) { return handleError(res, err); }
+        return res.json(201);
+      });
+    });
+  });
+};
+
 // Creates a new set in the DB.
 exports.create = function(req, res) {
   var set = new Set(req.body);

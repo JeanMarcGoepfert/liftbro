@@ -75,7 +75,7 @@ angular.module('liftbroApp')
       return deferred.promise;
     };
 
-    service.delete = function(exercise) {
+    service.remove = function(exercise) {
       var deferred = $q.defer();
       var index = service.list.indexOf(exercise);
 

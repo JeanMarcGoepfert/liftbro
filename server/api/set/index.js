@@ -10,7 +10,7 @@ var router = express.Router();
 // router.get('/:id', controller.show);
 router.post('/', auth.isAuthenticated(), controller.create);
 router.put('/:id', auth.isAuthenticated(), controller.update);
+router.delete('/:id', auth.isAuthenticated(), controller.destroy);
 // router.patch('/:id', controller.update);
-// router.delete('/:id', controller.destroy);
 
 module.exports = router;

@@ -92,9 +92,11 @@ angular.module('liftbroApp')
       });
     };
 
-    $scope.deleteWorkout = function(workout) {
+    $scope.deleteWorkout = function(workout, confirmMsg) {
       //todo replace this with pretty modal
-      if (!confirm('Are you sure you want to delete this workout?')) { return; }
+      if (confirmMsg) {
+        if (!confirm(confirmMsg)) { return; }
+      }
 
       Workouts.remove(workout)
       .then(function() {
@@ -104,6 +106,39 @@ angular.module('liftbroApp')
         //todo handle error
         console.log(err);
       });
+    };
+
+    $scope.deleteReps = function(setIndex, repsIndex) {
+      var workout = $scope.workouts.workout;
+      var selectedSet = workout.sets[setIndex];
+      /*
+      if the current set has more than 1 reps, simply remove the
+      reps from current set.
+
+      Otherwise, check if it is the last reps in the last set.
+      If it is, delete the entire workout.
+      if there's still more reps, delete containing set.
+      */
+      if (selectedSet.reps.length > 1) {
+        var setCopy = angular.copy(selectedSet);
+        setCopy.reps.splice(repsIndex, 1);
+
+        Sets.update(selectedSet._id, setCopy)
+        .then(function(data) {
+          workout.sets[setIndex] = data;
+        });
+
+      } else {
+        //if its the last rep in the last set, delete entire workout
+        if (workout.sets.length === 1) {
+          $scope.deleteWorkout(workout, 'This workout will be deleted, continue?');
+        } else {
+          Sets.remove(selectedSet)
+          .then(function() {
+            workout.sets.splice(setIndex, 1);
+          });
+        }
+      }
     };
 
     $scope.workoutsLength = function(list, limit) {
