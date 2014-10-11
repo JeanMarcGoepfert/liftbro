@@ -20,6 +20,13 @@
       <div class="list-group-item"
            ng-repeat="reps in sets.reps">
            {{reps.amount}} reps with {{reps.weight}}{{sets.exerciseMetric}}
+        <div class="pull-right btn-xs">
+          <a ng-click="deleteReps($parent.$index, $index)"
+             class="glyphicon glyphicon-trash"
+             href=""
+             title="delete reps">
+          </a>
+        </div>
       </div>
     </div>
   </div>
