@@ -4,11 +4,13 @@ angular.module('liftbroApp')
   .controller('WorkoutsCtrl', function($scope, $state, Alert, Exercises, Workouts, Sets) {
     //setup for adding workouts
     $scope.exercises = { list: [] };
-    $scope.workouts = { newWorkout: { sets: [] }, list: [], limit: 10, count: undefined };
+    $scope.workouts = { workout: { sets: [] }, list: [], limit: 10, count: undefined };
     $scope.sets = { newSet: { repeating: false, reps: [] } };
 
     //setup for single workout
-    $scope.singleWorkout = Workouts.single;
+    if ($state.params.id) {
+      $scope.workouts.workout = Workouts.single;
+    }
 
     //always need all exercises
     Exercises.index()
@@ -49,10 +51,10 @@ angular.module('liftbroApp')
 
     $scope.createNewReps = function(reps) {
       //create new workout first if it hasn't been created yet
-      if (!$scope.workouts.newWorkout._id) {
+      if (!$scope.workouts.workout._id) {
         Workouts.add({})
         .then(function(data) {
-          $scope.workouts.newWorkout = data;
+          $scope.workouts.workout = data;
           addRepsToSet(reps);
         });
       } else {
@@ -73,7 +75,7 @@ angular.module('liftbroApp')
         message: 'Workout created, nice one!',
         button: {
           text: 'View',
-          state: 'dashboard.workout-single({id:"'+ $scope.workouts.newWorkout._id +'"})'
+          state: 'dashboard.workout-single({id:"'+ $scope.workouts.workout._id +'"})'
         }
       });
     };
@@ -119,7 +121,7 @@ angular.module('liftbroApp')
     }
 
     function addRepsToNewSet() {
-      Sets.add($scope.sets.newSet, $scope.workouts.newWorkout._id)
+      Sets.add($scope.sets.newSet, $scope.workouts.workout._id)
       .then(function(data) {
         $scope.sets.newSet = data;
         addSetToWorkout(data);
@@ -130,8 +132,15 @@ angular.module('liftbroApp')
     function addRepsToExistingSet() {
       Sets.update($scope.sets.newSet._id, $scope.sets.newSet)
       .then(function(data) {
+        /*
+        get the index of the current set being edited ($scope.sets.newSet)
+        and pass through to addSetToWorkout function. In case of set
+        being added index will always be 0. But we need to account for
+        editing sets after workout has been created.
+        */
+        var setIndex = $scope.workouts.workout.sets.indexOf($scope.sets.newSet);
         $scope.sets.newSet = data;
-        addSetToWorkout(data);
+        addSetToWorkout(data, setIndex);
         addWorkoutToList();
       });
     }
@@ -141,19 +150,26 @@ angular.module('liftbroApp')
       if workout exists in list, update it, otherwise prepend
       new workout
       */
-      if (Workouts.list.length && Workouts.list[0]._id === $scope.workouts.newWorkout._id) {
-        Workouts.list[0] = $scope.workouts.newWorkout;
+      if (Workouts.list.length && Workouts.list[0]._id === $scope.workouts.workout._id) {
+        Workouts.list[0] = $scope.workouts.workout;
       } else {
-        Workouts.list.unshift($scope.workouts.newWorkout);
+        Workouts.list.unshift($scope.workouts.workout);
       }
     }
 
-    function addSetToWorkout(set) {
-      //add the new set if it's the first one, otherwise update the latest one.
+    function addSetToWorkout(set, index) {
+      /*
+      if the set has only one rep, meaning it's just been created,
+      prepend it to the list. Otherwise, update the specified (or most recent
+      if unspecified) set.
+      */
+
+      index = index || 0;
+
       if (set.reps.length === 1) {
-        $scope.workouts.newWorkout.sets.unshift(set);
+        $scope.workouts.workout.sets.unshift(set);
       } else {
-        $scope.workouts.newWorkout.sets[0] = set;
+        $scope.workouts.workout.sets[index] = set;
       }
 
       $scope.sets.newReps = {};
