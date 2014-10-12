@@ -217,9 +217,7 @@ angular.module('liftbroApp')
 
     function setSelectedExercise(exercise) {
       $scope.exercises.selectedExercise = exercise;
-      $scope.sets.newSet.exerciseId = exercise._id;
-      $scope.sets.newSet.exerciseName = exercise.name;
-      $scope.sets.newSet.exerciseMetric = exercise.metric;
+      $scope.sets.newSet.exercise = exercise;
     }
 
     function resetNewSet() {

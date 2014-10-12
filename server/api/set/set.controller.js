@@ -69,9 +69,7 @@ exports.update = function(req, res) {
     var updated = set;
     updated.reps = req.body.reps;
     updated.workoutId = req.body.workoutId;
-    updated.exerciseName = req.body.exerciseName;
-    updated.exerciseMetric = req.body.exerciseMetric;
-    updated.exerciseId = req.body.exerciseId;
+    updated.exercise = req.body.exercise;
 
     updated.save(function (err) {
       if (err) { return handleError(res, err); }

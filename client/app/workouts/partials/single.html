@@ -24,7 +24,7 @@
       <div class="list-group">
         <div ng-repeat-start="sets in workouts.workout.sets"
              class="list-group-item list-group-item-info">
-             {{sets.exerciseName}}
+             {{sets.exercise.name}}
           <div class="pull-right btn-xs">
             <a ng-click="deleteSet($index)"
                class="glyphicon glyphicon-trash"
@@ -36,7 +36,7 @@
         <div ng-repeat-end="">
           <div class="list-group-item"
                ng-repeat="reps in sets.reps">
-               {{reps.amount}} reps with {{reps.weight}}{{sets.exerciseMetric}}
+               {{reps.amount}} reps with {{reps.weight}}{{sets.exercise.metric}}
             <div class="pull-right btn-xs">
               <a ng-click="deleteReps($parent.$index, $index)"
                  class="glyphicon glyphicon-trash"
@@ -51,6 +51,7 @@
     </div>
   </div>
 </div>
+
 <pre>
 {{workouts.workout | json}}
 </pre>

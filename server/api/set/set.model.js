@@ -6,9 +6,7 @@ var mongoose = require('mongoose'),
 var SetSchema = new Schema({
     userId: {type: String, required: true},
     workoutId: {type: String, required: true},
-    exerciseId: {type: String, required: true},
-    exerciseName: {type: String, required: true},
-    exerciseMetric: {type: String, required: true},
+    exercise: {},
     reps: [
       {
         weight: Number,
