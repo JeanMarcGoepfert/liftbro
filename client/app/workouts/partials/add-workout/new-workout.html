@@ -16,6 +16,11 @@
          class="list-group-item list-group-item-info">
          {{sets.exercise.name}}
       <div class="pull-right btn-xs">
+        <a ng-click="selectExercise(sets.exercise, sets)"
+           class="glyphicon glyphicon-plus"
+           href=""
+           title="add reps">
+        </a>
         <a ng-click="deleteSet($index)"
            class="glyphicon glyphicon-trash"
            href=""

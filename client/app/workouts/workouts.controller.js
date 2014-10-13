@@ -4,7 +4,7 @@ angular.module('liftbroApp')
   .controller('WorkoutsCtrl', function($scope, $state, Alert, Exercises, Workouts, Sets) {
     //setup for adding workouts
     $scope.exercises = { list: [] };
-    $scope.workouts = { workout: { sets: [] }, list: [], limit: 10, count: undefined };
+    $scope.workouts = { workout: { sets: [] }, list: [], limit: 10, count: undefined, editingSet: undefined };
     $scope.sets = { newSet: { repeating: false, reps: [] } };
 
     //setup for single workout
@@ -34,8 +34,15 @@ angular.module('liftbroApp')
       });
     }
 
-    $scope.selectExercise = function(exercise) {
+    $scope.selectExercise = function(exercise, set) {
       setSelectedExercise(exercise);
+
+      /*
+      if we're editing an existing set, we pass in
+      the set we're editing here, set is at the newSet.
+      */
+      if (set) { $scope.sets.newSet = set; }
+
       $state.go('^.add-set');
     };
 
