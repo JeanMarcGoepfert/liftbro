@@ -48,7 +48,7 @@ exports.show = function(req, res) {
       if(err) { return handleError(res, err); }
       if(!workout) { return res.send(404); }
 
-      workout.sets = sets;
+      workout.sets = sets.reverse();
 
       return res.json(workout);
     });

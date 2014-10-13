@@ -36,7 +36,7 @@ angular.module('liftbroApp')
 
     $scope.selectExercise = function(exercise) {
       setSelectedExercise(exercise);
-      $state.go('dashboard.add-workout.add-set');
+      $state.go('^.add-set');
     };
 
     $scope.addExercise = function(exercise) {
@@ -64,7 +64,7 @@ angular.module('liftbroApp')
 
     $scope.finishSet = function() {
       resetNewSet();
-      $state.go('dashboard.add-workout.choose-exercise');
+      $state.go('^.choose-exercise');
     };
 
     $scope.finishWorkout = function() {
