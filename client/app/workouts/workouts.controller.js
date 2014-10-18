@@ -185,7 +185,7 @@ angular.module('liftbroApp')
 
       addRepsToExistingSet(reps.setIndex, function() {
         $state.go(state);
-        Alert.set({ type: 'success', message: 'Reps updated, good work!' });
+        Alert.set({ type: 'success', message: 'Reps updated' });
       });
     };
 

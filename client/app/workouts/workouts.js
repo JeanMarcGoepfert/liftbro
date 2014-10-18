@@ -33,6 +33,9 @@ angular.module('liftbroApp')
         .state('dashboard.add-workout.add-set', {
           templateUrl: 'app/workouts/partials/add-workout/partials/add-set.html'
         })
+        .state('dashboard.add-workout.edit-reps', {
+          templateUrl: 'app/workouts/partials/add-workout/partials/edit-reps.html'
+        })
       .state('dashboard.workout-single', {
         url: 'workouts/:id',
         authenticate: true,
@@ -56,6 +59,6 @@ angular.module('liftbroApp')
           templateUrl: 'app/workouts/partials/add-workout/partials/add-set.html'
         })
         .state('dashboard.workout-single.edit-reps', {
-          templateUrl: 'app/workouts/partials/add-workout/partials/edit-reps.html'
+          templateUrl: 'app/workouts/partials/single/partials/edit-reps.html'
         });
   });

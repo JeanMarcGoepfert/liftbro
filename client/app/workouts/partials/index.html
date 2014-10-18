@@ -10,7 +10,7 @@
     <div ng-repeat="workout in workouts.list | limitTo:workouts.limit"
          class="list-group-item">
          {{workout.dateCreated | date:simple}} - {{workout.sets.length}} set<span ng-if="workout.sets.length > 1">s</span>
-         <a ui-sref="dashboard.workout-single({id:workout._id})" class="btn btn-default btn-xs pull-right">View</a>
+         <a ng-href="workouts/{{workout._id}}" class="btn btn-default btn-xs pull-right">View</a>
     </div>
   </div>
 
