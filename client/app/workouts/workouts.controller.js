@@ -4,7 +4,7 @@ angular.module('liftbroApp')
   .controller('WorkoutsCtrl', function($scope, $state, Alert, Exercises, Workouts, Sets) {
     //setup for adding workouts
     $scope.exercises = { list: [] };
-    $scope.workouts = { workout: { sets: [] }, list: [], limit: 10, count: undefined, editingSet: undefined };
+    $scope.workouts = { workout: { sets: [] }, list: [], limit: 10, count: undefined, editingReps: {} };
     $scope.sets = { newSet: { repeating: false, reps: [] } };
 
     //setup for single workout
@@ -167,6 +167,28 @@ angular.module('liftbroApp')
       }
     }
 
+    $scope.setEditReps = function(set, reps) {
+      resetNewSet();
+
+      var sets = $scope.workouts.workout.sets;
+      var editReps = $scope.workouts.editingReps = angular.copy(reps);
+      editReps.setIndex = sets.indexOf(set);
+      editReps.repsIndex = sets[editReps.setIndex].reps.indexOf(reps);
+      $state.go('^.edit-reps');
+    };
+
+    $scope.updateReps = function(reps, state) {
+      var workout = $scope.workouts.workout;
+
+      $scope.sets.newSet = workout.sets[reps.setIndex];
+      $scope.sets.newSet.reps[reps.repsIndex] = reps;
+
+      addRepsToExistingSet(reps.setIndex, function() {
+        $state.go(state);
+        Alert.set({ type: 'success', message: 'Reps updated, good work!' });
+      });
+    };
+
     function addRepsToNewSet() {
       Sets.add($scope.sets.newSet, $scope.workouts.workout._id)
       .then(function(data) {
@@ -176,7 +198,7 @@ angular.module('liftbroApp')
       });
     }
 
-    function addRepsToExistingSet() {
+    function addRepsToExistingSet(setIndex, callback) {
       Sets.update($scope.sets.newSet._id, $scope.sets.newSet)
       .then(function(data) {
         /*
@@ -185,10 +207,14 @@ angular.module('liftbroApp')
         being added index will always be 0. But we need to account for
         editing sets after workout has been created.
         */
-        var setIndex = $scope.workouts.workout.sets.indexOf($scope.sets.newSet);
+        if (!angular.isNumber(setIndex)) {
+          setIndex = $scope.workouts.workout.sets.indexOf($scope.sets.newSet);
+        }
+
         $scope.sets.newSet = data;
         addSetToWorkout(data, setIndex);
         addWorkoutToList();
+        if (angular.isFunction(callback)) { callback(); }
       });
     }
 
@@ -206,17 +232,30 @@ angular.module('liftbroApp')
 
     function addSetToWorkout(set, index) {
       /*
-      if the set has only one rep, meaning it's just been created,
-      prepend it to the list. Otherwise, update the specified (or most recent
-      if unspecified) set.
+      if a reps is currently being editedm updated it and set
+      reset editing reps.
+
+      Otherwise if the set has only one rep, meaning this set has
+      just been created, prepend it to the list. Otherwise, update
+      the specified (or most recent if unspecified) set.
       */
 
-      index = index || 0;
+      if (angular.isNumber($scope.workouts.editingReps.setIndex)) {
+        //editing rep in existing set
+        $scope.workouts.workout.sets[index] = angular.copy(set);
+        $scope.workouts.editingReps = {};
+        resetNewSet();
 
-      if (set.reps.length === 1) {
-        $scope.workouts.workout.sets.unshift(set);
       } else {
-        $scope.workouts.workout.sets[index] = set;
+
+        index = index || 0;
+        if (set.reps.length === 1) {
+          //new set
+          $scope.workouts.workout.sets.unshift(set);
+        } else {
+          //adding existing set
+          $scope.workouts.workout.sets[index] = set;
+        }
       }
 
       $scope.sets.newReps = {};

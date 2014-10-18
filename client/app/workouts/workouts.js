@@ -13,6 +13,12 @@ angular.module('liftbroApp')
           }
         }
       })
+      .state('dashboard.workouts-index', {
+        url: 'workouts/index',
+        authenticate: true,
+        controller: 'WorkoutsCtrl',
+        templateUrl: 'app/workouts/partials/index.html'
+      })
       .state('dashboard.add-workout', {
         url: 'workouts/add',
         authenticate: true,
@@ -20,19 +26,13 @@ angular.module('liftbroApp')
         controller: 'WorkoutsCtrl',
         templateUrl: 'app/workouts/partials/add-workout/add-workout.html'
       })
-      .state('dashboard.add-workout.choose-exercise', {
-        url: '',
-        templateUrl: 'app/workouts/partials/add-workout/partials/choose-exercise.html'
-      })
-      .state('dashboard.add-workout.add-set', {
-        templateUrl: 'app/workouts/partials/add-workout/partials/add-set.html'
-      })
-      .state('dashboard.workouts-index', {
-        url: 'workouts/index',
-        authenticate: true,
-        controller: 'WorkoutsCtrl',
-        templateUrl: 'app/workouts/partials/index.html'
-      })
+        .state('dashboard.add-workout.choose-exercise', {
+          url: '',
+          templateUrl: 'app/workouts/partials/add-workout/partials/choose-exercise.html'
+        })
+        .state('dashboard.add-workout.add-set', {
+          templateUrl: 'app/workouts/partials/add-workout/partials/add-set.html'
+        })
       .state('dashboard.workout-single', {
         url: 'workouts/:id',
         authenticate: true,
@@ -45,14 +45,17 @@ angular.module('liftbroApp')
           }
         }
       })
-      .state('dashboard.workout-single.intro-stats', {
-        url: '',
-        templateUrl: 'app/workouts/partials/single/partials/intro-stats.html',
-      })
-      .state('dashboard.workout-single.choose-exercise', {
-        templateUrl: 'app/workouts/partials/add-workout/partials/choose-exercise.html'
-      })
-      .state('dashboard.workout-single.add-set', {
-        templateUrl: 'app/workouts/partials/add-workout/partials/add-set.html'
-      });
+        .state('dashboard.workout-single.intro-stats', {
+          url: '',
+          templateUrl: 'app/workouts/partials/single/partials/intro-stats.html',
+        })
+        .state('dashboard.workout-single.choose-exercise', {
+          templateUrl: 'app/workouts/partials/add-workout/partials/choose-exercise.html'
+        })
+        .state('dashboard.workout-single.add-set', {
+          templateUrl: 'app/workouts/partials/add-workout/partials/add-set.html'
+        })
+        .state('dashboard.workout-single.edit-reps', {
+          templateUrl: 'app/workouts/partials/add-workout/partials/edit-reps.html'
+        });
   });

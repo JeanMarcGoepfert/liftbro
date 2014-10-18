@@ -36,6 +36,11 @@
            ng-repeat="reps in sets.reps">
            {{reps.amount}} reps with {{reps.weight}}{{sets.exercise.metric}}
         <div class="pull-right btn-xs">
+          <a ng-click="setEditReps(sets, reps)"
+             class="glyphicon glyphicon-edit"
+             href=""
+             title="delete reps">
+          </a>
           <a ng-click="deleteReps($parent.$index, $index)"
              class="glyphicon glyphicon-trash"
              href=""

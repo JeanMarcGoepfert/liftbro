@@ -48,8 +48,6 @@ exports.create = function(req, res) {
 
         workout.sets.unshift({_id: set._id});
 
-        console.log(workout);
-
         workout.save(function(err) {
           if (err) { return handleError(res, err); }
 
