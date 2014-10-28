@@ -11,7 +11,7 @@
         <input type="text"
                class="form-control"
                ng-model="workouts.editingReps.amount"
-               placeholder="amount">
+               placeholder="amount"> reps of
       </div>
 
       <div class="col-md-4">
@@ -20,13 +20,12 @@
                ng-model="workouts.editingReps.weight"
                placeholder="weight">
       </div>
-
     </form>
   </div>
 
   <div class="panel-footer clearfix">
     <div class="pull-right">
-      All good? <button ng-click="updateReps(workouts.editingReps, '^.choose-exercise')" class="btn btn-primary">Save</button>
+      All good? <button ng-click="updateReps(workouts.editingReps, rootState)" class="btn btn-primary">Save</button>
     </div>
   </div>
 

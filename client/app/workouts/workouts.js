@@ -59,6 +59,6 @@ angular.module('liftbroApp')
           templateUrl: 'app/workouts/partials/add-workout/partials/add-set.html'
         })
         .state('dashboard.workout-single.edit-reps', {
-          templateUrl: 'app/workouts/partials/single/partials/edit-reps.html'
+          templateUrl: 'app/workouts/partials/add-workout/partials/edit-reps.html'
         });
   });

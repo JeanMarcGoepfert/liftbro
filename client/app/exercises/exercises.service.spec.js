@@ -67,27 +67,4 @@ describe('Service: Exercises', function () {
 
     httpBackend.flush();
   });
-
-  it('should update an exercise', function() {
-    Exercises.list = sampleData;
-    var newExercise = {_id: '111', name: 'Pullup', metric: 'kg'};
-    httpBackend.whenPUT('/api/exercises/111', newExercise).respond(newExercise);
-
-    Exercises.update(Exercises.list[0], newExercise).then(function(res) {
-      expect(res.name).toEqual(newExercise.name);
-      expect(res).toEqual(sampleData[0]);
-    });
-  });
-
-  it('should delete an item and remove it from list', function() {
-    Exercises.list = sampleData;
-    var itemToDelete = Exercises[1];
-    httpBackend.whenDELETE('/api/delete/222').respond(itemToDelete);
-
-    Exercises.delete(Exercises.list[1]).then(function(res) {
-      expect(res).toEqual(itemToDelete);
-      expect(Exercises.list.indexOf(itemToDelete)).toEqual(-1);
-    });
-  });
-
 });

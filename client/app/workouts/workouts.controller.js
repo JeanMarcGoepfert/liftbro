@@ -6,10 +6,13 @@ angular.module('liftbroApp')
     $scope.exercises = { list: [] };
     $scope.workouts = { workout: { sets: [] }, list: [], limit: 10, count: undefined, editingReps: {} };
     $scope.sets = { newSet: { repeating: false, reps: [] } };
+    $scope.rootState = '^.choose-exercise';
+
 
     //setup for single workout
     if ($state.params.id) {
       $scope.workouts.workout = Workouts.single;
+      $scope.rootState = '^.intro-stats';
     }
 
     //always need all exercises

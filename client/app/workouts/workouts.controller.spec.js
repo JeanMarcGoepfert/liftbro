@@ -69,8 +69,5 @@ describe('Controller: WorkoutsCtrl', function () {
     scope.selectExercise(selectedExercise);
 
     expect(scope.exercises.selectedExercise).toEqual(selectedExercise);
-    expect(scope.sets.newSet.exerciseId).toEqual(selectedExercise._id);
-    expect(scope.sets.newSet.exerciseName).toEqual(selectedExercise.name);
-    expect(scope.sets.newSet.exerciseMetric).toEqual(selectedExercise.metric);
   });
 });
