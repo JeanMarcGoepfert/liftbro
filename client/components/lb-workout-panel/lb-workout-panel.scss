@@ -1,0 +1,55 @@
+.lb-workout-panel {
+  .list-group-item {
+    overflow: hidden;
+  }
+  .edit-options {
+      @include transition(right ease-in-out 0.2s);
+      position: absolute;
+      right: -60px;
+      top: 0;
+      height: 100%;
+      padding: 10px;
+      border-radius: 0;
+      border: 0;
+      border-left: 1px solid #eee;
+  }
+  .show-edit-options {
+    .edit-options {
+      right: 0;
+    }
+  }
+  .list-header {
+    .show-edit {
+      margin-right: 0;
+      @include transition(margin-right ease-in-out 0.2s);
+    }
+    .glyphicon-remove {
+      display: none;
+    }
+    .glyphicon-edit {
+      display: block;
+    }
+    &.show-edit-options {
+      .show-edit {
+        margin-right: 40px;
+      }
+      .glyphicon-remove {
+        display: block;
+      }
+      .glyphicon-edit {
+        display: none;
+      }
+    }
+    .edit-options {
+      opacity: 0;
+      right: -60px;
+      background-color: lighten($brand-info, 20%);
+    }
+    &.show-edit-options {
+      .edit-options {
+        opacity: 1;
+        right: 0;
+      }
+    }
+  }
+}
