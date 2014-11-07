@@ -16,7 +16,8 @@
 
   <div class="list-group">
     <div ng-repeat-start="sets in workouts.workout.sets"
-         class="list-group-item list-header list-group-item-info row-item-{{$index}}">
+         class="list-group-item list-header list-group-item-info row-item-{{$index}}"
+         ng-class="{ 'show-edit-options': activeIndex === $index }">
          {{sets.exercise.name}}
       <div class="pull-right btn-xs edit-options">
         <a ng-click="selectExercise(sets.exercise, sets)"
@@ -43,6 +44,7 @@
     </div>
     <div ng-repeat-end="">
       <div class="list-group-item row-item-{{$parent.$index}}"
+           ng-class="{ 'show-edit-options': activeIndex === $parent.$index }"
            ng-repeat="reps in sets.reps">
            {{reps.amount}} reps with {{reps.weight}}{{sets.exercise.metric}}
         <div class="pull-right btn-xs edit-options">
