@@ -85,7 +85,7 @@ angular.module('liftbroApp')
         message: 'Workout created, nice one!',
         button: {
           text: 'View',
-          state: 'dashboard.workout-single({id:"'+ $scope.workouts.workout._id +'"})'
+          nghref: 'workouts/' + $scope.workouts.workout._id
         }
       });
     };
