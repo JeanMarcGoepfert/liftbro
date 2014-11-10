@@ -1,0 +1,82 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'update', '-g', 'bower' ]
+2 info using npm@1.4.24
+3 info using node@v0.10.29
+4 verbose node symlink /usr/local/bin/node
+5 verbose request where is /bower
+6 verbose request registry https://registry.npmjs.org/
+7 verbose request id 23c3b033cc541bbe
+8 verbose url raw /bower
+9 verbose url resolving [ 'https://registry.npmjs.org/', './bower' ]
+10 verbose url resolved https://registry.npmjs.org/bower
+11 verbose request where is https://registry.npmjs.org/bower
+12 info trying registry request attempt 1 at 20:24:19
+13 verbose etag "2C9MHUMYQWJZ6OPY4SUPHKHB5"
+14 http GET https://registry.npmjs.org/bower
+15 verbose request where is /bower
+16 verbose request registry https://registry.npmjs.org/
+17 verbose url raw /bower
+18 verbose url resolving [ 'https://registry.npmjs.org/', './bower' ]
+19 verbose url resolved https://registry.npmjs.org/bower
+20 verbose request where is https://registry.npmjs.org/bower
+21 info trying registry request attempt 1 at 20:24:20
+22 verbose etag "2C9MHUMYQWJZ6OPY4SUPHKHB5"
+23 http GET https://registry.npmjs.org/bower
+24 http 304 https://registry.npmjs.org/bower
+25 silly registry.get cb [ 304,
+25 silly registry.get   { date: 'Mon, 10 Nov 2014 09:24:20 GMT',
+25 silly registry.get     server: 'Apache',
+25 silly registry.get     via: '1.1 varnish',
+25 silly registry.get     'last-modified': 'Mon, 10 Nov 2014 09:24:00 GMT',
+25 silly registry.get     'cache-control': 'max-age=60',
+25 silly registry.get     etag: '"2C9MHUMYQWJZ6OPY4SUPHKHB5"',
+25 silly registry.get     age: '34',
+25 silly registry.get     'x-served-by': 'cache-syd1620-SYD',
+25 silly registry.get     'x-cache': 'HIT',
+25 silly registry.get     'x-cache-hits': '2',
+25 silly registry.get     'x-timer': 'S1415611460.428426,VS0,VE0',
+25 silly registry.get     vary: 'Accept',
+25 silly registry.get     'content-length': '0',
+25 silly registry.get     'keep-alive': 'timeout=10, max=50',
+25 silly registry.get     connection: 'Keep-Alive' } ]
+26 verbose etag https://registry.npmjs.org/bower from cache
+27 http 304 https://registry.npmjs.org/bower
+28 silly registry.get cb [ 304,
+28 silly registry.get   { date: 'Mon, 10 Nov 2014 09:24:20 GMT',
+28 silly registry.get     server: 'Apache',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     'last-modified': 'Mon, 10 Nov 2014 09:24:20 GMT',
+28 silly registry.get     'cache-control': 'max-age=60',
+28 silly registry.get     etag: '"2C9MHUMYQWJZ6OPY4SUPHKHB5"',
+28 silly registry.get     age: '34',
+28 silly registry.get     'x-served-by': 'cache-syd1621-SYD',
+28 silly registry.get     'x-cache': 'HIT',
+28 silly registry.get     'x-cache-hits': '1',
+28 silly registry.get     'x-timer': 'S1415611460.832699,VS0,VE0',
+28 silly registry.get     vary: 'Accept',
+28 silly registry.get     'content-length': '0',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 verbose etag https://registry.npmjs.org/bower from cache
+30 info outdated updating [ [ '/usr/local/lib/node_modules/meanio',
+30 info outdated     'bower',
+30 info outdated     '1.3.9',
+30 info outdated     '1.3.12',
+30 info outdated     '1.3.12',
+30 info outdated     '^1.3.8' ] ]
+31 error Failed to parse json
+31 error Unexpected end of input
+32 error File: /usr/local/lib/node_modules/bower/node_modules/chalk/node_modules/supports-color/package.json
+33 error Failed to parse package.json data.
+33 error package.json must be actual JSON, not just JavaScript.
+33 error
+33 error This is not a bug in npm.
+33 error Tell the package author to fix their package.json file. JSON.parse
+34 error System Darwin 13.4.0
+35 error command "node" "/usr/local/bin/npm" "update" "-g" "bower"
+36 error cwd /Users/jeanmarcgoepfert/Develop/projects/liftbro
+37 error node -v v0.10.29
+38 error npm -v 1.4.24
+39 error file /usr/local/lib/node_modules/bower/node_modules/chalk/node_modules/supports-color/package.json
+40 error code EJSONPARSE
+41 verbose exit [ 1, true ]
