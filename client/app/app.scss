@@ -19,6 +19,16 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     left: 49%;
     top: 18px;
 }
+input.ng-dirty {
+  &.ng-valid {
+    border-color: $state-success-text;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
+  }
+  &.ng-invalid {
+    border-color: $state-danger-text;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
+  }
+}
 
 // Component styles are injected through grunt
 // injector

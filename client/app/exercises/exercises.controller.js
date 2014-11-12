@@ -15,7 +15,7 @@ angular.module('liftbroApp')
       console.log(err);
     });
 
-    $scope.addExercise = function(exercise) {
+    $scope.addExercise = function(exercise, form) {
       Exercises.add(exercise)
       .then(function(data) {
         $scope.exercises.addExercise = {};
@@ -23,5 +23,7 @@ angular.module('liftbroApp')
         //todo error handle
         console.log(err);
       });
+
+      form.$setPristine(true);
     };
   });

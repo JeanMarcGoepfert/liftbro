@@ -6,26 +6,36 @@
   </div>
   <div class="panel-body">
 
-    <form class="row">
-      <div class="col-md-4 form-group">
+    <form name="repForm" class="row" novalidate>
+      <div class="col-md-5 form-group">
         <input type="text"
                class="form-control"
+               name="amount"
+               required
+               ng-pattern="/[0-9]/"
                ng-model="workouts.editingReps.amount"
-               placeholder="amount"> reps of
+               placeholder="amount">
+        <p ng-show="repForm.amount.$invalid && !repForm.amount.$pristine" class="text-danger">Enter a number</p>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-2"><p>reps of</p></div>
+
+      <div class="col-md-5">
         <input type="text"
                class="form-control"
+               name="weight"
                ng-model="workouts.editingReps.weight"
                placeholder="weight">
+        <p ng-show="repForm.weight.$invalid && !repForm.weight.$pristine" class="text-danger">Enter a number</p>
       </div>
     </form>
   </div>
 
   <div class="panel-footer clearfix">
     <div class="pull-right">
-      All good? <button ng-click="updateReps(workouts.editingReps, rootState)" class="btn btn-primary">Save</button>
+      All good? <button ng-disabled="repForm.$invalid"
+                        ng-click="updateReps(workouts.editingReps, rootState, form)"
+                        class="btn btn-primary">Save</button>
     </div>
   </div>
 

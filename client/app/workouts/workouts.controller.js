@@ -59,7 +59,7 @@ angular.module('liftbroApp')
       });
     };
 
-    $scope.createNewReps = function(reps) {
+    $scope.createNewReps = function(reps, form) {
       //create new workout first if it hasn't been created yet
       if (!$scope.workouts.workout._id) {
         Workouts.add({})
@@ -70,6 +70,8 @@ angular.module('liftbroApp')
       } else {
         addRepsToSet(reps);
       }
+
+      form.$setPristine(true);
     };
 
     $scope.finishSet = function() {
@@ -180,7 +182,7 @@ angular.module('liftbroApp')
       $state.go('^.edit-reps');
     };
 
-    $scope.updateReps = function(reps, state) {
+    $scope.updateReps = function(reps, state, form) {
       var workout = $scope.workouts.workout;
 
       $scope.sets.newSet = workout.sets[reps.setIndex];
@@ -190,6 +192,8 @@ angular.module('liftbroApp')
         $state.go(state);
         Alert.set({ type: 'success', message: 'Reps updated' });
       });
+
+      form.$setPristine(true);
     };
 
     function addRepsToNewSet() {

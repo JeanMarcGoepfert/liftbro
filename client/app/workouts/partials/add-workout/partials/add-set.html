@@ -8,21 +8,31 @@
 
     <p><strong>Add <span ng-if="sets.newSet.repeat">more</span> reps for {{exercises.selectedExercise.name}}</strong></p>
 
-    <form class="row">
+    <form name="repForm" class="row" novalidate>
       <div class="col-md-4 form-group">
         <input type="text"
                ng-model="sets.newReps.amount"
+               name="amount"
+               required
+               ng-pattern="/[0-9]/"
                placeholder="Amount"
                class="form-control">
+        <p ng-show="repForm.amount.$invalid && !repForm.amount.$pristine" class="text-danger">Enter a number</p>
       </div>
       <div class="col-md-4 form-group">
         <input type="text"
                ng-model="sets.newReps.weight"
+               name="weight"
+               required
+               ng-pattern="/[0-9]/"
                placeholder="Weight"
                class="form-control">
+        <p ng-show="repForm.weight.$invalid && !repForm.weight.$pristine" class="text-danger">Enter a number</p>
       </div>
       <div class="col-md-4">
-        <button ng-click="createNewReps(sets.newReps)" class="btn btn-default btn-block">Add Reps</button>
+        <button ng-click="createNewReps(sets.newReps, repForm)"
+                ng-disabled="repForm.$invalid"
+                class="btn btn-default btn-block">Add Reps</button>
       </div>
 
     </form>

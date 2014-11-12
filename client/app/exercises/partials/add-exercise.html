@@ -5,15 +5,33 @@
 
   <div class="panel-body">
 
-    <form name="newExercise" ng-submit="addExercise(exercises.addExercise)" class="row">
+    <form name="newExerciseForm" ng-submit="addExercise(exercises.addExercise, newExerciseForm)" class="row" novalidate>
       <div class="form-group col-md-5">
-        <input type="text" ng-model="exercises.addExercise.name" placeholder="Name (eg. Benchpress)" class="form-control">
+
+        <input type="text"
+               ng-model="exercises.addExercise.name"
+               placeholder="Name (eg. Benchpress)"
+               name="name"
+               required
+               class="form-control">
+        <p ng-show="newExerciseForm.name.$invalid && !newExerciseForm.name.$pristine" class="text-danger">Please enter a number</p>
+
       </div>
       <div class="form-group col-md-4">
-        <input type="text" ng-model="exercises.addExercise.metric" placeholder="Metric (eg. kg)" class="form-control">
+
+        <input type="text"
+               ng-model="exercises.addExercise.metric"
+               placeholder="Metric (eg. kg)"
+               name="metric"
+               required
+               class="form-control">
+        <p ng-show="newExerciseForm.metric.$invalid && !newExerciseForm.metric.$pristine" class="text-danger">Please enter a metric</p>
+
       </div>
       <div class="form-group col-md-3">
-        <button type="submit" class="btn btn-primary btn-block">Add</button>
+        <button type="submit"
+                class="btn btn-primary btn-block"
+                ng-disabled="newExerciseForm.$invalid">Add</button>
       </div>
     </form>
 
