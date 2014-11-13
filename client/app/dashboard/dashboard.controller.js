@@ -4,6 +4,7 @@ angular.module('liftbroApp')
   .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises) {
     $scope.workouts = {
       list: [],
+      recent: [1, 2, 3]
     };
     $scope.exercises = {
       list: [],

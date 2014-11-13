@@ -1,0 +1,21 @@
+<h4 class="text-center time-ago">{{data.daysAgo}} Day<span ng-if="data.daysAgo > 1">s</span> Ago</h4>
+
+<form class="form-group text-center">
+  <label class="radio-inline">
+    <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('reps')" value="reps" checked> Reps
+  </label>
+  <label class="radio-inline">
+    <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('weight')" value="weight"> Weight
+  </label>
+</form>
+
+<canvas></canvas>
+
+<div class="labels text-center">
+  <span class="label" style="background-color: #FDB45C">Benchpress</span>
+  <span class="label" style="background-color: #F7464A">Curl</span>
+  <span class="label" style="background-color: #46BFBD">Legpress</span>
+  <span class="label" style="background-color: #FDB45C">Benchpress</span>
+  <span class="label" style="background-color: #46BFBD">Legpress</span>
+  <span class="label" style="background-color: #F7464A">Curl</span>
+</div>
