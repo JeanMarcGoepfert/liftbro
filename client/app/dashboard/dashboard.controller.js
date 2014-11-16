@@ -10,24 +10,30 @@ angular.module('liftbroApp')
       list: [],
     };
 
-    Workouts.index(6)
-    .then(function(data) {
-      $scope.workouts.list = data;
-      getExercises();
-      getWorkoutPreviews(angular.copy($scope.workouts.list).splice(0, 3).map(function(val) { return val._id; }));
-    }, function(err) {
-      //todo handle error
-      console.log(err);
-    });
 
-    function getExercises() {
-      Exercises.index()
+    Workouts.getCount()
       .then(function(data) {
-        $scope.exercises.list = data;
+        $scope.workouts.count = data;
+      });
+
+    Workouts.index(6)
+      .then(function(data) {
+        $scope.workouts.list = data;
+        getExercises();
+        getWorkoutPreviews(angular.copy($scope.workouts.list).splice(0, 3).map(function(val) { return val._id; }));
       }, function(err) {
         //todo handle error
         console.log(err);
       });
+
+    function getExercises() {
+      Exercises.index()
+        .then(function(data) {
+          $scope.exercises.list = data;
+        }, function(err) {
+          //todo handle error
+          console.log(err);
+        });
     }
 
     function getWorkoutPreviews(workoutIds) {

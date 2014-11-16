@@ -60,3 +60,12 @@
     </div>
   </div>
 </div>
+
+<div ng-if="workouts.count >= 2">
+  <hr/>
+  <div class="well text-center">
+    <strong>Nice work, you've done {{workouts.count}} workouts! <a ui-sref="dashboard.workouts-index">See them all here</a></strong>
+  </div>
+  <hr/>
+</div>
+
