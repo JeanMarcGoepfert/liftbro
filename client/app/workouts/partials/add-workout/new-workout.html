@@ -14,8 +14,9 @@
   <div lb-workout-panel class="lb-workout-panel list-group"></div>
 
   <div ng-if="!workouts.workout.sets.length">
-    <div class="panel-body">
-      <-- add workout
+    <div class="panel-body text-center">
+      <p class="alert alert-info">Choose an exercise to get started</p>
+      <img class="hidden-xs" ng-src="/assets/images/left-arrow.png" alt="<-- Add exercise"/>
     </div>
 
   </div>

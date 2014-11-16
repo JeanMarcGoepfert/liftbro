@@ -49,13 +49,14 @@
 
 </div>
 
-<div class="page-header ng-scope">
-  <h3>Latest Workouts</h3>
-</div>
-
-<div class="row">
-  <div class="col-sm-4" ng-repeat="previews in workouts.previews | limitTo:3">
-    <div lb-doughnut-chart data="{{previews}}"></div>
+<div ng-if="workouts.previews.length">
+  <div class="page-header">
+    <h3>Latest Workouts</h3>
   </div>
 
+  <div class="row">
+    <div class="col-sm-4" ng-repeat="previews in workouts.previews | limitTo:3">
+      <div lb-doughnut-chart data="{{previews}}"></div>
+    </div>
+  </div>
 </div>

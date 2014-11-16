@@ -1,17 +1,22 @@
-<div ng-show="chartData.data.length">
-  <h4 class="text-center time-ago">{{chartData.dateCreated | amCalendar}}</h4>
-  <form class="form-group text-center">
-    <label class="radio-inline">
-      <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('totalAmount')" value="totalAmount" checked> Reps
-    </label>
-    <label class="radio-inline">
-      <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('totalWeight')" value="totalWeight"> Weight
-    </label>
-  </form>
-</div>
+<h4 class="text-center time-ago">
+  {{chartData.dateCreated | amCalendar}}
+</h4>
+
+<p class="text-center"><a class="btn btn-xs btn-primary" ng-href="workouts/{{originalData.workoutId}}">Show Workout</a></p>
+
+<form class="form-group text-center">
+  <label class="radio-inline">
+    <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('totalAmount')" value="totalAmount" checked> Reps
+  </label>
+  <label class="radio-inline">
+    <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('totalWeight')" value="totalWeight"> Weight
+  </label>
+</form>
 
 <canvas></canvas>
 
 <div class="labels text-center">
   <span class="label" ng-repeat="values in chartData.data" style="background-color:{{values.color}}">{{values.label}} ({{values.metric}})</span>
 </div>
+
+

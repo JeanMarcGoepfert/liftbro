@@ -66,7 +66,7 @@ exports.preview = function(req, res) {
 
     //find the workout, and add the sets in
     Workout.findById(req.params.id, function (err, workout) {
-      var preview = { dateCreated: workout.dateCreated,  sets: []},
+      var preview = { dateCreated: workout.dateCreated, workoutId: workout._id, sets: []},
           keyMap = {};
 
       if(err) { return handleError(res, err); }
