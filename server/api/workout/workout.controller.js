@@ -56,6 +56,53 @@ exports.show = function(req, res) {
   })
 };
 
+//get basic stats from workout - date, total reps, total weight etc
+exports.preview = function(req, res) {
+  //find the sets associated with workout id
+  Set.find({workoutId: req.params.id}, function(err, sets) {
+    if(err) { return handleError(res, err); }
+    if(!sets) { return res.send(404); }
+
+    //find the workout, and add the sets in
+    Workout.findById(req.params.id, function (err, workout) {
+      var preview = { dateCreated: workout.dateCreated,  sets: []},
+          keyMap = {};
+
+      if(err) { return handleError(res, err); }
+      if(!workout) { return res.send(404); }
+
+      workout.sets = sets.reverse();
+
+      workout.sets.forEach(function(val) {
+
+        var exerciseExists = keyMap.hasOwnProperty(val.exercise._id),
+            newSet = exerciseExists ? preview.sets[keyMap[val.exercise._id]] : {
+              exerciseId: val.exercise._id,
+              name: val.exercise.name,
+              metric: val.exercise.metric,
+              totalAmount: 0,
+              totalWeight: 0
+            };
+
+        val.reps.forEach(function(val) {
+          newSet.totalAmount += val.amount;
+          newSet.totalWeight += val.weight
+        });
+
+        if (exerciseExists) {
+          preview.sets[keyMap[val.exerciseId]] = newSet;
+        } else {
+          keyMap[val.exercise._id] = preview.sets.length;
+          preview.sets.push(newSet);
+        }
+      });
+
+      return res.json(preview);
+    });
+
+  })
+};
+
 // Creates a new workout in the DB.
 exports.create = function(req, res) {
   var workout = new Workout(req.body);

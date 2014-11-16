@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises) {
+  .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises, $http) {
     $scope.workouts = {
       list: [],
       recent: [1, 2, 3]
@@ -14,6 +14,15 @@ angular.module('liftbroApp')
     .then(function(data) {
       $scope.workouts.list = data;
       getExercises();
+
+        if ($scope.workouts.list.length) {
+          $http.get('/api/workouts/preview/' + $scope.workouts.list[0]._id)
+            .success(function(res) {
+              console.log(res);
+            });
+        }
+
+
     }, function(err) {
       //todo handle error
       console.log(err);
