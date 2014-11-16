@@ -4,7 +4,7 @@ angular.module('liftbroApp')
   .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises, $http) {
     $scope.workouts = {
       list: [],
-      recent: [1, 2, 3]
+      previews: []
     };
     $scope.exercises = {
       list: [],
@@ -14,15 +14,7 @@ angular.module('liftbroApp')
     .then(function(data) {
       $scope.workouts.list = data;
       getExercises();
-
-        if ($scope.workouts.list.length) {
-          $http.get('/api/workouts/preview/' + $scope.workouts.list[0]._id)
-            .success(function(res) {
-              console.log(res);
-            });
-        }
-
-
+      getWorkoutPreviews(angular.copy($scope.workouts.list).splice(0, 3).map(function(val) { return val._id; }));
     }, function(err) {
       //todo handle error
       console.log(err);
@@ -35,6 +27,18 @@ angular.module('liftbroApp')
       }, function(err) {
         //todo handle error
         console.log(err);
+      });
+    }
+
+    function getWorkoutPreviews(workoutIds) {
+      workoutIds.forEach(function(val) {
+        Workouts.preview(val)
+          .then(function(data) {
+            $scope.workouts.previews.push(data);
+          }, function(err) {
+            //todo handle error
+            console.log(err);
+          })
       });
     }
 

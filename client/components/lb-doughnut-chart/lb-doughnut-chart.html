@@ -1,16 +1,17 @@
-<h4 class="text-center time-ago">{{data.daysAgo}} Day<span ng-if="data.daysAgo > 1">s</span> Ago</h4>
-
-<form class="form-group text-center">
-  <label class="radio-inline">
-    <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('reps')" value="reps" checked> Reps
-  </label>
-  <label class="radio-inline">
-    <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('weight')" value="weight"> Weight
-  </label>
-</form>
+<div ng-show="chartData.data.length">
+  <h4 class="text-center time-ago">{{chartData.dateCreated}} Day<span ng-if="data.daysAgo > 1">s</span> Ago</h4>
+  <form class="form-group text-center">
+    <label class="radio-inline">
+      <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('totalAmount')" value="totalAmount" checked> Reps
+    </label>
+    <label class="radio-inline">
+      <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('totalWeight')" value="totalWeight"> Weight
+    </label>
+  </form>
+</div>
 
 <canvas></canvas>
 
 <div class="labels text-center">
-  <span class="label" ng-repeat="values in data.chartValues" style="background-color:{{values.color}}">{{values.label}}</span>
+  <span class="label" ng-repeat="values in chartData.data" style="background-color:{{values.color}}">{{values.label}} ({{values.metric}})</span>
 </div>

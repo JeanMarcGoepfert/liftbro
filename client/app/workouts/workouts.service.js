@@ -103,6 +103,19 @@ angular.module('liftbroApp')
       return deferred.promise;
     };
 
+    service.preview = function(workoutId) {
+      var deffered = $q.defer();
+
+      $http.get('/api/workouts/preview/' + workoutId)
+        .success(function(res) {
+          deffered.resolve(res);
+        }, function(err) {
+          deffered.reject(err);
+        });
+
+      return deffered.promise;
+    };
+
     /*
     todo, do some caching on this.
     */

@@ -7,41 +7,62 @@ angular.module('liftbroApp')
       scope: {},
       templateUrl: '/components/lb-doughnut-chart/lb-doughnut-chart.html',
       controller: function($scope) {
-        $scope.selectedMetric = 'reps';
+        $scope.selectedMetric = 'totalAmount';
+        $scope.originalData = [];
+        $scope.chartData = {
+          dateCreated: '',
+          colors: ['#337ab7', '#5cb85c', '#f0ad4e', '#d9534f', '#5bc0de'],
+          highlights: ['#2e6da4', '#4cae4c', '#eea236', '#d43f3a', '#46b8da'],
+          data: []
+        };
+
+        $scope.formatDataForChart = function(selectedMetric) {
+          $scope.chartData.data = [];
+
+          $scope.originalData.sets.forEach(function(val, ind) {
+
+            $scope.chartData.data.push({
+              value: val[selectedMetric],
+              label: val.name,
+              metric: val.metric,
+              color: $scope.chartData.colors[parseInt(ind)],
+              highlight: $scope.chartData.highlights[ind]
+            });
+          });
+
+        };
 
         $scope.selectMetric = function(metric) {
-            $scope.chart.destroy();
-            $scope.chart = new window.Chart($scope.chartCanvas).Doughnut($scope.data.chartValues, $scope.chartOptions);
+          $scope.formatDataForChart(metric);
+          $scope.chartData.data.forEach(function(val, ind) {
+            $scope.chart.segments[ind].value = val.value;
+          });
+          //$scope.chart.segments = $scope.chartData.data;
+          $scope.chart.update();
         };
 
-        $scope.data = {
-            chartValues: [
-                {
-                    value: 300,
-                    color:'#F7464A',
-                    highlight: '#FF5A5E',
-                    label: 'Benchpress'
-                },
-                {
-                    value: 50,
-                    color: '#46BFBD',
-                    highlight: '#5AD3D1',
-                    label: 'Curl'
-                }
-            ]
-        };
+        $scope.buildChart = function(data, element) {
+          $scope.chartOptions = {
+            tooltipTemplate: '<%if (label){%><%=label%>: <%}%><%= value %>',
+            responsive: true
+          };
+
+          $scope.chartCanvas = element.find('canvas')[0].getContext('2d');
+
+          $scope.chart = new window.Chart($scope.chartCanvas).Doughnut(data, $scope.chartOptions);
+        }
       },
       link: function(scope, element, attr) {
-        scope.data.daysAgo = attr.data;
 
-        scope.chartOptions = {
-          tooltipTemplate: '<%if (label){%><%=label%>: <%}%><%= value %> reps',
-          responsive: true
-        };
+        attr.$observe('data', function(val) {
+          if (!val.length) { return; }
 
-        scope.chartCanvas = element.find('canvas')[0].getContext('2d');
+          scope.originalData = JSON.parse(val);
+          scope.chartData.dateCreated = scope.originalData.dateCreated;
+          scope.formatDataForChart(scope.selectedMetric);
+          scope.buildChart(scope.chartData.data, element);
+        });
 
-        scope.chart = new window.Chart(scope.chartCanvas).Doughnut(scope.data.chartValues, scope.chartOptions);
       }
     };
   });

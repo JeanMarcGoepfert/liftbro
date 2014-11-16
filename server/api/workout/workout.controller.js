@@ -3,6 +3,7 @@
  * GET     /workouts              ->  index
  * POST    /workouts              ->  create
  * GET     /workouts/:id          ->  show
+ * GET     /workouts/preview/:id  1->  preview
  * PUT     /workouts/:id          ->  update
  * DELETE  /workouts/:id          ->  destroy
  */
