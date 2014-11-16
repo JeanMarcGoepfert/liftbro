@@ -1,5 +1,5 @@
 <div ng-show="chartData.data.length">
-  <h4 class="text-center time-ago">{{chartData.dateCreated}} Day<span ng-if="data.daysAgo > 1">s</span> Ago</h4>
+  <h4 class="text-center time-ago">{{chartData.dateCreated | amCalendar}}</h4>
   <form class="form-group text-center">
     <label class="radio-inline">
       <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('totalAmount')" value="totalAmount" checked> Reps

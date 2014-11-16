@@ -35,6 +35,20 @@ User.find({}).remove(function() {
       }, function() {
         console.log('Benchpress created')
       });
+      Exercise.create({
+        userId: res._id,
+        name: 'Curl',
+        metric: 'Kg'
+      }, function() {
+        console.log('Curl created')
+      });
+      Exercise.create({
+        userId: res._id,
+        name: 'Legpress',
+        metric: 'Kg'
+      }, function() {
+        console.log('Legpress created')
+      });
     }
   );
 });

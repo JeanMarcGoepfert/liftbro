@@ -11,8 +11,8 @@ angular.module('liftbroApp')
         $scope.originalData = [];
         $scope.chartData = {
           dateCreated: '',
-          colors: ['#337ab7', '#5cb85c', '#f0ad4e', '#d9534f', '#5bc0de'],
-          highlights: ['#2e6da4', '#4cae4c', '#eea236', '#d43f3a', '#46b8da'],
+          colors: ['#337ab7', '#5cb85c', '#f0ad4e', '#d9534f', '#5bc0de', '#bd91ef', '#21bbab'],
+          highlights: ['#2e6da4', '#4cae4c', '#eea236', '#d43f3a', '#46b8da', '#ab7fdd', '#1dac9d'],
           data: []
         };
 
@@ -25,11 +25,10 @@ angular.module('liftbroApp')
               value: val[selectedMetric],
               label: val.name,
               metric: val.metric,
-              color: $scope.chartData.colors[parseInt(ind)],
-              highlight: $scope.chartData.highlights[ind]
+              color: $scope.chartData.colors[ind] || $scope.chartData.colors[0 + ind % $scope.chartData.colors.length],
+              highlight: $scope.chartData.highlights[ind] || $scope.chartData.highlights[0 + ind % $scope.chartData.highlights.length]
             });
           });
-
         };
 
         $scope.selectMetric = function(metric) {
@@ -37,7 +36,7 @@ angular.module('liftbroApp')
           $scope.chartData.data.forEach(function(val, ind) {
             $scope.chart.segments[ind].value = val.value;
           });
-          //$scope.chart.segments = $scope.chartData.data;
+
           $scope.chart.update();
         };
 
