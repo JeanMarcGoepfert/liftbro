@@ -39,6 +39,18 @@ angular.module('liftbroApp')
                     color:'#F7464A',
                     highlight: '#FF5A5E',
                     label: 'Benchpress'
+                },
+                {
+                    value: 100,
+                    color: '#FDB45C',
+                    highlight: '#FFC870',
+                    label: 'Legpress'
+                },
+                {
+                    value: 300,
+                    color:'#F7464A',
+                    highlight: '#FF5A5E',
+                    label: 'Benchpress'
                 }
             ]
         };

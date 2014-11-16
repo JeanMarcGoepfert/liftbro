@@ -12,10 +12,5 @@
 <canvas></canvas>
 
 <div class="labels text-center">
-  <span class="label" style="background-color: #FDB45C">Benchpress</span>
-  <span class="label" style="background-color: #F7464A">Curl</span>
-  <span class="label" style="background-color: #46BFBD">Legpress</span>
-  <span class="label" style="background-color: #FDB45C">Benchpress</span>
-  <span class="label" style="background-color: #46BFBD">Legpress</span>
-  <span class="label" style="background-color: #F7464A">Curl</span>
+  <span class="label" ng-repeat="values in data.chartValues" style="background-color:{{values.color}}">{{values.label}}</span>
 </div>

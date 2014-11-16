@@ -1,6 +1,10 @@
 div[lb-doughnut-chart] {
   .labels {
     max-width: 80%;
-    margin: 0 auto;
+    margin: 10px auto;
+    .label {
+      margin: 2px;
+      display: inline-block;
+    }
   }
 }
