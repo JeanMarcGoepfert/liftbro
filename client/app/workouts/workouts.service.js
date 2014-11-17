@@ -61,6 +61,7 @@ angular.module('liftbroApp')
             console.error('Could not find workout in workout service store.');
           }
 
+          service.count--;
           delete service.previews[workout._id];
           deferred.resolve();
       }, function(err) {
@@ -154,6 +155,7 @@ angular.module('liftbroApp')
         $http.get('/api/workouts/count')
           .success(function(res) {
             service.count = res;
+            service.counted = true;
             deferred.resolve(res);
           }, function(err) {
             deferred.reject(err);

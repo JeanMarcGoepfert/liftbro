@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="233730ec-13bb-46cc-9200-c75084431ead" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/app.js" afterPath="$PROJECT_DIR$/client/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/dashboard/dashboard.html" afterPath="$PROJECT_DIR$/client/app/dashboard/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/lb-doughnut-chart/lb-doughnut-chart.html" afterPath="$PROJECT_DIR$/client/components/lb-doughnut-chart/lb-doughnut-chart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/sets/sets.service.js" afterPath="$PROJECT_DIR$/client/app/sets/sets.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/dashboard/partials/stats.html" afterPath="$PROJECT_DIR$/client/app/dashboard/partials/stats.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/workouts/workouts.controller.js" afterPath="$PROJECT_DIR$/client/app/workouts/workouts.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/workouts/workouts.service.js" afterPath="$PROJECT_DIR$/client/app/workouts/workouts.service.js" />
     </list>
     <ignored path="liftbro.iws" />
@@ -77,8 +71,8 @@
       <file leaf-file-name="workouts.service.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46633416" vertical-offset="1564" max-vertical-offset="2941">
-              <caret line="114" column="40" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.5087282" vertical-offset="816" max-vertical-offset="2975">
+              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1008,7 +1002,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="776">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1416169393000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1416223545000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1248,8 +1242,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46633416" vertical-offset="1564" max-vertical-offset="2941">
-          <caret line="114" column="40" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.5087282" vertical-offset="816" max-vertical-offset="2975">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding />
         </state>
       </provider>
