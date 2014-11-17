@@ -40,7 +40,7 @@ angular.module('liftbroApp')
       workoutIds.forEach(function(val) {
         Workouts.preview(val)
           .then(function(data) {
-            $scope.workouts.previews.push(data);
+            $scope.workouts.previews.unshift(data);
           }, function(err) {
             //todo handle error
             console.log(err);

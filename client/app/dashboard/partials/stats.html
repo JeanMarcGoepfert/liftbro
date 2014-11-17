@@ -55,7 +55,8 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-4" ng-repeat="previews in workouts.previews | limitTo:3">
+
+    <div class="col-sm-4" ng-repeat="previews in workouts.previews | orderBy:'dateCreated':true | limitTo:3">
       <div lb-doughnut-chart data="{{previews}}"></div>
     </div>
   </div>

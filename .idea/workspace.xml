@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="233730ec-13bb-46cc-9200-c75084431ead" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/workouts/workouts.service.js" afterPath="$PROJECT_DIR$/client/app/workouts/workouts.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js" afterPath="$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/dashboard/partials/stats.html" afterPath="$PROJECT_DIR$/client/app/dashboard/partials/stats.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="liftbro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stats.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="stats.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/app/dashboard/partials/stats.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8846154" vertical-offset="51" max-vertical-offset="1309">
-              <caret line="12" column="99" selection-start-line="12" selection-start-column="99" selection-end-line="12" selection-end-column="99" />
+            <state vertical-scroll-proportion="0.6056701" vertical-offset="516" max-vertical-offset="1326">
+              <caret line="58" column="96" selection-start-line="58" selection-start-column="90" selection-end-line="58" selection-end-column="96" />
               <folding />
             </state>
           </provider>
@@ -68,10 +70,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workouts.service.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="workouts.service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5087282" vertical-offset="816" max-vertical-offset="2975">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1816" max-vertical-offset="2975">
               <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding />
             </state>
@@ -122,7 +124,7 @@
         <entry file="file://$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="218" max-vertical-offset="1020">
-              <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+              <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -149,7 +151,6 @@
         <option value="$PROJECT_DIR$/dist/public/index.html" />
         <option value="$PROJECT_DIR$/client/app/exercises/exercises.controller.js" />
         <option value="$PROJECT_DIR$/client/app/sets/sets.controller.js" />
-        <option value="$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js" />
         <option value="$PROJECT_DIR$/client/.jshintrc" />
         <option value="$PROJECT_DIR$/client/app/workouts/workouts.controller.spec.js" />
         <option value="$PROJECT_DIR$/client/app/welcome/welcome.controller.spec.js" />
@@ -163,11 +164,12 @@
         <option value="$PROJECT_DIR$/client/components/lb-doughnut-chart/lb-doughnut-chart.directive.js" />
         <option value="$PROJECT_DIR$/client/app/dashboard/dashboard.html" />
         <option value="$PROJECT_DIR$/client/components/lb-doughnut-chart/lb-doughnut-chart.html" />
-        <option value="$PROJECT_DIR$/client/app/dashboard/partials/stats.html" />
         <option value="$PROJECT_DIR$/client/app/workouts/workouts.controller.js" />
         <option value="$PROJECT_DIR$/client/app/app.js" />
         <option value="$PROJECT_DIR$/client/app/sets/sets.service.js" />
         <option value="$PROJECT_DIR$/client/app/workouts/workouts.service.js" />
+        <option value="$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js" />
+        <option value="$PROJECT_DIR$/client/app/dashboard/partials/stats.html" />
       </list>
     </option>
   </component>
@@ -1002,7 +1004,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="776">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1416223545000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1416223984000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1174,14 +1176,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1020">
-          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="802">
@@ -1224,10 +1218,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/dashboard/partials/stats.html">
+    <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154" vertical-offset="51" max-vertical-offset="1309">
-          <caret line="12" column="99" selection-start-line="12" selection-start-column="99" selection-end-line="12" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1816" max-vertical-offset="2975">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="218" max-vertical-offset="1020">
+          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -1240,10 +1242,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.service.js">
+    <entry file="file://$PROJECT_DIR$/client/app/dashboard/partials/stats.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5087282" vertical-offset="816" max-vertical-offset="2975">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6056701" vertical-offset="516" max-vertical-offset="1326">
+          <caret line="58" column="96" selection-start-line="58" selection-start-column="90" selection-end-line="58" selection-end-column="96" />
           <folding />
         </state>
       </provider>
