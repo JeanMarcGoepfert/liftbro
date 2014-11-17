@@ -193,7 +193,9 @@ angular.module('liftbroApp')
         Alert.set({ type: 'success', message: 'Reps updated' });
       });
 
-      form.$setPristine(true);
+      if (form) {
+        form.$setPristine(true);
+      }
     };
 
     function addRepsToNewSet() {
@@ -228,11 +230,19 @@ angular.module('liftbroApp')
     function addWorkoutToList() {
       /*
       if workout exists in list, update it, otherwise prepend
-      new workout
+      new workout. Reverse loops as we're usually editing more recent workouts
       */
-      if (Workouts.list.length && Workouts.list[0]._id === $scope.workouts.workout._id) {
-        Workouts.list[0] = $scope.workouts.workout;
+      var listLength = Workouts.list.length;
+
+      if (!listLength) {
+        Workouts.list.unshift($scope.workouts.workout);
       } else {
+        for (var i = listLength - 1; i >= 0; i--) {
+          if (Workouts.list[i]._id === $scope.workouts.workout._id) {
+            Workouts.list[i] = $scope.workouts.workout;
+            return;
+          }
+        }
         Workouts.list.unshift($scope.workouts.workout);
       }
     }

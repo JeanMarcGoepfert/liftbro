@@ -51,7 +51,7 @@ angular.module('liftbroApp', [
       // Redirect to login if route requires auth and you're not logged in
       Auth.isLoggedInAsync(function(loggedIn) {
         if (next.authenticate && !loggedIn) {
-          $location.path('login');
+          $location.path('welcome');
         }
       });
     });

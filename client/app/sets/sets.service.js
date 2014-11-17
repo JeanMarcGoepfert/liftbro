@@ -1,18 +1,19 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .factory('Sets', function($q, $http) {
+  .factory('Sets', function($q, $http, Workouts) {
     var service = {};
 
     service.add = function(set, workoutId) {
       var deferred = $q.defer();
       set.workoutId = workoutId;
       $http.post('/api/sets/', set)
-      .success(function(res) {
-        deferred.resolve(res);
-      }, function(err) {
-        deferred.reject(err);
-      });
+        .success(function(res) {
+          delete Workouts.previews[workoutId];
+          deferred.resolve(res);
+        }, function(err) {
+          deferred.reject(err);
+        });
 
       return deferred.promise;
     };
@@ -21,11 +22,12 @@ angular.module('liftbroApp')
       var deferred = $q.defer();
 
       $http.put('/api/sets/' + setId, newSet)
-      .success(function(res) {
-        deferred.resolve(res);
-      }, function(err) {
-        deferred.reject(err);
-      });
+        .success(function(res) {
+          delete Workouts.previews[newSet.workoutId];
+          deferred.resolve(res);
+        }, function(err) {
+          deferred.reject(err);
+        });
 
       return deferred.promise;
     };
@@ -34,11 +36,12 @@ angular.module('liftbroApp')
       var deferred = $q.defer();
 
       $http.delete('/api/sets/' + set._id)
-      .success(function() {
-        deferred.resolve();
-      }, function(err) {
-        deferred.reject(err);
-      });
+        .success(function() {
+          delete Workouts.previews[set.workoutId];
+          deferred.resolve();
+        }, function(err) {
+          deferred.reject(err);
+        });
 
       return deferred.promise;
     };

@@ -10,7 +10,7 @@
       <div class="list-group">
         <div ng-repeat="workout in workouts.list | limitTo:5"
              class="list-group-item">
-             {{workout.dateCreated | amCalendar}} - {{workout.sets.length}} set<span ng-if="workout.sets.length > 1">s</span>
+             <span am-time-ago="workout.dateCreated"></span> - <span>{{workout.sets.length}}</span> set<span ng-if="workout.sets.length > 1">s</span>
              <a ng-href="workouts/{{workout._id}}" class="btn btn-default btn-xs pull-right">View</a>
         </div>
       </div>
