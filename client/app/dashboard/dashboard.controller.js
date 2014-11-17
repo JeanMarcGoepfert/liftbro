@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises, $http) {
+  .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises) {
     $scope.workouts = {
       list: [],
       previews: []
     };
     $scope.exercises = {
-      list: [],
+      list: []
     };
 
 
@@ -44,7 +44,7 @@ angular.module('liftbroApp')
           }, function(err) {
             //todo handle error
             console.log(err);
-          })
+          });
       });
     }
 

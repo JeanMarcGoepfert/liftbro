@@ -15,7 +15,7 @@ describe('Controller: DashboardCtrl', function () {
     });
   }));
 
-  it('should...', function () {
-    expect(2).toEqual(2);
-  });
+  //it('should...', function () {
+  //  expect(2).toEqual(2);
+  //});
 });

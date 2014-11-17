@@ -5,7 +5,7 @@ angular.module('liftbroApp')
     return {
       restrict: 'AE',
       scope: {},
-      templateUrl: '/components/lb-doughnut-chart/lb-doughnut-chart.html',
+      templateUrl: 'components/lb-doughnut-chart/lb-doughnut-chart.html',
       controller: function($scope) {
         $scope.selectedMetric = 'totalAmount';
         $scope.originalData = [];
@@ -49,7 +49,7 @@ angular.module('liftbroApp')
           $scope.chartCanvas = element.find('canvas')[0].getContext('2d');
 
           $scope.chart = new window.Chart($scope.chartCanvas).Doughnut(data, $scope.chartOptions);
-        }
+        };
       },
       link: function(scope, element, attr) {
 

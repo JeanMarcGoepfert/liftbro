@@ -17,7 +17,7 @@ angular.module('liftbroApp')
 
     $scope.addExercise = function(exercise, form) {
       Exercises.add(exercise)
-      .then(function(data) {
+      .then(function() {
         $scope.exercises.addExercise = {};
       }, function(err) {
         //todo error handle
