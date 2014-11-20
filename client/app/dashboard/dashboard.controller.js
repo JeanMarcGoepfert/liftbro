@@ -10,6 +10,7 @@ angular.module('liftbroApp')
       list: []
     };
 
+    if (!Auth.isLoggedIn()) { $state.go('login'); }
 
     Workouts.getCount()
       .then(function(data) {

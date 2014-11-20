@@ -4,7 +4,7 @@ angular.module('liftbroApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       title: 'Home',
-      link: 'welcome'
+      link: 'login'
     }];
 
     $scope.isCollapsed = true;
@@ -18,7 +18,8 @@ angular.module('liftbroApp')
 
     $scope.logout = function() {
       Auth.logout();
-      $location.path('/welcome');
+      $scope.menu[0].link = 'login';
+      $location.path('/login');
     };
 
     $scope.isActive = function(route) {

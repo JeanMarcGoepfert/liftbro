@@ -5,8 +5,7 @@ angular.module('liftbroApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'angular-loading-bar',
-  'angularMoment'
+  'angular-loading-bar'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
@@ -51,7 +50,7 @@ angular.module('liftbroApp', [
       // Redirect to login if route requires auth and you're not logged in
       Auth.isLoggedInAsync(function(loggedIn) {
         if (next.authenticate && !loggedIn) {
-          $location.path('welcome');
+          $location.path('/login');
         }
       });
     });

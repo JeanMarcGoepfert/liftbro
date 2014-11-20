@@ -3,3 +3,53 @@
 
 $btnText:                           #fff;
 $btnTextAlt:                        #000;
+
+.thing-form {
+  margin: 20px 0;
+}
+
+.welcome-banner {
+  border-bottom: none;
+  margin-top: -20px;
+}
+
+.welcome-banner h1 {
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.hero-unit {
+  position: relative;
+  padding: 30px 15px;
+  color: #F5F5F5;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  background: #4393B9;
+  background-image: url(/assets/images/welcome-banner.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 70px;
+  border-top: 1px solid #E5E5E5;
+}
+
+.login {
+  max-width: 500px;
+  margin: 0 auto;
+  label {
+    display: block;
+    text-align: left;
+  }
+  button {
+    display: block;
+    @media (min-width: $screen-sm) {
+      margin-top: 25px;
+    }
+  }
+}
