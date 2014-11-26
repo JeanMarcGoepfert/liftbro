@@ -61,7 +61,6 @@ angular.module('liftbroApp')
           scope.formatDataForChart(scope.selectedMetric);
           scope.buildChart(scope.chartData.data, element);
         });
-
       }
     };
   });

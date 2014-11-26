@@ -5,7 +5,8 @@ angular.module('liftbroApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'angular-loading-bar'
+  'angular-loading-bar',
+  'angularMoment'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

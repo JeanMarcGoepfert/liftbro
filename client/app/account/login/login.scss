@@ -21,11 +21,11 @@ $btnTextAlt:                        #000;
 
 .hero-unit {
   position: relative;
-  padding: 30px 15px;
+  padding: 45px 15px 65px;
   color: #F5F5F5;
   text-align: center;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-  background: #4393B9;
+  background: #111;
   background-image: url(/assets/images/welcome-banner.jpg);
   background-size: cover;
   background-position: center center;
@@ -51,5 +51,8 @@ $btnTextAlt:                        #000;
     @media (min-width: $screen-sm) {
       margin-top: 25px;
     }
+  }
+  .has-error .help-block {
+    color: #e53c3c;
   }
 }

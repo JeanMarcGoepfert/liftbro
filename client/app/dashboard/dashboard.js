@@ -14,12 +14,10 @@ angular.module('liftbroApp')
           'home@dashboard': {
             controller: 'DashboardCtrl',
             templateUrl: 'app/dashboard/partials/stats.html',
-            authenticate: true
           },
           'alert@dashboard': {
             controller: 'AlertCtrl',
-            templateUrl: 'components/alert/alert.html',
-            authenticate: true
+            templateUrl: 'components/alert/alert.html'
           }
         }
       });

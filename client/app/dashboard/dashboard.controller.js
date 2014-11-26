@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises) {
+  .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises, Sets) {
     $scope.workouts = {
       list: [],
       previews: []
@@ -9,8 +9,9 @@ angular.module('liftbroApp')
     $scope.exercises = {
       list: []
     };
-
-    if (!Auth.isLoggedIn()) { $state.go('login'); }
+    $scope.sets = {
+      totals: {}
+    };
 
     Workouts.getCount()
       .then(function(data) {
@@ -22,6 +23,22 @@ angular.module('liftbroApp')
         $scope.workouts.list = data;
         getExercises();
         getWorkoutPreviews(angular.copy($scope.workouts.list).splice(0, 3).map(function(val) { return val._id; }));
+      }, function(err) {
+        //todo handle error
+        console.log(err);
+      });
+
+    Sets.getSetTotals()
+      .then(function(data) {
+        $scope.sets.totals.repsTotals = { labels: [], datasets: [{ data: [] }] };
+        $scope.sets.totals.weightTotals = { labels: [], datasets: [{ data: [] }] };
+        $scope.sets.startDate = data.startDate;
+        for (var key in data.totals) {
+          $scope.sets.totals.repsTotals.labels.push(data.totals[key].name);
+          $scope.sets.totals.weightTotals.labels.push(data.totals[key].name);
+          $scope.sets.totals.repsTotals.datasets[0].data.push(data.totals[key].totalReps);
+          $scope.sets.totals.weightTotals.datasets[0].data.push(data.totals[key].totalWeight);
+        }
       }, function(err) {
         //todo handle error
         console.log(err);

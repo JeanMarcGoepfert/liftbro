@@ -3,6 +3,7 @@
 angular.module('liftbroApp')
   .factory('Sets', function($q, $http, Workouts) {
     var service = {};
+    service.setTotals = { current: false };
 
     service.add = function(set, workoutId) {
       var deferred = $q.defer();
@@ -10,6 +11,7 @@ angular.module('liftbroApp')
       $http.post('/api/sets/', set)
         .success(function(res) {
           delete Workouts.previews[workoutId];
+          service.setTotals = {};
           deferred.resolve(res);
         }, function(err) {
           deferred.reject(err);
@@ -24,6 +26,7 @@ angular.module('liftbroApp')
       $http.put('/api/sets/' + setId, newSet)
         .success(function(res) {
           delete Workouts.previews[newSet.workoutId];
+          service.setTotals = {};
           deferred.resolve(res);
         }, function(err) {
           deferred.reject(err);
@@ -38,10 +41,28 @@ angular.module('liftbroApp')
       $http.delete('/api/sets/' + set._id)
         .success(function() {
           delete Workouts.previews[set.workoutId];
+          service.setTotals = {};
           deferred.resolve();
         }, function(err) {
           deferred.reject(err);
         });
+
+      return deferred.promise;
+    };
+
+    service.getSetTotals = function() {
+      var deferred = $q.defer();
+
+      if (service.setTotals.current) {
+        deferred.resolve(service.setTotals.total);
+      } else {
+        $http.get('/api/sets/getTotals')
+          .then(function(res) {
+            service.setTotals.total = res.data;
+            service.setTotals.current = true;
+            deferred.resolve(res.data);
+          });
+      }
 
       return deferred.promise;
     };

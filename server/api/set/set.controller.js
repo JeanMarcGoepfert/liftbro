@@ -13,6 +13,59 @@ var _ = require('lodash');
 var Set = require('./set.model');
 var Workout = require('../workout/workout.model');
 
+exports.getTotals = function(req, res) {
+  Set.find({userId: req.user._id}, function(err, sets) {
+    if(err) { return handleError(res, err); }
+    var sortedSets = { totals: {} };
+
+    if (sets.length) {
+      sortedSets.startDate = sets[0]._id.getTimestamp();
+    }
+
+    sets.forEach(function(val) {
+
+      var exId = val.exercise._id;
+      var repsSum = 0;
+      var weightSum = 0;
+
+      if (val.reps.length === 1) {
+        repsSum = val.reps[0].amount;
+        weightSum = val.reps[0].weight;
+      } else if (val.reps.length > 1) {
+        repsSum = val.reps.reduce(function(a, b) {
+          return a.amount + b.amount;
+        });
+        weightSum = val.reps.reduce(function(a, b) {
+          return a.weight + b.weight;
+        });
+      }
+
+      if (!sortedSets.totals.hasOwnProperty(exId)) {
+        sortedSets.totals[exId] = {
+          name: val.exercise.name,
+          totalReps: 0,
+          totalWeight: 0
+        };
+      }
+
+      sortedSets.totals[exId].totalReps += repsSum;
+      sortedSets.totals[exId].totalWeight += weightSum;
+
+    });
+
+    return res.json(200, sortedSets);
+  });
+};
+
+exports.index = function(req, res) {
+  Exercise.find({userId: req.user._id})
+    .sort({$natural: -1})
+    .exec(function(err, exercises) {
+      if(err) { return handleError(res, err); }
+      return res.json(200, exercises);
+    });
+};
+
 //removes set from db and setId from workout
 exports.destroy = function(req, res) {
   var workoutId;

@@ -63,10 +63,38 @@
 </div>
 
 <div ng-if="workouts.count >= 2">
-  <hr/>
-  <div class="well text-center">
-    <strong>Nice work, you've done {{workouts.count}} workouts! <a ui-sref="dashboard.workouts-index">See them all here</a></strong>
+  <div class="well text-center count-well">
+    <strong>Great work! you've done <span>{{workouts.count}}</span> workouts! <a ui-sref="dashboard.workouts-index">See them all here</a></strong>
   </div>
-  <hr/>
 </div>
 
+<div ng-if="sets.startDate">
+  <div class="page-header">
+    <h3>Totals - since <span>{{sets.startDate | date}}</span></h3>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Total Weight</h3></div>
+        <div class="panel-body">
+          <div lb-bar-chart data="{{sets.totals.weightTotals}}" dataindex="0"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Total Reps</h3></div>
+        <div class="panel-body">
+          <div lb-bar-chart data="{{sets.totals.repsTotals}}" dataindex="1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="well text-center count-well">
+    <strong>Ready for more?</strong> <a class="btn btn-success" ng-href="workouts/add">Add Workout</a>
+  </div>
+</div>

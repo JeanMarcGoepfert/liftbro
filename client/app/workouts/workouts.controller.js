@@ -17,24 +17,24 @@ angular.module('liftbroApp')
 
     //always need all exercises
     Exercises.index()
-    .then(function(data) {
-      $scope.exercises.list = data;
-    }, function(err) {
-      //todo - handle error correctly
-      console.log(err);
-    });
+      .then(function(data) {
+        $scope.exercises.list = data;
+      }, function(err) {
+        //todo - handle error correctly
+        console.log(err);
+      });
 
     //for workout index, initially fetch first 11 workouts
     if ($state.current.name === 'dashboard.workouts-index') {
       Workouts.index(11)
-      .then(function(data) {
-        $scope.workouts.list = data;
-      });
+        .then(function(data) {
+          $scope.workouts.list = data;
+        });
 
       Workouts.getCount()
-      .then(function(data) {
-        $scope.workouts.count = data;
-      });
+        .then(function(data) {
+          $scope.workouts.count = data;
+        });
     }
 
     $scope.selectExercise = function(exercise, set) {
@@ -51,22 +51,23 @@ angular.module('liftbroApp')
 
     $scope.addExercise = function(exercise) {
       Exercises.add(exercise)
-      .then(function(data) {
-        $scope.selectExercise(data);
-      }, function(err) {
-        //todo error handle
-        console.log(err);
-      });
+        .then(function(data) {
+          $scope.selectExercise(data);
+        }, function(err) {
+          //todo error handle
+          console.log(err);
+        });
     };
 
     $scope.createNewReps = function(reps, form) {
       //create new workout first if it hasn't been created yet
       if (!$scope.workouts.workout._id) {
         Workouts.add({})
-        .then(function(data) {
-          $scope.workouts.workout = data;
-          addRepsToSet(reps);
-        });
+          .then(function(data) {
+            $scope.workouts.workout = data;
+            Sets.setTotals = {};
+            addRepsToSet(reps);
+          });
       } else {
         addRepsToSet(reps);
       }
@@ -95,13 +96,13 @@ angular.module('liftbroApp')
     $scope.increaseWorkoutLimit = function() {
       var newLimit = $scope.workouts.limit + 10;
       Workouts.index(newLimit)
-      .then(function(data) {
-        $scope.workouts.list = data;
-        $scope.workouts.limit = newLimit;
-      }, function(err) {
-        //todo handle error
-        console.log(err);
-      });
+        .then(function(data) {
+          $scope.workouts.list = data;
+          $scope.workouts.limit = newLimit;
+        }, function(err) {
+          //todo handle error
+          console.log(err);
+        });
     };
 
     $scope.deleteWorkout = function(workout, confirmMsg) {
@@ -111,13 +112,14 @@ angular.module('liftbroApp')
       }
 
       Workouts.remove(workout)
-      .then(function() {
-        $state.go('dashboard');
-        Alert.set({ type: 'success', message: 'Workout deleted, better luck next time!' });
-      }, function(err) {
-        //todo handle error
-        console.log(err);
-      });
+        .then(function() {
+          Sets.setTotals = {};
+          $state.go('dashboard');
+          Alert.set({ type: 'success', message: 'Workout deleted, better luck next time!' });
+        }, function(err) {
+          //todo handle error
+          console.log(err);
+        });
     };
 
     $scope.deleteSet = function(setIndex) {
@@ -132,9 +134,9 @@ angular.module('liftbroApp')
         $scope.deleteWorkout(workout, 'This workout will be deleted, continue?');
       } else {
         Sets.remove(selectedSet)
-        .then(function() {
-          workout.sets.splice(setIndex, 1);
-        });
+          .then(function() {
+            workout.sets.splice(setIndex, 1);
+          });
       }
     };
 
@@ -150,9 +152,9 @@ angular.module('liftbroApp')
         setCopy.reps.splice(repsIndex, 1);
 
         Sets.update(selectedSet._id, setCopy)
-        .then(function(data) {
-          workout.sets[setIndex] = data;
-        });
+          .then(function(data) {
+            workout.sets[setIndex] = data;
+          });
       } else {
         $scope.deleteSet(setIndex);
       }
@@ -200,31 +202,31 @@ angular.module('liftbroApp')
 
     function addRepsToNewSet() {
       Sets.add($scope.sets.newSet, $scope.workouts.workout._id)
-      .then(function(data) {
-        $scope.sets.newSet = data;
-        addSetToWorkout(data);
-        addWorkoutToList();
-      });
+        .then(function(data) {
+          $scope.sets.newSet = data;
+          addSetToWorkout(data);
+          addWorkoutToList();
+        });
     }
 
     function addRepsToExistingSet(setIndex, callback) {
       Sets.update($scope.sets.newSet._id, $scope.sets.newSet)
-      .then(function(data) {
-        /*
-        get the index of the current set being edited ($scope.sets.newSet)
-        and pass through to addSetToWorkout function. In case of set
-        being added index will always be 0. But we need to account for
-        editing sets after workout has been created.
-        */
-        if (!angular.isNumber(setIndex)) {
-          setIndex = $scope.workouts.workout.sets.indexOf($scope.sets.newSet);
-        }
+        .then(function(data) {
+          /*
+          get the index of the current set being edited ($scope.sets.newSet)
+          and pass through to addSetToWorkout function. In case of set
+          being added index will always be 0. But we need to account for
+          editing sets after workout has been created.
+          */
+          if (!angular.isNumber(setIndex)) {
+            setIndex = $scope.workouts.workout.sets.indexOf($scope.sets.newSet);
+          }
 
-        $scope.sets.newSet = data;
-        addSetToWorkout(data, setIndex);
-        addWorkoutToList();
-        if (angular.isFunction(callback)) { callback(); }
-      });
+          $scope.sets.newSet = data;
+          addSetToWorkout(data, setIndex);
+          addWorkoutToList();
+          if (angular.isFunction(callback)) { callback(); }
+        });
     }
 
     function addWorkoutToList() {
