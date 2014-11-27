@@ -22,7 +22,7 @@ angular.module('liftbroApp')
       .then(function(data) {
         $scope.workouts.list = data;
         getExercises();
-        getWorkoutPreviews(angular.copy($scope.workouts.list).splice(0, 3).map(function(val) { return val._id; }));
+        getWorkoutPreviews(3);
       }, function(err) {
         //todo handle error
         console.log(err);
@@ -54,16 +54,14 @@ angular.module('liftbroApp')
         });
     }
 
-    function getWorkoutPreviews(workoutIds) {
-      workoutIds.forEach(function(val) {
-        Workouts.preview(val)
+    function getWorkoutPreviews(amount) {
+        Workouts.preview(amount)
           .then(function(data) {
-            $scope.workouts.previews.unshift(data);
+            $scope.workouts.previews = data;
           }, function(err) {
             //todo handle error
             console.log(err);
           });
-      });
     }
 
     $scope.viewWorkout = function(workout) {

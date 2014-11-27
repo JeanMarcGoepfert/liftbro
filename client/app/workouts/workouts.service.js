@@ -8,7 +8,7 @@ angular.module('liftbroApp')
       list: [],
       single: {},
       count: 0,
-      previews: {}
+      previews: []
     };
 
     service.add = function(workout) {
@@ -62,7 +62,7 @@ angular.module('liftbroApp')
           }
 
           service.count--;
-          delete service.previews[workout._id];
+          service.previews = [];
           deferred.resolve();
       }, function(err) {
         deferred.reject(err);
@@ -106,21 +106,23 @@ angular.module('liftbroApp')
       return deferred.promise;
     };
 
-    service.preview = function(workoutId) {
+    service.preview = function(amount) {
       var deffered = $q.defer();
 
       /*
       previews being cached, if workout, sets or reps are updated,
-      preview should be removed.
-
-      todo: find a better way to do this
+      preview should be removed
        */
-      if (service.previews.hasOwnProperty(workoutId)) {
-        deffered.resolve(service.previews[workoutId]);
+      if (service.previews.length) {
+        deffered.resolve(service.previews);
       } else {
-        $http.get('/api/workouts/preview/' + workoutId)
+        $http({
+          url: '/api/workouts/preview/',
+          method: 'GET',
+          params: {amount: amount}
+        })
           .success(function(res) {
-            service.previews[workoutId] = res;
+            service.previews = res;
             deffered.resolve(res);
           }, function(err) {
             deffered.reject(err);

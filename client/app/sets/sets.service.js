@@ -10,7 +10,7 @@ angular.module('liftbroApp')
       set.workoutId = workoutId;
       $http.post('/api/sets/', set)
         .success(function(res) {
-          delete Workouts.previews[workoutId];
+          Workouts.previews = [];
           service.setTotals = {};
           deferred.resolve(res);
         }, function(err) {
@@ -25,7 +25,7 @@ angular.module('liftbroApp')
 
       $http.put('/api/sets/' + setId, newSet)
         .success(function(res) {
-          delete Workouts.previews[newSet.workoutId];
+          Workouts.previews = [];
           service.setTotals = {};
           deferred.resolve(res);
         }, function(err) {
@@ -40,7 +40,7 @@ angular.module('liftbroApp')
 
       $http.delete('/api/sets/' + set._id)
         .success(function() {
-          delete Workouts.previews[set.workoutId];
+          Workouts.previews = [];
           service.setTotals = {};
           deferred.resolve();
         }, function(err) {

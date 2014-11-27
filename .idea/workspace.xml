@@ -2,25 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="233730ec-13bb-46cc-9200-c75084431ead" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/images/welcome-banner.jpg" afterPath="$PROJECT_DIR$/client/assets/images/welcome-banner.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/app.js" afterPath="$PROJECT_DIR$/client/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/app.scss" afterPath="$PROJECT_DIR$/client/app/app.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js" afterPath="$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/dashboard/dashboard.html" afterPath="$PROJECT_DIR$/client/app/dashboard/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/dashboard/dashboard.js" afterPath="$PROJECT_DIR$/client/app/dashboard/dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/dashboard/dashboard.scss" afterPath="$PROJECT_DIR$/client/app/dashboard/dashboard.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index.html" afterPath="$PROJECT_DIR$/client/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/set/index.js" afterPath="$PROJECT_DIR$/server/api/set/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/lb-doughnut-chart/lb-doughnut-chart.directive.js" afterPath="$PROJECT_DIR$/client/components/lb-doughnut-chart/lb-doughnut-chart.directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/account/login/login.controller.js" afterPath="$PROJECT_DIR$/client/app/account/login/login.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/account/login/login.html" afterPath="$PROJECT_DIR$/client/app/account/login/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/account/login/login.scss" afterPath="$PROJECT_DIR$/client/app/account/login/login.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/navbar/navbar.controller.js" afterPath="$PROJECT_DIR$/client/components/navbar/navbar.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/navbar/navbar.html" afterPath="$PROJECT_DIR$/client/components/navbar/navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/set/set.controller.js" afterPath="$PROJECT_DIR$/server/api/set/set.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/workout/index.js" afterPath="$PROJECT_DIR$/server/api/workout/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/sets/sets.service.js" afterPath="$PROJECT_DIR$/client/app/sets/sets.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/dashboard/partials/stats.html" afterPath="$PROJECT_DIR$/client/app/dashboard/partials/stats.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/workouts/workouts.controller.js" afterPath="$PROJECT_DIR$/client/app/workouts/workouts.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/workout/workout.controller.js" afterPath="$PROJECT_DIR$/server/api/workout/workout.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/workouts/workouts.service.js" afterPath="$PROJECT_DIR$/client/app/workouts/workouts.service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="liftbro.iws" />
@@ -48,8 +34,8 @@
       <file leaf-file-name="dashboard.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1326">
-              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1292">
+              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -58,58 +44,68 @@
       <file leaf-file-name="sets.service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/sets/sets.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1309">
-              <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
+            <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="1309">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="set.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/set/set.controller.js">
+      <file leaf-file-name="workouts.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="2414">
-              <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1674" max-vertical-offset="5168">
+              <caret line="124" column="43" selection-start-line="124" selection-start-column="43" selection-end-line="124" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lb-doughnut-chart.directive.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/components/lb-doughnut-chart/lb-doughnut-chart.directive.js">
+      <file leaf-file-name="workout.controller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/api/workout/workout.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1224">
-              <caret line="14" column="53" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.34289277" vertical-offset="1119" max-vertical-offset="2686">
+              <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lb-bar-chart.directive.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/components/lb-bar-chart/lb-bar-chart.directive.js">
+      <file leaf-file-name="workout.model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/api/workout/workout.model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="918">
-              <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bower.json">
+      <file leaf-file-name="workout.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/api/workout/workout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="527">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stats.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/app/dashboard/partials/stats.html">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/api/workout/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4523196" vertical-offset="1009" max-vertical-offset="1802">
-              <caret line="80" column="71" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+              <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workouts.service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="935" max-vertical-offset="3009">
+              <caret line="115" column="36" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -129,7 +125,6 @@
         <option value="$PROJECT_DIR$/server/config/seed.js" />
         <option value="$PROJECT_DIR$/client/app/workouts/partials/single/single.html" />
         <option value="$PROJECT_DIR$/client/app/workouts/partials/add-workout/new-workout.html" />
-        <option value="$PROJECT_DIR$/server/api/workout/workout.controller.js" />
         <option value="$PROJECT_DIR$/dist/public/index.html" />
         <option value="$PROJECT_DIR$/client/app/exercises/exercises.controller.js" />
         <option value="$PROJECT_DIR$/client/app/sets/sets.controller.js" />
@@ -158,16 +153,17 @@
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/client/components/lb-line-chart/lb-line-chart.directive.js" />
         <option value="$PROJECT_DIR$/client/app/dashboard/dashboard.html" />
-        <option value="$PROJECT_DIR$/server/api/workout/index.js" />
         <option value="$PROJECT_DIR$/server/api/set/index.js" />
-        <option value="$PROJECT_DIR$/client/app/workouts/workouts.service.js" />
         <option value="$PROJECT_DIR$/client/app/workouts/workouts.controller.js" />
-        <option value="$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js" />
         <option value="$PROJECT_DIR$/client/components/lb-doughnut-chart/lb-doughnut-chart.directive.js" />
-        <option value="$PROJECT_DIR$/client/app/sets/sets.service.js" />
         <option value="$PROJECT_DIR$/server/api/set/set.controller.js" />
         <option value="$PROJECT_DIR$/client/components/lb-bar-chart/lb-bar-chart.directive.js" />
         <option value="$PROJECT_DIR$/client/app/dashboard/partials/stats.html" />
+        <option value="$PROJECT_DIR$/server/api/workout/index.js" />
+        <option value="$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js" />
+        <option value="$PROJECT_DIR$/client/app/sets/sets.service.js" />
+        <option value="$PROJECT_DIR$/client/app/workouts/workouts.service.js" />
+        <option value="$PROJECT_DIR$/server/api/workout/workout.controller.js" />
       </list>
     </option>
   </component>
@@ -294,6 +290,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -312,7 +362,73 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -330,7 +446,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="dash&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/dashboard/dashboard.controller.js&#10;stats&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/dashboard/partials/stats.html&#10;sets.s&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/sets/sets.service.js&#10;lb-l&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/components/lb-bar-chart/lb-line-chart.directive.js&#10;ind&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/index.html&#10;inde&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/index.html&#10;index&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/index.html&#10;work&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/workouts/workouts.controller.js&#10;js&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/.jshintrc&#10;da&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/dashboard/dashboard.controller.js&#10;jshi&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/.jshintrc&#10;lb-w&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/components/lb-workout-panel/lb-workout-panel.directive.js&#10;lb-d&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/components/lb-doughnut-chart/lb-doughnut-chart.directive.js&#10;sets.c&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/sets/sets.controller.js&#10;exer&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/exercises/exercises.controller.js&#10;dashb&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/dashboard/dashboard.controller.js&#10;app.js&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/app.js&#10;lb-dou&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/components/lb-doughnut-chart/lb-doughnut-chart.html&#10;app&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/app.js" />
+    <property name="SearchEverywhereHistoryKey" value="stats&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/dashboard/partials/stats.html&#10;workouts.s&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/workouts/workouts.service.js&#10;dash&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/dashboard/dashboard.controller.js&#10;sets.s&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/sets/sets.service.js&#10;lb-l&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/components/lb-bar-chart/lb-line-chart.directive.js&#10;ind&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/index.html&#10;inde&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/index.html&#10;index&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/index.html&#10;work&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/workouts/workouts.controller.js&#10;js&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/.jshintrc&#10;da&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/dashboard/dashboard.controller.js&#10;jshi&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/.jshintrc&#10;lb-w&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/components/lb-workout-panel/lb-workout-panel.directive.js&#10;lb-d&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/components/lb-doughnut-chart/lb-doughnut-chart.directive.js&#10;sets.c&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/sets/sets.controller.js&#10;exer&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/exercises/exercises.controller.js&#10;dashb&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/dashboard/dashboard.controller.js&#10;app.js&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/app.js&#10;lb-dou&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/components/lb-doughnut-chart/lb-doughnut-chart.html&#10;app&#9;FILE&#9;file:///Users/jeanmarcgoepfert/Develop/projects/liftbro/client/app/app.js" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="146" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="147" />
@@ -356,14 +472,10 @@
       <ConfigurationWrapper RunnerId="debuggableProgram" />
       <method />
     </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <method />
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -371,6 +483,10 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -445,20 +561,20 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24861111" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25625" sideWeight="0.49638554" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2375" sideWeight="0.49638554" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38896188" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.49964765" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25625" sideWeight="0.5036145" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2375" sideWeight="0.5036145" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5003524" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -485,20 +601,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.controller.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/exercises/exercises.controller.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="4" selection-end-line="19" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/exercises/exercises.service.spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
@@ -524,7 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
           <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -724,13 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/workout/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2755611" vertical-offset="0" max-vertical-offset="802">
-          <caret line="13" column="66" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2543641" vertical-offset="0" max-vertical-offset="802">
@@ -749,27 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1088">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/workout/workout.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46633416" vertical-offset="0" max-vertical-offset="2380">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.807693" vertical-offset="2199" max-vertical-offset="2975">
-          <caret line="152" column="40" selection-start-line="152" selection-start-column="40" selection-end-line="152" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2759" max-vertical-offset="5168">
-          <caret line="172" column="31" selection-start-line="172" selection-start-column="31" selection-end-line="172" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -802,25 +875,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1326">
-          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/sets/sets.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1309">
-          <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="527">
+        <state vertical-scroll-proportion="0.3943299" vertical-offset="0" max-vertical-offset="776">
           <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding />
         </state>
@@ -828,7 +885,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/api/set/set.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="2414">
+        <state vertical-scroll-proportion="0.44513714" vertical-offset="391" max-vertical-offset="2414">
           <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
           <folding />
         </state>
@@ -836,7 +893,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/components/lb-bar-chart/lb-bar-chart.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="918">
+        <state vertical-scroll-proportion="0.4064838" vertical-offset="99" max-vertical-offset="918">
           <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
           <folding />
         </state>
@@ -844,8 +901,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/dashboard/partials/stats.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4523196" vertical-offset="1009" max-vertical-offset="1802">
-          <caret line="80" column="71" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.43814433" vertical-offset="629" max-vertical-offset="1802">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/workout/workout.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="802">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/workout/workout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="802">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/workout/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1292">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/sets/sets.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="1309">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1674" max-vertical-offset="5168">
+          <caret line="124" column="43" selection-start-line="124" selection-start-column="43" selection-end-line="124" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/workouts/workouts.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="935" max-vertical-offset="3009">
+          <caret line="115" column="36" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/workout/workout.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34289277" vertical-offset="1119" max-vertical-offset="2686">
+          <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
           <folding />
         </state>
       </provider>
