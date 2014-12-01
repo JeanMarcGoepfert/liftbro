@@ -34,7 +34,7 @@ angular.module('liftbroApp')
       },
       link: function(scope, element, attr) {
 
-        scope.index = attr['dataindex'];
+        scope.index = attr.dataindex;
 
         attr.$observe('data', function(val) {
           if (!val.length) { return; }

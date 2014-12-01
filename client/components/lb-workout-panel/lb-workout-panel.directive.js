@@ -6,7 +6,7 @@ angular.module('liftbroApp')
       restrict: 'AE',
       scope: true,
       templateUrl: 'components/lb-workout-panel/lb-workout-panel.html',
-      link: function(scope, element) {
+      link: function(scope) {
 
         scope.showEditOptions = function(elIndex) {
           scope.hideEditOptions();

@@ -75,7 +75,7 @@ angular.module('liftbroApp')
     };
 
     $scope.finishSet = function(state) {
-      state = state || ''
+      state = state || '';
       resetNewSet();
       if ($state.current.name === 'dashboard.workout-single.add-set') {
         $state.go('dashboard.workout-single.intro-stats');
