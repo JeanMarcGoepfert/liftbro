@@ -62,9 +62,9 @@
   </div>
 </div>
 
-<div ng-if="workouts.count >= 2">
+<div ng-if="workouts.count">
   <div class="well text-center count-well">
-    <strong>Great work! you've done <span>{{workouts.count}}</span> workouts! <a ui-sref="dashboard.workouts-index">See them all here</a></strong>
+    <strong>Great work! you've done <span>{{workouts.count}}</span> workout<span ng-if="workouts.count > 1">s</span>! <a ui-sref="dashboard.workouts-index">See all workouts</a></strong>
   </div>
 </div>
 
@@ -78,7 +78,7 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="panel panel-default">
-        <div class="panel-heading"><h3 class="panel-title">Total Weight</h3></div>
+        <div class="panel-heading"><h3 class="panel-title">Total weight lifted over <span>{{workouts.count}}</span> workouts</h3></div>
         <div class="panel-body">
           <div lb-bar-chart data="{{sets.totals.weightTotals}}" dataindex="0"></div>
         </div>
@@ -86,7 +86,7 @@
     </div>
     <div class="col-sm-6">
       <div class="panel panel-default">
-        <div class="panel-heading"><h3 class="panel-title">Total Reps</h3></div>
+        <div class="panel-heading"><h3 class="panel-title">Total reps completed over <span>{{workouts.count}}</span> workouts</h3></div>
         <div class="panel-body">
           <div lb-bar-chart data="{{sets.totals.repsTotals}}" dataindex="1"></div>
         </div>

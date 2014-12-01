@@ -1,0 +1,32 @@
+<div class="panel panel-default lb-workout-stats-bar-chart">
+
+  <div class="panel-heading">
+    <h3 class="panel-title">Workout Snapshot</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="chart-wrapper">
+      <form class="form-group text-center">
+        <label class="radio-inline">
+          <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('amount')" value="amount" checked> Reps
+        </label>
+        <label class="radio-inline">
+          <input type="radio" ng-model="selectedMetric" ng-change="selectMetric('weight')" value="weight"> Weight
+        </label>
+      </form>
+
+      <canvas class="lb-workout-stats-bar-chart"></canvas>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="row text-center">
+      <div class="col-sm-6 border-right">
+        <strong>Total Weight:</strong> <span>{{totals.weight}}</span>
+      </div>
+      <div class="col-sm-6">
+        <strong>Total Reps:</strong> <span>{{totals.amount}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>

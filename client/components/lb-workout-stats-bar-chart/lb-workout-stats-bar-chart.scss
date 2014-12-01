@@ -1,0 +1,11 @@
+.lb-workout-stats-bar-chart {
+  width: 100%;
+  .chart-wrapper {
+    overflow: hidden;
+  }
+  .border-right {
+    @media (min-width: $screen-sm) {
+      border-right: 1px solid #ccc;
+    }
+  }
+}

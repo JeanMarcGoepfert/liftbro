@@ -4,10 +4,9 @@ angular.module('liftbroApp')
   .controller('WorkoutsCtrl', function($scope, $state, Alert, Exercises, Workouts, Sets) {
     //setup for adding workouts
     $scope.exercises = { list: [] };
-    $scope.workouts = { workout: { sets: [] }, list: [], limit: 10, count: undefined, editingReps: {} };
+    $scope.workouts = { workout: { sets: [] }, list: [], limit: 10, count: undefined, editingReps: {}, chartStats: {} };
     $scope.sets = { newSet: { repeating: false, reps: [] } };
     $scope.rootState = '^.choose-exercise';
-
 
     //setup for single workout
     if ($state.params.id) {
@@ -75,9 +74,14 @@ angular.module('liftbroApp')
       form.$setPristine(true);
     };
 
-    $scope.finishSet = function() {
+    $scope.finishSet = function(state) {
+      state = state || ''
       resetNewSet();
-      $state.go('^.choose-exercise');
+      if ($state.current.name === 'dashboard.workout-single.add-set') {
+        $state.go('dashboard.workout-single.intro-stats');
+      } else {
+        $state.go('^.choose-exercise');
+      }
     };
 
     $scope.finishWorkout = function() {
