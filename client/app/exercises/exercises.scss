@@ -1,0 +1,28 @@
+.quick-stats {
+  padding-top: 0;
+  padding-bottom: 0;
+  > .item {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    &:nth-child(odd) {
+      @media (min-width: $screen-sm) {
+        border-right: 1px solid #eee;
+      }
+    }
+    & + .item {
+      border-top: 1px solid #eee;
+    }
+  }
+}
+
+.progress-chart {
+  .key {
+    margin-top: -2px;
+  }
+}
+
+.exercise-well {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  [a]
+}

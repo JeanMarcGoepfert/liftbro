@@ -17,5 +17,11 @@ angular.module('liftbroApp')
             templateUrl: 'app/exercises/partials/exercise-list.html',
           }
         }
+      })
+      .state('dashboard.exercise-single', {
+        url: 'exercises/:id',
+        authenticate: true,
+        controller: 'ExercisesCtrl',
+        templateUrl: 'app/exercises/partials/single.html'
       });
   });

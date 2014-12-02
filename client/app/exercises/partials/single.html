@@ -1,0 +1,45 @@
+<div class="page-header">
+  <h2>Benchpress
+    <a class="btn btn-primary pull-right" ui-sref="dashboard">Back to Dashboard</a>
+    <a class="btn btn-primary pull-right" ui-sref="dashboard">View All Exercises</a>
+  </h2>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Quick Stats</h3>
+  </div>
+  <div class="panel-body row quick-stats">
+    <div class="col-lg-6 item">
+      <strong>Total Reps:</strong> 213
+    </div>
+    <div class="col-lg-6 item">
+      <strong>Total Weight:</strong> 213kg
+    </div>
+    <div class="col-lg-6 item">
+      <strong>First Set:</strong> 40 Days ago
+    </div>
+    <div class="col-lg-6 item">
+      <strong>Latest Set:</strong> 1 Day ago
+    </div>
+  </div>
+</div>
+
+<div class="well text-center exercise-well">
+  <strong>Not bad, but you can do better! </strong> <a class="btn btn-success" ng-href="workouts/add">New Workout</a>
+</div>
+
+<div class="panel panel-default progress-chart">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Progress
+      <div class="pull-right key">
+        <span class="label label-primary">Reps</span>
+        <span class="label label-success">Weight</span>
+      </div>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div lb-line-chart></div>
+  </div>
+</div>
