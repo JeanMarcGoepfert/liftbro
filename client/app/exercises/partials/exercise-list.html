@@ -7,6 +7,7 @@
     <div ng-repeat="exercise in exercises.list"
          class="list-group-item">
          {{exercise.name}} ({{exercise.metric}})
+      <a ui-sref="dashboard.exercise-single({id: exercise._id})" class="btn btn-default btn-xs pull-right">View</a>
     </div>
   </div>
 

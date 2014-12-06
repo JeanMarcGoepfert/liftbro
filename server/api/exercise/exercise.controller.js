@@ -11,6 +11,7 @@
 
 var _ = require('lodash');
 var Exercise = require('./exercise.model');
+var Set = require('../set/set.model');
 
 // Get list of exercises
 exports.index = function(req, res) {
@@ -22,14 +23,50 @@ exports.index = function(req, res) {
   });
 };
 
-// Get a single exercise
-// exports.show = function(req, res) {
-//   Exercise.findById(req.params.id, function (err, exercise) {
-//     if(err) { return handleError(res, err); }
-//     if(!exercise) { return res.send(404); }
-//     return res.json(exercise);
-//   });
-// };
+// Get exercise stats
+exports.stats = function(req, res) {
+  Exercise.findById(req.params.id, function(err, exercise) {
+    if(err) { return handleError(res, err); }
+
+    Set.find({ 'exercise._id': req.params.id }, function(err, sets) {
+      if(err) { return handleError(res, err); }
+
+      var stats = {
+        name: exercise.name,
+        metric: exercise.metric,
+        totalReps: 0,
+        totalWeight: 0,
+        firstSetDate: sets.length ? sets[0]._id.getTimestamp() : undefined,
+        latestSetDate: sets.length ? sets[sets.length - 1]._id.getTimestamp() : undefined,
+        sets: []
+      };
+
+      sets.forEach(function(val) {
+        var repsAmount = 0,
+          repsWeight = 0;
+
+        if (val.reps.length === 1) {
+          repsAmount = val.reps[0].amount;
+          repsWeight = val.reps[0].weight;
+        } else if (val.reps.length > 1) {
+          repsAmount = val.reps.reduce(function(a, b) { return a.amount + b.amount });
+          repsWeight = val.reps.reduce(function(a, b) { return a.weight + b.weight });
+        }
+
+        stats.totalReps += repsAmount;
+        stats.totalWeight += repsWeight;
+
+        stats.sets.push({ date: val._id.getTimestamp(), weight: repsWeight, reps: repsAmount });
+      });
+
+      stats.sets.sort(function(obj1, obj2) {
+        return new Date(obj1.date) - new Date(obj2.date);
+      });
+
+      return res.json(200, stats);
+    });
+  });
+};
 
 // Creates a new exercise in the DB.
 exports.create = function(req, res) {
@@ -41,32 +78,6 @@ exports.create = function(req, res) {
     return res.json(201, exercise);
   });
 };
-
-// Updates an existing exercise in the DB.
-// exports.update = function(req, res) {
-//   if(req.body._id) { delete req.body._id; }
-//   Exercise.findById(req.params.id, function (err, exercise) {
-//     if (err) { return handleError(res, err); }
-//     if(!exercise) { return res.send(404); }
-//     var updated = _.merge(exercise, req.body);
-//     updated.save(function (err) {
-//       if (err) { return handleError(res, err); }
-//       return res.json(200, exercise);
-//     });
-//   });
-// };
-
-// Deletes an exercise from the DB.
-// exports.destroy = function(req, res) {
-//   Exercise.findById(req.params.id, function (err, exercise) {
-//     if(err) { return handleError(res, err); }
-//     if(!exercise) { return res.send(404); }
-//     exercise.remove(function(err) {
-//       if(err) { return handleError(res, err); }
-//       return res.send(204);
-//     });
-//   });
-// };
 
 function handleError(res, err) {
   return res.send(500, err);

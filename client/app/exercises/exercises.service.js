@@ -23,6 +23,20 @@ angular.module('liftbroApp')
       return deferred.promise;
     };
 
+    service.getSingleStats = function(id) {
+      var deferred = $q.defer();
+
+      $http.get('/api/exercises/' + id)
+        .success(function(data) {
+          deferred.resolve(data);
+        }, function (err) {
+          deferred.reject(err);
+        });
+
+
+      return deferred.promise;
+    };
+
     service.get = function(id) {
       var deferred = $q.defer();
 

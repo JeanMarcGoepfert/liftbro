@@ -21,7 +21,12 @@ angular.module('liftbroApp')
       .state('dashboard.exercise-single', {
         url: 'exercises/:id',
         authenticate: true,
-        controller: 'ExercisesCtrl',
-        templateUrl: 'app/exercises/partials/single.html'
+        controller: 'ExerciseSingleCtrl',
+        templateUrl: 'app/exercises/partials/single.html',
+        resolve: {
+          exerciseDetails: function(Exercises, $stateParams) {
+            return Exercises.getSingleStats($stateParams.id);
+          }
+        }
       });
   });

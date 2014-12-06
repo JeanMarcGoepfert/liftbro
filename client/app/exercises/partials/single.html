@@ -1,9 +1,10 @@
 <div class="page-header">
-  <h2>Benchpress
+  <h2><span>{{exerciseDetails.name}}</span>
     <a class="btn btn-primary pull-right" ui-sref="dashboard">Back to Dashboard</a>
-    <a class="btn btn-primary pull-right" ui-sref="dashboard">View All Exercises</a>
+    <a class="btn btn-primary pull-right" ui-sref="dashboard.exercises">View All Exercises</a>
   </h2>
 </div>
+
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -11,35 +12,39 @@
   </div>
   <div class="panel-body row quick-stats">
     <div class="col-lg-6 item">
-      <strong>Total Reps:</strong> 213
+      <strong>Total Reps:</strong> <span>{{exerciseDetails.totalReps}}</span>
     </div>
     <div class="col-lg-6 item">
-      <strong>Total Weight:</strong> 213kg
+      <strong>Total Weight:</strong> <span>{{exerciseDetails.totalWeight}}</span><span>{{exerciseDetails.metric}}</span>
     </div>
-    <div class="col-lg-6 item">
-      <strong>First Set:</strong> 40 Days ago
+    <div ng-if="exerciseDetails.sets.length" class="col-lg-6 item">
+      <strong>First Set:</strong> <span>{{exerciseDetails.firstSetDate | date}}</span>
     </div>
-    <div class="col-lg-6 item">
-      <strong>Latest Set:</strong> 1 Day ago
+    <div ng-if="exerciseDetails.sets.length" class="col-lg-6 item">
+      <strong>Latest Set:</strong> <span>{{exerciseDetails.latestSetDate | date}}</span>
     </div>
   </div>
 </div>
 
-<div class="well text-center exercise-well">
+<div ng-if="exerciseDetails.sets.length" class="well text-center exercise-well">
   <strong>Not bad, but you can do better! </strong> <a class="btn btn-success" ng-href="workouts/add">New Workout</a>
 </div>
 
-<div class="panel panel-default progress-chart">
+<div ng-if="exerciseDetails.sets.length" class="panel panel-default progress-chart">
   <div class="panel-heading">
     <h3 class="panel-title">
       Progress
       <div class="pull-right key">
         <span class="label label-primary">Reps</span>
-        <span class="label label-success">Weight</span>
+        <span class="label label-success">Weight (<span>{{exerciseDetails.metric}}</span>)</span>
       </div>
     </h3>
   </div>
   <div class="panel-body">
-    <div lb-line-chart></div>
+    <div lb-line-chart data="{{exerciseDetails.sets}}"></div>
   </div>
+</div>
+
+<div ng-if="!exerciseDetails.sets.length" class="well text-center exercise-well">
+  <strong>You haven't done any of these yet</strong> <a class="btn btn-success" ng-href="workouts/add">Get Started</a>
 </div>

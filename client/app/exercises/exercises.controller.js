@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .controller('ExercisesCtrl', function($scope, Exercises) {
+  .controller('ExercisesCtrl', function($scope, $state, Exercises, $http) {
     $scope.exercises = {
       newExercise: {}
     };
