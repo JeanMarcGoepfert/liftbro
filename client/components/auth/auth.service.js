@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
+  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q, Exercises, Sets, Workouts) {
     var currentUser = {};
     if($cookieStore.get('token')) {
       currentUser = User.get();
@@ -46,6 +46,7 @@ angular.module('liftbroApp')
        */
       logout: function() {
         $cookieStore.remove('token');
+        resetAllServices();
         currentUser = {};
       },
 
@@ -143,4 +144,21 @@ angular.module('liftbroApp')
         return $cookieStore.get('token');
       }
     };
+
+    function resetAllServices() {
+      /**
+       * Reset all services to avoid wrong data being shown when
+       * user logs out then back in with another account.
+       * Todo: find a more elegant way to do this (without page refresh)
+       */
+      Exercises.list = [];
+      Exercises.latest = {};
+      Sets.setTotals = { current: false };
+      Workouts.itemsRequested = 0;
+      Workouts.counted = false;
+      Workouts.list = [];
+      Workouts.single = {};
+      Workouts.count = 0;
+      Workouts.previews = [];
+    }
   });

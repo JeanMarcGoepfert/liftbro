@@ -49,8 +49,8 @@ exports.stats = function(req, res) {
           repsAmount = val.reps[0].amount;
           repsWeight = val.reps[0].weight;
         } else if (val.reps.length > 1) {
-          repsAmount = val.reps.reduce(function(a, b) { return a.amount + b.amount });
-          repsWeight = val.reps.reduce(function(a, b) { return a.weight + b.weight });
+          repsAmount = val.reps.reduceRight(function(a, b) { return a + b.amount }, 0);
+          repsWeight = val.reps.reduceRight(function(a, b) { return a + b.weight }, 0);
         }
 
         stats.totalReps += repsAmount;

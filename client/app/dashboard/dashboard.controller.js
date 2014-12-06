@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises, Sets) {
+  .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises, Sets, $cookieStore) {
+    console.log($cookieStore.get('token'));
     $scope.workouts = {
       list: [],
       previews: []

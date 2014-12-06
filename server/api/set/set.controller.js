@@ -32,12 +32,12 @@ exports.getTotals = function(req, res) {
         repsSum = val.reps[0].amount;
         weightSum = val.reps[0].weight;
       } else if (val.reps.length > 1) {
-        repsSum = val.reps.reduce(function(a, b) {
-          return a.amount + b.amount;
-        });
-        weightSum = val.reps.reduce(function(a, b) {
-          return a.weight + b.weight;
-        });
+        repsSum = val.reps.reduceRight(function(a, b) {
+          return a + b.amount;
+        }, 0);
+        weightSum = val.reps.reduceRight(function(a, b) {
+          return a + b.weight;
+        }, 0);
       }
 
       if (!sortedSets.totals.hasOwnProperty(exId)) {
