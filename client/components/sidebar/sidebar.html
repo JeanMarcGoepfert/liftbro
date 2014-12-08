@@ -1,5 +1,26 @@
-<ul class="nav nav-sidebar">
-  <li><a ui-sref="dashboard">Dashboard</a></li>
-  <li><a ui-sref="dashboard.exercises">Exercises</a></li>
-  <li><a ui-sref="dashboard.workouts-index">Workouts</a></li>
+<ul class="nav nav-sidebar" ng-controller="SidebarCtrl">
+  <li>
+    <a ui-sref="dashboard" ng-class="{active: currentState === 'dashboard'}">
+      <span class="glyphicon glyphicon-th"></span>
+      Dashboard
+    </a>
+  </li>
+  <li>
+    <a ui-sref="dashboard.exercises" ng-class="{active: currentState === 'dashboard.exercises'}">
+      <span class="glyphicon glyphicon-list"></span>
+      Exercises
+    </a>
+  </li>
+  <li>
+    <a ui-sref="dashboard.workouts-index" ng-class="{active: currentState === 'dashboard.workouts-index'}">
+      <span class="glyphicon glyphicon-magnet"></span>
+      Workouts
+    </a>
+  </li>
+  <li>
+    <a ui-sref="dashboard.settings" ng-class="{active: currentState === 'dashboard.settings'}">
+      <span class="glyphicon glyphicon-user"></span>
+      My Account
+    </a>
+  </li>
 </ul>

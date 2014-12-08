@@ -8,7 +8,8 @@ angular.module('liftbroApp')
       templateUrl: 'components/lb-workout-stats-bar-chart/lb-workout-stats-bar-chart.html',
       controller: function($scope) {
         $scope.selectedMetric = 'amount';
-        $scope.colors = { weight: ['#5cb85c', '#4cae4c'], amount: ['#f0ad4e', '#eea236']};
+
+        $scope.colors = { weight: ['#177bbb', '#146ca4'], amount: ['#1aae88', '#179877']};
         $scope.normalisedWorkout = {};
         $scope.totals = { amount: 0, weight: 0};
 

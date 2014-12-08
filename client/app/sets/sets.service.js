@@ -13,7 +13,8 @@ angular.module('liftbroApp')
           Workouts.previews = [];
           service.setTotals = {};
           deferred.resolve(res);
-        }, function(err) {
+        })
+        .error(function(err) {
           deferred.reject(err);
         });
 
@@ -28,7 +29,8 @@ angular.module('liftbroApp')
           Workouts.previews = [];
           service.setTotals = {};
           deferred.resolve(res);
-        }, function(err) {
+        })
+        .error(function(err) {
           deferred.reject(err);
         });
 
@@ -56,11 +58,15 @@ angular.module('liftbroApp')
       if (service.setTotals.current) {
         deferred.resolve(service.setTotals.total);
       } else {
+
         $http.get('/api/sets/getTotals')
-          .then(function(res) {
-            service.setTotals.total = res.data;
+          .success(function(res) {
+            service.setTotals.total = res;
             service.setTotals.current = true;
-            deferred.resolve(res.data);
+            deferred.resolve(res);
+          })
+          .error(function(err) {
+            deferred.reject(err);
           });
       }
 
@@ -69,3 +75,4 @@ angular.module('liftbroApp')
 
     return service;
   });
+

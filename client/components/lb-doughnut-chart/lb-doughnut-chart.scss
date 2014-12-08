@@ -7,4 +7,10 @@ div[lb-doughnut-chart] {
       display: inline-block;
     }
   }
+  canvas {
+    margin-bottom: 20px;
+  }
+  .panel-body {
+    padding-bottom: 5px;
+  }
 }

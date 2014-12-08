@@ -15,6 +15,14 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     padding: 0.2em 0;
 }
 
+body {
+  font-size: 13px;
+  background-color: #f2f4f8;
+  -webkit-font-smoothing: antialiased;
+  color: #788288;
+  line-height: 1.53846154;
+}
+
 #loading-bar-spinner {
     left: 49%;
     top: 18px;
@@ -33,6 +41,7 @@ input.ng-dirty {
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
+@import 'account/signup/signup.scss';
 @import 'admin/admin.scss';
 @import 'dashboard/dashboard.scss';
 @import 'exercises/exercises.scss';
@@ -44,4 +53,5 @@ input.ng-dirty {
 @import 'lb-line-chart/lb-line-chart.scss';
 @import 'lb-workout-panel/lb-workout-panel.scss';
 @import 'lb-workout-stats-bar-chart/lb-workout-stats-bar-chart.scss';
+@import 'sidebar/sidebar.scss';
 // endinjector

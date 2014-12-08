@@ -18,7 +18,8 @@ angular.module('liftbroApp')
         .success(function(res) {
           service.count++;
           deferred.resolve(res);
-        }, function(err) {
+        })
+        .error(function(err) {
           deferred.reject(err);
         });
 
@@ -64,7 +65,8 @@ angular.module('liftbroApp')
           service.count--;
           service.previews = [];
           deferred.resolve();
-      }, function(err) {
+        })
+        .error(function(err) {
         deferred.reject(err);
       });
 
@@ -98,7 +100,8 @@ angular.module('liftbroApp')
             if (end >= service.maxRequested) { service.maxRequested = end; }
             service.list = service.list.concat(res);
             deferred.resolve(service.list);
-          }, function(err) {
+          })
+          .error(function(err) {
             deferred.reject(err);
           });
       }
@@ -124,7 +127,8 @@ angular.module('liftbroApp')
           .success(function(res) {
             service.previews = res;
             deffered.resolve(res);
-          }, function(err) {
+          })
+          .error(function(err) {
             deffered.reject(err);
           });
       }
@@ -141,7 +145,8 @@ angular.module('liftbroApp')
         .success(function(res) {
           service.single = res;
           deferred.resolve(res);
-        }, function(err) {
+        })
+        .error(function(err) {
           deferred.reject(err);
         });
 
@@ -159,7 +164,8 @@ angular.module('liftbroApp')
             service.count = res;
             service.counted = true;
             deferred.resolve(res);
-          }, function(err) {
+          })
+          .error(function(err) {
             deferred.reject(err);
           });
       }

@@ -15,21 +15,21 @@ angular.module('liftbroApp')
               {
                 label: "Reps",
                 fillColor: "rgba(51,122,183,0.1)",
-                strokeColor: "rgba(51,122,183,1)",
-                pointColor: "rgba(51,122,183,0.5)",
-                pointStrokeColor: "rgba(51,122,183,1)",
-                pointHighlightFill: "rgba(51,122,183,1)",
-                pointHighlightStroke: "rgba(51,122,183,1)",
+                strokeColor: "#177bbb",
+                pointColor: "#177bbb",
+                pointStrokeColor: "#177bbb",
+                pointHighlightFill: "#177bbb",
+                pointHighlightStroke: "#146ca4",
                 data: []
               },
               {
                 label: "Weight",
                 fillColor: "rgba(92,184,92,0.1)",
-                strokeColor: "rgba(92,184,92,1)",
-                pointColor: "rgba(92,184,92,0.5)",
-                pointStrokeColor: "rgba(92,184,92,1)",
-                pointHighlightFill: "rgba(92,184,92,1)",
-                pointHighlightStroke: "rgba(92,184,92,1)",
+                strokeColor: "#1aae88",
+                pointColor: "#1aae88",
+                pointStrokeColor: "#1aae88",
+                pointHighlightFill: "#1aae88",
+                pointHighlightStroke: "#179877",
                 data: []
               }
             ]

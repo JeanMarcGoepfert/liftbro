@@ -4,24 +4,28 @@
      {{sets.exercise.name}}
   <div class="pull-right btn-xs edit-options">
     <a ng-click="selectExercise(sets.exercise, sets)"
-       class="glyphicon glyphicon-plus"
+       class="btn btn-xs btn-xxs btn-success"
        href=""
        title="add reps">
+      <span class="glyphicon glyphicon-plus"></span>
     </a>
     <a ng-click="deleteSet($index)"
-       class="glyphicon glyphicon-trash"
+       class="btn btn-xs btn-xxs btn-danger"
        href=""
        title="delete reps">
+      <span class="glyphicon glyphicon-trash"></span>
     </a>
   </div>
   <div class="pull-right btn-xs show-edit">
     <a ng-click="showEditOptions($index)"
-      class="glyphicon glyphicon-edit"
+      class="btn btn-xs btn-primary show-btn"
       href="">
+      <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
     <a ng-click="hideEditOptions()"
-      class="glyphicon glyphicon-remove"
+      class="btn btn-xs btn-primary close-btn"
       href="">
+      <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
   </div>
 </div>
@@ -32,14 +36,16 @@
        {{reps.amount}} reps with {{reps.weight}}{{sets.exercise.metric}}
     <div class="pull-right btn-xs edit-options">
       <a ng-click="setEditReps(sets, reps)"
-         class="glyphicon glyphicon-edit"
+         class="btn btn-xs btn-xxs btn-success"
          href=""
          title="edit reps">
+        <span class="glyphicon glyphicon-edit"></span>
       </a>
       <a ng-click="deleteReps($parent.$index, $index)"
-         class="glyphicon glyphicon-trash"
+         class="btn btn-xs btn-xxs btn-danger"
          href=""
          title="delete reps">
+        <span class="glyphicon glyphicon-trash"></span>
       </a>
     </div>
   </div>

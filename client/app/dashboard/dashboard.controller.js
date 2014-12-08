@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises, Sets, $cookieStore) {
-    console.log($cookieStore.get('token'));
+  .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises, Sets, Alert) {
     $scope.workouts = {
       list: [],
       previews: []
@@ -25,8 +24,11 @@ angular.module('liftbroApp')
         getExercises();
         getWorkoutPreviews(3);
       }, function(err) {
-        //todo handle error
-        console.log(err);
+
+        Alert.set({
+          type: 'danger',
+          message: 'Couldn\'t fetch workouts!'
+        });
       });
 
     Sets.getSetTotals()

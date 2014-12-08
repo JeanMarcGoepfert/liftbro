@@ -1,9 +1,16 @@
 .lb-workout-panel {
+  .btn-xxs {
+    font-size: 10px;
+    text-align: center;
+    padding: 1px 3px;
+    .glyphicon-plus, .glyphicon-edit {
+      text-indent: 1px;
+    }
+  }
   .list-group-item {
     overflow: hidden;
   }
   .edit-options {
-      @include transition(right ease-in-out 0.2s);
       position: absolute;
       right: -60px;
       top: 0;
@@ -14,40 +21,49 @@
       border-left: 1px solid #eee;
   }
   .show-edit-options {
+    &.list-header {
+      background-color: lighten($brand-info, 20%);
+    }
+    & + .ng-scope {
+      .list-group-item {
+        background-color: #fafafa;
+      }
+    }
     .edit-options {
       right: 0;
+      @include transition(right ease-in-out 0.2s);
     }
   }
   .list-header {
     .show-edit {
       margin-right: 0;
-      @include transition(margin-right ease-in-out 0.2s);
     }
-    .glyphicon-remove {
+    .close-btn {
       display: none;
     }
-    .glyphicon-edit {
+    .show-btn {
       display: block;
     }
     &.show-edit-options {
       .show-edit {
-        margin-right: 40px;
+        margin-right: 50px;
       }
-      .glyphicon-remove {
+      .close-btn {
         display: block;
       }
-      .glyphicon-edit {
+      .show-btn {
         display: none;
       }
     }
     .edit-options {
       opacity: 0;
       right: -60px;
-      background-color: lighten($brand-info, 20%);
+      background-color: lighten($brand-info, 25%);
     }
     &.show-edit-options {
       .edit-options {
         opacity: 1;
+        padding-top: 12px;
         right: 0;
       }
     }

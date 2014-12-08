@@ -4,7 +4,7 @@ angular.module('liftbroApp')
   .directive('lbWorkoutPanel', function() {
     return {
       restrict: 'AE',
-      scope: true,
+      //scope: false,
       templateUrl: 'components/lb-workout-panel/lb-workout-panel.html',
       link: function(scope) {
 
@@ -16,6 +16,10 @@ angular.module('liftbroApp')
         scope.hideEditOptions = function() {
           scope.activeIndex = null;
         };
+
+        scope.$parent.$watch('workouts.workout.sets', function(newVal, oldVal) {
+            scope.activeIndex = null;
+        }, true);
       }
     };
   });

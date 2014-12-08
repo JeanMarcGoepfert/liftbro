@@ -45,6 +45,8 @@ angular.module('liftbroApp', [
   .run(function ($rootScope, $location, Auth, Alert) {
     $rootScope.$on('$stateChangeStart', function (event, next) {
 
+      $rootScope.currentState = next.name;
+
       //clear alerts on route change
       Alert.details = {};
 

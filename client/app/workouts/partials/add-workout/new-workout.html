@@ -1,11 +1,12 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <div class="pull-right">
+    <div class="pull-right workout-btns">
       <a ng-click="deleteWorkout(workouts.workout, 'Are you sure you want to delete this workout?')"
          ng-if="workouts.workout.sets.length"
-         class="glyphicon glyphicon-trash"
+         class="btn btn-xs btn-danger"
          href=""
          title="delete workout">
+        <span class="glyphicon glyphicon-trash"></span>
       </a>
     </div>
     <h3 class="panel-title">My Workout</h3>

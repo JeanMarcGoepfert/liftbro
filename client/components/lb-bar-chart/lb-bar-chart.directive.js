@@ -10,9 +10,10 @@ angular.module('liftbroApp')
         $scope.data = {};
         $scope.chartOptions = {
           responsive: true,
-          barStrokeWidth: 2
+          barStrokeWidth: 1
         };
-        $scope.colors = [['#5cb85c', '#4cae4c'], ['#f0ad4e', '#eea236']];
+
+        $scope.colors = [['#177bbb', '#146ca4'], ['#1aae88', '#179877']];
 
         $scope.formatDataForChart = function() {
           $scope.data.datasets[0].fillColor = 'rgba(0,0,0,0)';

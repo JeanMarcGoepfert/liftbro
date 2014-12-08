@@ -1,5 +1,8 @@
 <div class="page-header">
-  <h2>My Workouts</h2>
+  <h2>
+    My Workouts
+    <a class="btn btn-default btn-sm pull-right" ui-sref="dashboard"><span class="hidden-xs">Back To</span> Dashboard</a>
+  </h2>
 </div>
 <p>Showing {{workoutsLength(workouts.list, workouts.limit)}} of {{workouts.count}} workouts.</p>
 <div class="panel panel-default" ng-if="workouts.list">

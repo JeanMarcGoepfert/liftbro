@@ -11,13 +11,15 @@ angular.module('liftbroApp')
       if (service.list.length) {
         deferred.resolve(service.list);
       } else {
+
         $http.get('/api/exercises/')
-        .success(function(res) {
-          service.list = res;
-          deferred.resolve(service.list);
-        }, function(err) {
-          deferred.reject(err);
-        });
+          .success(function(res) {
+            service.list = res;
+            deferred.resolve(service.list);
+          })
+          .error(function(err) {
+            deferred.reject(err);
+          });
       }
 
       return deferred.promise;
@@ -29,10 +31,10 @@ angular.module('liftbroApp')
       $http.get('/api/exercises/' + id)
         .success(function(data) {
           deferred.resolve(data);
-        }, function (err) {
+        })
+        .error(function (err) {
           deferred.reject(err);
         });
-
 
       return deferred.promise;
     };
@@ -44,10 +46,11 @@ angular.module('liftbroApp')
         deferred.resolve(service.latest);
       } else {
         $http.get('/api/exercises/' + id)
-        .success(function(res) {
-          service.latest = res.data;
-          deferred.resolve(service.latest);
-        }, function(err) {
+          .success(function(res) {
+            service.latest = res.data;
+            deferred.resolve(service.latest);
+          })
+          .error(function(err) {
           deferred.reject(err);
         });
       }
@@ -59,51 +62,13 @@ angular.module('liftbroApp')
       var deferred = $q.defer();
 
       $http.post('/api/exercises/', exercise)
-      .success(function(res) {
-        service.list.unshift(res);
-        deferred.resolve(res);
-      }, function(err) {
-        deferred.reject(err);
-      });
-
-      return deferred.promise;
-    };
-
-    service.update = function(oldExercise, newExercise) {
-      var deferred = $q.defer();
-      var index = service.list.indexOf(oldExercise);
-
-      if (index === -1) {
-        //todo: error: cannot find exercise to update
-        deferred.reject();
-      } else {
-        $http.put('/api/exercises/' + oldExercise._id, newExercise)
         .success(function(res) {
-          service.list[index] = newExercise;
-          deferred.resolve(res.data);
-        }, function(err) {
+          service.list.unshift(res);
+          deferred.resolve(res);
+        })
+        .error(function(err) {
           deferred.reject(err);
         });
-      }
-
-      return deferred.promise;
-    };
-
-    service.remove = function(exercise) {
-      var deferred = $q.defer();
-      var index = service.list.indexOf(exercise);
-
-      if (index === -1) {
-        //todo: error: cannot find exercise to delete
-      } else {
-        $http.delete('/api/exercises/' + exercise._id)
-        .success(function(res) {
-          service.list.splice(index, 1);
-          deferred.promise(res.data);
-        }, function(err) {
-          deferred.reject(err);
-        });
-      }
 
       return deferred.promise;
     };

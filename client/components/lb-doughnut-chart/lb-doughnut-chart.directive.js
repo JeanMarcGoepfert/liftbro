@@ -11,8 +11,9 @@ angular.module('liftbroApp')
         $scope.originalData = [];
         $scope.chartData = {
           dateCreated: '',
-          colors: ['#337ab7', '#5cb85c', '#f0ad4e', '#d9534f', '#5bc0de', '#bd91ef', '#21bbab'],
-          highlights: ['#2e6da4', '#4cae4c', '#eea236', '#d43f3a', '#46b8da', '#ab7fdd', '#1dac9d'],
+
+          colors:     ['#177bbb', '#5cb85c', '#f0ad4e', '#d9534f', '#5bc0de', '#bd91ef', '#1aae88'],
+          highlights: ['#146ca4', '#4cae4c', '#eea236', '#d43f3a', '#46b8da', '#ab7fdd', '#179877'],
           data: []
         };
 
