@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('liftbroApp')
-  .controller('ExercisesCtrl', function($scope, $state, Exercises, $http) {
+  .controller('ExercisesCtrl', function($scope, $state, Exercises, Alert) {
     $scope.exercises = {
       newExercise: {}
     };
@@ -11,8 +11,10 @@ angular.module('liftbroApp')
     .then(function(data) {
       $scope.exercises.list = data;
     }, function(err) {
-      //todo - handle error correctly
-      console.log(err);
+      Alert.set({
+        type: 'danger',
+        message: 'Couldn\'t fetch exercises!'
+      });
     });
 
     $scope.addExercise = function(exercise, form) {
@@ -20,8 +22,10 @@ angular.module('liftbroApp')
       .then(function() {
         $scope.exercises.addExercise = {};
       }, function(err) {
-        //todo error handle
-        console.log(err);
+        Alert.set({
+          type: 'danger',
+          message: 'Couldn\'t add exercise!'
+        });
       });
 
       form.$setPristine(true);

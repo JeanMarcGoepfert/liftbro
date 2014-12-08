@@ -2,16 +2,9 @@
 
 angular.module('liftbroApp')
   .controller('DashboardCtrl', function ($scope, $state, Auth, Workouts, Exercises, Sets, Alert) {
-    $scope.workouts = {
-      list: [],
-      previews: []
-    };
-    $scope.exercises = {
-      list: []
-    };
-    $scope.sets = {
-      totals: {}
-    };
+    $scope.workouts = { list: [], previews: [] };
+    $scope.exercises = { list: [] };
+    $scope.sets = { totals: {} };
 
     Workouts.getCount()
       .then(function(data) {
@@ -24,7 +17,6 @@ angular.module('liftbroApp')
         getExercises();
         getWorkoutPreviews(3);
       }, function(err) {
-
         Alert.set({
           type: 'danger',
           message: 'Couldn\'t fetch workouts!'
@@ -43,8 +35,10 @@ angular.module('liftbroApp')
           $scope.sets.totals.weightTotals.datasets[0].data.push(data.totals[key].totalWeight);
         }
       }, function(err) {
-        //todo handle error
-        console.log(err);
+        Alert.set({
+          type: 'danger',
+          message: 'Couldn\'t fetch workout totals!'
+        });
       });
 
     function getExercises() {
@@ -52,22 +46,22 @@ angular.module('liftbroApp')
         .then(function(data) {
           $scope.exercises.list = data;
         }, function(err) {
-          //todo handle error
-          console.log(err);
+          Alert.set({
+            type: 'danger',
+            message: 'Couldn\'t fetch exercises!'
+          });
         });
     }
 
     function getWorkoutPreviews(amount) {
-        Workouts.preview(amount)
-          .then(function(data) {
-            $scope.workouts.previews = data;
-          }, function(err) {
-            //todo handle error
-            console.log(err);
+      Workouts.preview(amount)
+        .then(function(data) {
+          $scope.workouts.previews = data;
+        }, function(err) {
+          Alert.set({
+            type: 'danger',
+            message: 'Couldn\'t fetch workout previews!'
           });
+        });
     }
-
-    $scope.viewWorkout = function(workout) {
-      Workouts.navigateToWorkout(workout);
-    };
   });

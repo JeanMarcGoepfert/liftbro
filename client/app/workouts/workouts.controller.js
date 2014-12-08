@@ -19,8 +19,10 @@ angular.module('liftbroApp')
       .then(function(data) {
         $scope.exercises.list = data;
       }, function(err) {
-        //todo - handle error correctly
-        console.log(err);
+        Alert.set({
+          type: 'danger',
+          message: 'Couldn\'t fetch exercises!'
+        });
       });
 
     //for workout index, initially fetch first 11 workouts
@@ -53,8 +55,10 @@ angular.module('liftbroApp')
         .then(function(data) {
           $scope.selectExercise(data);
         }, function(err) {
-          //todo error handle
-          console.log(err);
+          Alert.set({
+            type: 'danger',
+            message: 'Couldn\'t add exercise!'
+          });
         });
     };
 
@@ -104,8 +108,10 @@ angular.module('liftbroApp')
           $scope.workouts.list = data;
           $scope.workouts.limit = newLimit;
         }, function(err) {
-          //todo handle error
-          console.log(err);
+          Alert.set({
+            type: 'danger',
+            message: 'Couldn\'t fetch workouts!'
+          });
         });
     };
 
@@ -121,8 +127,10 @@ angular.module('liftbroApp')
           $state.go('dashboard');
           Alert.set({ type: 'success', message: 'Workout deleted, better luck next time!' });
         }, function(err) {
-          //todo handle error
-          console.log(err);
+          Alert.set({
+            type: 'danger',
+            message: 'Couldn\'t remove workout!'
+          });
         });
     };
 
