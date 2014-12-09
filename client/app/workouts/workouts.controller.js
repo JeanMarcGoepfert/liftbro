@@ -18,7 +18,7 @@ angular.module('liftbroApp')
     Exercises.index()
       .then(function(data) {
         $scope.exercises.list = data;
-      }, function(err) {
+      }, function() {
         Alert.set({
           type: 'danger',
           message: 'Couldn\'t fetch exercises!'
@@ -54,7 +54,7 @@ angular.module('liftbroApp')
       Exercises.add(exercise)
         .then(function(data) {
           $scope.selectExercise(data);
-        }, function(err) {
+        }, function() {
           Alert.set({
             type: 'danger',
             message: 'Couldn\'t add exercise!'
@@ -78,8 +78,7 @@ angular.module('liftbroApp')
       form.$setPristine(true);
     };
 
-    $scope.finishSet = function(state) {
-      state = state || '';
+    $scope.finishSet = function() {
       resetNewSet();
       if ($state.current.name === 'dashboard.workout-single.add-set') {
         $state.go('dashboard.workout-single.intro-stats');
@@ -107,7 +106,7 @@ angular.module('liftbroApp')
         .then(function(data) {
           $scope.workouts.list = data;
           $scope.workouts.limit = newLimit;
-        }, function(err) {
+        }, function() {
           Alert.set({
             type: 'danger',
             message: 'Couldn\'t fetch workouts!'
@@ -126,7 +125,7 @@ angular.module('liftbroApp')
           Sets.setTotals = {};
           $state.go('dashboard');
           Alert.set({ type: 'success', message: 'Workout deleted, better luck next time!' });
-        }, function(err) {
+        }, function() {
           Alert.set({
             type: 'danger',
             message: 'Couldn\'t remove workout!'

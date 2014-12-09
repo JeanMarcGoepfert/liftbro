@@ -5,12 +5,12 @@
     padding-top: 8px;
     padding-bottom: 8px;
     &:nth-child(odd) {
-      @media (min-width: $screen-sm) {
+      @media (min-width: $screen-lg) {
         border-right: 1px solid #eee;
       }
     }
     &:nth-child(2) {
-      @media (min-width: $screen-sm) {
+      @media (min-width: $screen-lg) {
         border-top: 0 !important;
       }
     }

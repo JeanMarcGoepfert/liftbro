@@ -7,6 +7,23 @@ angular.module('liftbroApp')
       currentUser = User.get();
     }
 
+    function resetAllServices() {
+      /**
+       * Reset all services to avoid wrong data being shown when
+       * user logs out then back in with another account.
+       * Todo: find a more elegant way to do this (without page refresh)
+       */
+      Exercises.list = [];
+      Exercises.latest = {};
+      Sets.setTotals = { current: false };
+      Workouts.itemsRequested = 0;
+      Workouts.counted = false;
+      Workouts.list = [];
+      Workouts.single = {};
+      Workouts.count = 0;
+      Workouts.previews = [];
+    }
+
     return {
 
       /**
@@ -144,21 +161,4 @@ angular.module('liftbroApp')
         return $cookieStore.get('token');
       }
     };
-
-    function resetAllServices() {
-      /**
-       * Reset all services to avoid wrong data being shown when
-       * user logs out then back in with another account.
-       * Todo: find a more elegant way to do this (without page refresh)
-       */
-      Exercises.list = [];
-      Exercises.latest = {};
-      Sets.setTotals = { current: false };
-      Workouts.itemsRequested = 0;
-      Workouts.counted = false;
-      Workouts.list = [];
-      Workouts.single = {};
-      Workouts.count = 0;
-      Workouts.previews = [];
-    }
   });

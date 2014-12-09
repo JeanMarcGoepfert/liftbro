@@ -17,7 +17,7 @@ angular.module('liftbroApp')
           scope.activeIndex = null;
         };
 
-        scope.$parent.$watch('workouts.workout.sets', function(newVal, oldVal) {
+        scope.$parent.$watch('workouts.workout.sets', function() {
             scope.activeIndex = null;
         }, true);
       }

@@ -14,7 +14,7 @@ angular.module('liftbroApp')
         controller: 'SignupCtrl'
       })
       .state('dashboard.settings', {
-        url: '/settings',
+        url: 'settings',
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',
         authenticate: true

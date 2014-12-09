@@ -13,23 +13,23 @@ angular.module('liftbroApp')
             labels: [],
             datasets: [
               {
-                label: "Reps",
-                fillColor: "rgba(51,122,183,0.1)",
-                strokeColor: "#177bbb",
-                pointColor: "#177bbb",
-                pointStrokeColor: "#177bbb",
-                pointHighlightFill: "#177bbb",
-                pointHighlightStroke: "#146ca4",
+                label: 'Reps',
+                fillColor: 'rgba(51,122,183,0.1)',
+                strokeColor: '#177bbb',
+                pointColor: '#177bbb',
+                pointStrokeColor: '#177bbb',
+                pointHighlightFill: '#177bbb',
+                pointHighlightStroke: '#146ca4',
                 data: []
               },
               {
-                label: "Weight",
-                fillColor: "rgba(92,184,92,0.1)",
-                strokeColor: "#1aae88",
-                pointColor: "#1aae88",
-                pointStrokeColor: "#1aae88",
-                pointHighlightFill: "#1aae88",
-                pointHighlightStroke: "#179877",
+                label: 'Weight',
+                fillColor: 'rgba(92,184,92,0.1)',
+                strokeColor: '#1aae88',
+                pointColor: '#1aae88',
+                pointStrokeColor: '#1aae88',
+                pointHighlightFill: '#1aae88',
+                pointHighlightStroke: '#179877',
                 data: []
               }
             ]
@@ -44,7 +44,7 @@ angular.module('liftbroApp')
         };
 
         $scope.buildChart = function(data, element) {
-          $scope.lineChart = new Chart(element).Line($scope.data, { responsive: true });
+          $scope.lineChart = new window.Chart(element).Line($scope.data, { responsive: true });
         };
       },
       link: function(scope, element, attr) {

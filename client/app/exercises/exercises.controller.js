@@ -10,7 +10,7 @@ angular.module('liftbroApp')
     Exercises.index()
     .then(function(data) {
       $scope.exercises.list = data;
-    }, function(err) {
+    }, function() {
       Alert.set({
         type: 'danger',
         message: 'Couldn\'t fetch exercises!'
@@ -21,7 +21,7 @@ angular.module('liftbroApp')
       Exercises.add(exercise)
       .then(function() {
         $scope.exercises.addExercise = {};
-      }, function(err) {
+      }, function() {
         Alert.set({
           type: 'danger',
           message: 'Couldn\'t add exercise!'

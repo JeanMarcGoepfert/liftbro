@@ -11,15 +11,15 @@ angular.module('liftbroApp')
         $scope.workouts.count = data;
       });
 
-    Workouts.index(6)
+
+    Exercises.index()
       .then(function(data) {
-        $scope.workouts.list = data;
-        getExercises();
-        getWorkoutPreviews(3);
-      }, function(err) {
+        $scope.exercises.list = data;
+        getWorkouts();
+      }, function() {
         Alert.set({
           type: 'danger',
-          message: 'Couldn\'t fetch workouts!'
+          message: 'Couldn\'t fetch exercises!'
         });
       });
 
@@ -34,21 +34,22 @@ angular.module('liftbroApp')
           $scope.sets.totals.repsTotals.datasets[0].data.push(data.totals[key].totalReps);
           $scope.sets.totals.weightTotals.datasets[0].data.push(data.totals[key].totalWeight);
         }
-      }, function(err) {
+      }, function() {
         Alert.set({
           type: 'danger',
           message: 'Couldn\'t fetch workout totals!'
         });
       });
 
-    function getExercises() {
-      Exercises.index()
+    function getWorkouts() {
+      Workouts.index(6)
         .then(function(data) {
-          $scope.exercises.list = data;
-        }, function(err) {
+          $scope.workouts.list = data;
+          getWorkoutPreviews(3);
+        }, function() {
           Alert.set({
             type: 'danger',
-            message: 'Couldn\'t fetch exercises!'
+            message: 'Couldn\'t fetch workouts!'
           });
         });
     }
@@ -57,7 +58,7 @@ angular.module('liftbroApp')
       Workouts.preview(amount)
         .then(function(data) {
           $scope.workouts.previews = data;
-        }, function(err) {
+        }, function() {
           Alert.set({
             type: 'danger',
             message: 'Couldn\'t fetch workout previews!'
