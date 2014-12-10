@@ -92,59 +92,51 @@ exports.preview = function(req, res) {
       if(err) { return handleError(res, err); }
       if (!workouts.length) { return res.json(workouts); }
 
-      var previewResult = [];
+      var workoutIds = workouts.map(function(val) { return val._id; })
+      Set.find({ workoutId: {$in: workoutIds} }, function(err, sets) {
 
-      workouts.forEach(function(val, ind) {
-        //find the sets associated with workout id
-        Set.find({workoutId: val._id}, function(err, sets) {
-          if(err) { return handleError(res, err); }
-          if(!sets) { return res.send(404); }
+        var finalPreview = [];
 
-          //find the workout, and add the sets in
-          Workout.findById(val._id, function (err, workout) {
-            var preview = { dateCreated: workout.dateCreated, workoutId: workout._id, sets: []},
-              keyMap = {};
+        workouts.forEach(function(workoutVal) {
+          var preview = { dateCreated: workoutVal.dateCreated, workoutId: workoutVal._id, sets: []};
+          var keyMap = {};
 
-            if(err) { return handleError(res, err); }
-            if(!workout) { return res.send(404); }
-
-            workout.sets = sets.reverse();
-
-            workout.sets.forEach(function(val) {
-
-              var exerciseExists = keyMap.hasOwnProperty(val.exercise._id),
-                newSet = exerciseExists ? preview.sets[keyMap[val.exercise._id]] : {
-                  exerciseId: val.exercise._id,
-                  name: val.exercise.name,
-                  metric: val.exercise.metric,
-                  totalAmount: 0,
-                  totalWeight: 0
-                };
-
-              val.reps.forEach(function(val) {
-                newSet.totalAmount += val.amount;
-                newSet.totalWeight += val.weight;
-              });
-
-              if (exerciseExists) {
-                preview.sets[keyMap[val.exerciseId]] = newSet;
-              } else {
-                keyMap[val.exercise._id] = preview.sets.length;
-                preview.sets.push(newSet);
-              }
-            });
-            previewResult.unshift(preview);
-            if (ind >= workouts.length - 1) {
-              returnPreview(previewResult);
+          var workoutSets = sets.filter(function(setVal) {
+            if (setVal.workoutId == workoutVal._id) {
+              return setVal;
             }
           });
+
+          workoutSets.forEach(function(workoutSetsVal) {
+            var exerciseExists = keyMap.hasOwnProperty(workoutSetsVal.exercise._id),
+              newSet = exerciseExists ? preview.sets[keyMap[workoutSetsVal.exercise._id]] : {
+                exerciseId: workoutSetsVal.exercise._id,
+                name: workoutSetsVal.exercise.name,
+                metric: workoutSetsVal.exercise.metric,
+                totalAmount: 0,
+                totalWeight: 0
+              };
+
+            workoutSetsVal.reps.forEach(function(workoutSetsVal) {
+              newSet.totalAmount += workoutSetsVal.amount;
+              newSet.totalWeight += workoutSetsVal.weight;
+            });
+
+            if (exerciseExists) {
+              preview.sets[keyMap[workoutSetsVal.exerciseId]] = newSet;
+            } else {
+              keyMap[workoutSetsVal.exercise._id] = preview.sets.length;
+              preview.sets.push(newSet);
+            }
+          });
+          finalPreview.push(preview);
         });
+
+        res.json(finalPreview);
+
       });
     });
 
-  function returnPreview(result) {
-    return res.json(result);
-  }
 };
 
 function handleError(res, err) {

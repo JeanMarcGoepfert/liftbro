@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="233730ec-13bb-46cc-9200-c75084431ead" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/apple-touch-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/favicon.ico" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/account/account.js" afterPath="$PROJECT_DIR$/client/app/account/account.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/auth/auth.service.js" afterPath="$PROJECT_DIR$/client/components/auth/auth.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js" afterPath="$PROJECT_DIR$/client/app/dashboard/dashboard.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/exercises/exercises.controller.js" afterPath="$PROJECT_DIR$/client/app/exercises/exercises.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/exercises/exercises.scss" afterPath="$PROJECT_DIR$/client/app/exercises/exercises.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index.html" afterPath="$PROJECT_DIR$/client/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/lb-line-chart/lb-line-chart.directive.js" afterPath="$PROJECT_DIR$/client/components/lb-line-chart/lb-line-chart.directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/lb-workout-panel/lb-workout-panel.directive.js" afterPath="$PROJECT_DIR$/client/components/lb-workout-panel/lb-workout-panel.directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/account/settings/settings.controller.js" afterPath="$PROJECT_DIR$/client/app/account/settings/settings.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/dashboard/partials/stats.html" afterPath="$PROJECT_DIR$/client/app/dashboard/partials/stats.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/workouts/workouts.controller.js" afterPath="$PROJECT_DIR$/client/app/workouts/workouts.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/workout/workout.controller.js" afterPath="$PROJECT_DIR$/server/api/workout/workout.controller.js" />
     </list>
     <ignored path="liftbro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,11 +76,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exercises.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="exercises.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/exercises/exercises.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15335052" vertical-offset="0" max-vertical-offset="776">
+            <state vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="646">
               <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workout.controller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/api/workout/workout.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.87281793" vertical-offset="1731" max-vertical-offset="2550">
+              <caret line="143" column="1" selection-start-line="143" selection-start-column="1" selection-end-line="143" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -118,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/app/exercises/exercises.js" />
         <option value="$PROJECT_DIR$/client/app/exercises/exercise-single.controller.js" />
         <option value="$PROJECT_DIR$/client/app/dashboard/dashboard.html" />
         <option value="$PROJECT_DIR$/server/api/set/set.controller.js" />
@@ -169,6 +164,7 @@
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/dist/public/index.html" />
         <option value="$PROJECT_DIR$/client/app/exercises/exercises.scss" />
+        <option value="$PROJECT_DIR$/server/api/workout/workout.controller.js" />
       </list>
     </option>
   </component>
@@ -282,6 +278,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liftbro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1124,8 +1174,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/exercises/exercises.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15335052" vertical-offset="0" max-vertical-offset="776">
+        <state vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="646">
           <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/workout/workout.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.87281793" vertical-offset="1731" max-vertical-offset="2550">
+          <caret line="143" column="1" selection-start-line="143" selection-start-column="1" selection-end-line="143" selection-end-column="1" />
           <folding />
         </state>
       </provider>
