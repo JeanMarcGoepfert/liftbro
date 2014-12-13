@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="233730ec-13bb-46cc-9200-c75084431ead" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/exercises/partials/single.html" afterPath="$PROJECT_DIR$/client/app/exercises/partials/single.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/workouts/partials/single/single.html" afterPath="$PROJECT_DIR$/client/app/workouts/partials/single/single.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="liftbro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,10 +36,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="single.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="single.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/exercises/partials/single.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10139165" vertical-offset="0" max-vertical-offset="952">
+            <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="952">
               <caret line="3" column="119" selection-start-line="3" selection-start-column="119" selection-end-line="3" selection-end-column="119" />
               <folding />
             </state>
@@ -58,10 +56,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="single.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="single.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/app/workouts/partials/single/single.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="357">
+            <state vertical-scroll-proportion="0.13518886" vertical-offset="0" max-vertical-offset="503">
               <caret line="4" column="132" selection-start-line="4" selection-start-column="132" selection-end-line="4" selection-end-column="132" />
               <folding />
             </state>
@@ -996,18 +994,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/workouts/partials/single/single.html">
+    <entry file="file://$PROJECT_DIR$/client/app/exercises/partials/single.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="357">
-          <caret line="4" column="132" selection-start-line="4" selection-start-column="132" selection-end-line="4" selection-end-column="132" />
+        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="952">
+          <caret line="3" column="119" selection-start-line="3" selection-start-column="119" selection-end-line="3" selection-end-column="119" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/exercises/partials/single.html">
+    <entry file="file://$PROJECT_DIR$/client/app/workouts/partials/single/single.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10139165" vertical-offset="0" max-vertical-offset="952">
-          <caret line="3" column="119" selection-start-line="3" selection-start-column="119" selection-end-line="3" selection-end-column="119" />
+        <state vertical-scroll-proportion="0.13518886" vertical-offset="0" max-vertical-offset="503">
+          <caret line="4" column="132" selection-start-line="4" selection-start-column="132" selection-end-line="4" selection-end-column="132" />
           <folding />
         </state>
       </provider>
