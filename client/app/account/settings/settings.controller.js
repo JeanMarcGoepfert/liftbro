@@ -10,17 +10,22 @@ angular.module('liftbroApp')
         message: 'Sorry, this has been disabled for now, others may need to see this account :)'
       });
 
-      //$scope.submitted = true;
-      //if(form.$valid) {
-      //  Auth.changePassword( $scope.user.oldPassword, $scope.user.newPassword )
-      //  .then( function() {
-      //    $scope.message = 'Password successfully changed.';
-      //  })
-      //  .catch( function() {
-      //    form.password.$setValidity('mongoose', false);
-      //    $scope.errors.other = 'Incorrect password';
-      //    $scope.message = '';
-      //  });
-      //}
+      /*
+      Disabling this for now so shifty recruiters don't change the test accounts password
+      so other shifty recruiters can't see the app.
+
+      $scope.submitted = true;
+      if(form.$valid) {
+        Auth.changePassword( $scope.user.oldPassword, $scope.user.newPassword )
+        .then( function() {
+          $scope.message = 'Password successfully changed.';
+        })
+        .catch( function() {
+          form.password.$setValidity('mongoose', false);
+          $scope.errors.other = 'Incorrect password';
+          $scope.message = '';
+        });
+      }
+       */
 		};
   });

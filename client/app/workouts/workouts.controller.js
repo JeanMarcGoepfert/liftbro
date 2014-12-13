@@ -8,13 +8,12 @@ angular.module('liftbroApp')
     $scope.sets = { newSet: { repeating: false, reps: [] } };
     $scope.rootState = '^.choose-exercise';
 
-    //setup for single workout
-    if ($state.params.id) {
-      $scope.workouts.workout = Workouts.single;
-      $scope.rootState = '^.intro-stats';
-    }
+    /*
+    All exercises are required for all workout views.
 
-    //always need all exercises
+    Exercises are cached in service after first load,
+    so shouldn't require extra requests.
+     */
     Exercises.index()
       .then(function(data) {
         $scope.exercises.list = data;
@@ -25,7 +24,23 @@ angular.module('liftbroApp')
         });
       });
 
-    //for workout index, initially fetch first 11 workouts
+    /*
+    Set up for single workout view.
+
+    Saving rootState so we can go back to it after updating exercise.
+     */
+    if ($state.params.id) {
+      $scope.workouts.workout = Workouts.single;
+      $scope.rootState = '^.intro-stats';
+    }
+
+    /*
+     For workout index view, initially fetch first 11 workouts.
+     And get the total workout count.
+
+     Workouts lists is cached in service, so won't need extra
+     requests unless new workouts are added.
+     */
     if ($state.current.name === 'dashboard.workouts-index') {
       Workouts.index(11)
         .then(function(data) {
@@ -37,6 +52,7 @@ angular.module('liftbroApp')
           $scope.workouts.count = data;
         });
     }
+
 
     $scope.selectExercise = function(exercise, set) {
       setSelectedExercise(exercise);
